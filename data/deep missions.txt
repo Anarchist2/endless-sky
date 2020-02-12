@@ -16,7 +16,7 @@ mission "Deep: Mystery Cubes Prelude 1"
 		attributes "deep"
 		not system "Epsilion Leonis"
 		not attributes "station"
-	destination "Bivrost"
+	destination "Asguard"
 	cargo "mystery cargo" 10
 	to offer
 		random < 50
@@ -59,11 +59,19 @@ mission "Deep: Mystery Cubes Prelude 1"
 		payment 10000 200
 		event "mystery cubes processed" 10
 		conversation
-			`When you land on <destination>, several spaceport workers gather around your ship and begin taking out the mysterious cargo from <source>. Another Deep Security officer approaches you on the landing pad. "After we finish processing this cargo, would you be able to bring back another shipment of cargo to Valhalla?"`
+			`When you land on <destination>, several spaceport workers gather around your ship and begin taking out the mysterious cargo from <source>. Another Deep Security officer approaches you on the landing pad. "Would you be able to bring back a similar shipment of cargo to Valhalla in a few days time?"`
 			choice
-				`	"Sorry, I'd rather do other jobs."
 				`	"I'd be happy to do that."`
+					goto accept
+				`	"Why would you need me to do another shipment?"`
+				`	"Sorry, I'd rather do other jobs."
 					goto decline
+			`	The officer hesitates for a moment before speaking. The cargo you just delivered are parts for a device that will be constructed here, before being dispersed at Valhalla and other Deep planets."`
+			choice
+				`	"What sort of device is it?"`
+				`	"Why are you dispersing it across the Deep?"
+			`	"Sorry, but that's information I can't tell you. So are you willing to transport for the Deep a second time?"`
+			label accept
 			apply
 				set "deep: return trip"
 			`	"Great! We'll send you a message when we need you." The officer hands you a credit chip worth <payment> before she walks away.`

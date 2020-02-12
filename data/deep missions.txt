@@ -71,6 +71,10 @@ mission "Deep: Mystery Cubes Prelude 1"
 				`	"What sort of device is it?"`
 				`	"Why are you dispersing it across the Deep?"
 			`	"Sorry, but that's information I can't tell you. So are you willing to transport for the Deep a second time?"`
+			choice
+				`	"Yes, I am."`
+				`	"No, I'm not."`
+					goto decline
 			label accept
 			apply
 				set "deep: return trip"

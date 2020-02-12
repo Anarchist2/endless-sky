@@ -8,6 +8,75 @@
 # WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
 # PARTICULAR PURPOSE.  See the GNU General Public License for more details.
 
+mission "Deep: Mystery Cubes Prelude 1"
+	minor
+	name `Mystery Cargo Transport`
+	description "Carry <cargo> to <destination>. Payment is <payment>."
+	source
+		attributes "deep"
+		not system "Epsilion Leonis"
+		not attributes "station"
+	destination "Bivrost"
+	cargo "mystery cargo" 10
+	to offer
+		random < 50
+		"combat rating" < 35
+	on offer
+		conversation
+			`As you are walking through the spaceport, a man in a Deep Security uniform approaches you. "You're Captain <first> <last>, correct?"`
+			choice
+				`	(Nod.)`
+					goto offer
+				`	"Sorry, you must be looking for someone else."`
+			`	The officer looks at you with a greatly confused expression before regaining their composure. "Well, if you aren't <first> <last>, then I won't be able to offer a low-cargo job that pays generously to you anymore."`
+			choice
+				`	"Fine, I am <first> <last>."`
+					goto admit
+				`	"That's disappointing."`
+			`	"Indeed it is." The officer smiles, then walks away without another word.`
+				defer
+			label admit
+			`	The officer smirks at you. "Trust me, you weren't fooling anyone saying that.`
+			label offer
+			`	"Could you help bring <tons> of cargo over to <destination>? We'd normally use our own ships for such a simple task, but almost all Deep Security fleets are currently occupied in other classified operations."`
+			choice
+				`	"I can do that."`
+					goto accept
+				`	"Sorry, but I have other jobs to finish."`
+					defer
+				`	"What kind of operations are taking up all of ships of Deep Security?"`
+			`	"If I could tell you, they wouldn't be classified. So are you taking the job or not?"`
+			choice
+				`	"I'll take it."`
+				`	Sorry, but I'm too busy with other tasks."`
+					defer
+			label accept
+			`	The officer nods in response to your approval, and prompty leads you to a non-discrete warehouse, where he pulls out several boxes with no labeling. As you carry the boxes on a hover-cart, you note that the size of them seems quite small for <tons>. Once you reach your ship, the Deep Security officer bids you farewell.`
+				accept
+	on visit 
+		"generic cargo on visit"
+	on complete
+		payment 10000 200
+		event "mystery cubes processed" 10
+		conversation
+			`When you land on <destination>, several spaceport workers gather around your ship and begin taking out the mysterious cargo from <source>. Another Deep Security officer approaches you on the landing pad. "After we finish processing this cargo, would you be able to bring back another shipment of cargo to Valhalla?"`
+			choice
+				`	"Sorry, I'd rather do other jobs."
+				`	"I'd be happy to do that."`
+					goto decline
+			apply
+				set "deep: return trip"
+			`	"Great! We'll send you a message when we need you." The officer hands you a credit chip worth <payment> before she walks away.`
+				decline
+			label decline
+			`	The officer frowns. "Understandable. Have a good day." She hands you a credit chip worth <payment> before walking away.`
+
+
+
+event "mystery cubes processed"
+
+
+
 mission "Deep: Syndicate Convoy"
 	minor
 	name `Pickup from Hephaestus`

@@ -14,9 +14,9 @@ mission "Deep: Mystery Cubes Prelude 1"
 	description "Carry <cargo> to <destination>. Payment is <payment>."
 	source
 		attributes "deep"
-		not system "Epsilion Leonis"
+		not system "Naos"
 		not attributes "station"
-	destination "Asguard"
+	destination "Asgard"
 	cargo "mystery cargo" 10
 	to offer
 		random < 50
@@ -69,7 +69,7 @@ mission "Deep: Mystery Cubes Prelude 1"
 			`	The officer hesitates for a moment before speaking. The cargo you just delivered are parts for a device that will be constructed here, before being dispersed at Valhalla and other Deep planets."`
 			choice
 				`	"What sort of device is it?"`
-				`	"Why are you dispersing it across the Deep?"
+				`	"Why are you dispersing them across the Deep?"
 			`	"Sorry, but that's information I can't tell you. So are you willing to transport for the Deep a second time?"`
 			choice
 				`	"Yes, I am."`
@@ -78,14 +78,57 @@ mission "Deep: Mystery Cubes Prelude 1"
 			label accept
 			apply
 				set "deep: return trip"
-			`	"Great! We'll send you a message when we need you." The officer hands you a credit chip worth <payment> before she walks away.`
+			`	"Great! We'll send you a message when we need you. It shouldn't take too long, so stay in the Deep if you can." The officer hands you a credit chip worth <payment> before she walks away.`
 				decline
 			label decline
 			`	The officer frowns. "Understandable. Have a good day." She hands you a credit chip worth <payment> before walking away.`
 
-
-
 event "mystery cubes processed"
+
+
+
+mission "Deep: Mystery Cubes Prelude 2"
+	landing
+	name `Travel to <planet>`
+	description `Travel to <destination> to pick up the second shipment of cargo.`
+	source
+		government "Republic" "Free Worlds" "Neutral" "Syndicate" "Independent"
+		not system "Naos"
+	destination "Asgard"
+	to offer
+		has "event: mystery cubes processed"
+		has "deep: return trip"
+	on offer
+		dialog `You receive a message from Deep Security. "Greetings <first> <last>. There is a cargo awaiting shipment from you on <destination>. Please go there whenever you can."`
+
+
+
+mission "Deep: Mystery Cubes Prelude 3"
+	landing
+	name `Mystery Cargo Transport`
+	description "Carry <cargo> to destination. Payment is <payment>."
+	source "Asgard"
+	destination "Valhalla"
+	cargo "mystery cargo" 10
+	to offer
+		has "Deep: Mystery Cubes Prelude 2: done"
+	blocked `You find some spaceport workers waiting for you to land on <source>, but instead of loading up the cargo, they tell you, "Sorry, but you'll need <tons> of free cargo space."`
+	on offer
+		conversation
+			`As you land your ship, some spaceport workers approach you with the cargo you need to transport to <destination>. While they load up the cargo, you notice that, despite the size of the cargo being a third of the size of the first delivery, the weight is nearly the same.`
+			`	Once all the cargo is loaded up, a Deep Security officer checks in with you. "Make sure to avoid going through <system>. The pirate presence there is somewhat neglectable, but it would be better to avoid unecessary risks."`
+			choice
+				`	"Will do."`
+					accept
+				`	"How do you know that there's pirates in <system>?"`
+			`	The officer eyes you closely. "Why wouldn't we know about pirates threats in our own space?" They impatiently leave you, and you to prepare for takeoff.`
+				accept
+	on visit
+		"generic cargo on visit"
+	on complete
+		payment 10000 200
+		conversation
+			`When you land on <destination>,
 
 
 

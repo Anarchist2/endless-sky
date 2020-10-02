@@ -2900,7 +2900,7 @@ system Alheka
 		distance 626.61
 		period 190.917
 	object Shroud
-		sprite planet/venus
+		sprite planet/earth-b
 		distance 947.77
 		period 355.142
 	object

@@ -2469,7 +2469,7 @@ system Aldebaran
 		distance 165.81
 		period 34.1614
 	object Ada
-		sprite planet/forest2-b
+		sprite planet/desert5
 		distance 549.02
 		period 205.827
 	object
@@ -2900,7 +2900,7 @@ system Alheka
 		distance 626.61
 		period 190.917
 	object Shroud
-		sprite planet/venus
+		sprite planet/forset1-b
 		distance 947.77
 		period 355.142
 	object
@@ -2965,7 +2965,7 @@ system Alhena
 			distance 165
 			period 18.6894
 	object Mainsail
-		sprite planet/ice5
+		sprite planet/ocean7
 		distance 1101.93
 		period 475.966
 	object
@@ -3244,7 +3244,7 @@ system Alnair
 		sprite star/m4
 		period 10
 	object Hippocrates
-		sprite planet/cloud4
+		sprite planet/cloud8
 		distance 160.25
 		period 69.8377
 	object
@@ -3455,7 +3455,7 @@ system Alnitak
 		period 15.4564
 		offset 180
 	object Farpoint
-		sprite planet/forest0-b
+		sprite planet/desert8-b
 		distance 292.484
 		period 107.045
 	object
@@ -3960,7 +3960,7 @@ system Altair
 		distance 698.458
 		period 240.19
 	object Shiver
-		sprite planet/cloud8
+		sprite planet/ice6-b
 		distance 1210.95
 		period 548.318
 		object
@@ -5389,7 +5389,7 @@ system Betelgeuse
 		distance 535.69
 		period 150.91
 	object Prime
-		sprite planet/forest2-b
+		sprite planet/ocean0
 		distance 1081.98
 		period 433.189
 	object
@@ -6055,7 +6055,7 @@ system Canopus
 		sprite star/m0
 		period 10
 	object Splashdown
-		sprite planet/ice7
+		sprite planet/ocean9-b
 		distance 166.5
 		period 58.6941
 	object
@@ -6113,7 +6113,7 @@ system Capella
 		distance 212.75
 		period 58.1515
 	object Hermes
-		sprite planet/ocean5
+		sprite planet/desert2
 		distance 532.24
 		period 230.1
 	object
@@ -7866,7 +7866,7 @@ system Denebola
 		distance 360.519
 		period 118.448
 	object Geyser
-		sprite planet/ice2
+		sprite planet/desert2-b
 		distance 628.609
 		period 272.714
 	object
@@ -15597,7 +15597,7 @@ system Matar
 		distance 183.39
 		period 46.5393
 	object Antipode
-		sprite planet/ocean5
+		sprite planet/ice2
 		distance 606.63
 		period 279.99
 		object
@@ -17633,7 +17633,7 @@ system Nunki
 		sprite star/m0
 		period 10
 	object Albatross
-		sprite planet/cloud8
+		sprite planet/cloud1-b
 		distance 272.14
 		period 122.648
 		object
@@ -20687,7 +20687,7 @@ system Sadalmelik
 		distance 1947.35
 		period 830.03
 		object Grakhord
-			sprite planet/ice7
+			sprite planet/rock17-b
 			distance 253
 			period 16.2351
 
@@ -22864,7 +22864,7 @@ system Spica
 		distance 112.25
 		period 19.0283
 	object Oasis
-		sprite planet/forest0-b
+		sprite planet/desert8-b
 		distance 401.46
 		period 128.701
 	object
@@ -23414,7 +23414,7 @@ system "Tania Australis"
 		distance 1122.15
 		period 457.535
 		object Ingot
-			sprite planet/callisto
+			sprite planet/dust4-b
 			distance 236
 			period 12.2578
 	object
@@ -23610,7 +23610,7 @@ system Tejat
 			distance 140
 			period 18.9022
 	object Calda
-		sprite planet/cloud6
+		sprite planet/ocean0-b
 		distance 976.466
 		period 358.647
 		object
@@ -24406,7 +24406,7 @@ system Vega
 		distance 714.136
 		period 204.017
 	object Silver
-		sprite planet/cloud3
+		sprite planet/desert5-b
 		distance 1359.23
 		period 535.714
 		object
@@ -25415,7 +25415,7 @@ system Zosma
 		distance 272.11
 		period 84.1149
 	object Memory
-		sprite planet/cloud6
+		sprite planet/desert2-b
 		distance 644.75
 		period 306.791
 	object

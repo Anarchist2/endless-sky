@@ -1565,6 +1565,7 @@ mission "Terraforming 2"
 
 
 ship "Asteroid"
+	noun "asteroid"
 	sprite "asteroid/medium rock/spin"
 		"frame rate" 10
 	attributes

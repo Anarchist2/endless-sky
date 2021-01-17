@@ -947,7 +947,7 @@ mission "FW Pug 1"
 	waypoint "Ascella"
 	to offer
 		has "FW Syndicate Capture 1C: done"
-	on fail
+	on abort
 		dialog `You have failed an essential Free Worlds mission. If you want to complete the story line, revert to the autosave or another earlier snapshot of the game.`
 	
 	on offer
@@ -1008,6 +1008,8 @@ mission "FW Pug 1 Arabia"
 
 mission "FW Pug 1 Return"
 	landing
+	source
+		near Sol 100
 	to offer
 		has "FW Pug 1: active"
 		has "event: pug invasion 4"
@@ -1283,37 +1285,6 @@ mission "FW Pug 2C: Scram Drive"
 
 
 
-mission "FW Pug 2C: A Jump Drive"
-	landing
-	name "Investigate the Pug"
-	description "Travel to the Deneb system to investigate the Pug; if possible, make contact with them and determine what their goals and desires are."
-	source Hephaestus
-	destination Pugglemug
-	clearance
-	to offer
-		has "FW Pug 2B: done"
-		not "fw given jump drive"
-	passengers 1
-	on fail
-		dialog `You have failed an essential Free Worlds mission. If you want to complete the story line, revert to the autosave or another earlier snapshot of the game.`
-	
-	on offer
-		outfit "Jump Drive" -1
-		conversation
-			`You are directed to land in a hangar some distance away from the spaceport, in a cluster of buildings owned by Syndicated Systems. A team of engineers meets you and asks if they can look over your ship; a few minutes later, one of them says in surprise, "You've already got a jump drive! How did you manage that?" Since you don't need their equipment, they urge you to head directly for Pug space and continue your mission.`
-				accept
-	
-	on accept
-		outfit "Jump Drive" 1
-		set "fw given jump drive"
-		set "already had jump drive"
-	on visit
-		dialog `You land on <planet>, but realize that your escort carrying Alondo hasn't entered the system yet. Better depart and wait for it to arrive.`
-	on complete
-		set "FW Pug 2C: done"
-
-
-
 mission "FW Pug 2C: Side"
 	landing
 	source
@@ -1392,13 +1363,270 @@ mission "FW Pug 2C: Pugglequat"
 	landing
 	source Pugglequat
 	to offer
-		has "fw given jump drive"
+		or
+			has "fw given jump drive"
+			has "FW Pug JD 2B: active"
 		not "FW Pug 3: offered"
 	
 	on offer
 		conversation
 			`This planet is clearly one of the native Pug worlds, and not a human world that has been occupied. The architecture is entirely alien, and you see no human ships or people here, only the aliens. But, it appears to be mostly a world for mining and factories; all the aliens are busy with their work, and none seem to speak your language or have any interest in talking with you; instead they gesture towards the sky, perhaps as a way of indicating that you should visit the other Pug planet in this system.`
 				decline
+
+
+
+# Missions for when the player already has a JD
+mission "FW Pug JD 1"
+	landing
+	name "Return to <planet>"
+	description "Bring the information you learned on Rand back to <destination>."
+	source "Rand"
+	destination "New Tibet"
+	to offer
+		has "FW Pug 1: active"
+	on offer
+		set "already had jump drive"
+		conversation
+			`As you descend towards the surface of <origin>, you recheck your starmap to check if any other systems lost contact with mainland humanity. It appears that many more systems have lost contact, including many Syndicate systems. You also note the unfamiliar, though thankfully non-hostile ships you saw in space.`
+			`	When you land at the spaceport, you are surprised by the apparent normality that the populace appears to be moving around at, despite their seperation from human space; merchant captains are walking around freely, haggling for commodities, and conversing with each other just like in any other spaceport you have visited. However, the spaceport is, rather shockingly, being patrolled by small groups of slender, bipedal, pale-skinned aliens. Each one is holding a metal staff: probably some sort of weapon.`
+			`	Soon after you land, you spot a man making his way towards your ship, ducking behind other ships and crates every time a group of aliens look in his direction. If he is some sort of fugitive from the aliens, it might be unwise to throw your lot in with him. On the other hand, he could have valuable information for you.`
+			choice
+				`	(Stay around and talk to him.)`
+				`	(Take off before I draw the aliens' attention.)`
+					flee
+		
+			`You open your ship's hatch and allow him to come on board. "You came from outside, didn't you?" he says. "Outside of occupied space, I mean."`
+			choice
+				`	"Yes, I am. What's going on here?"`
+			
+			`	"Something bad," he says. "It started with these ships unlike anything I'd ever seen before coming down out of the sky, and hovering over the spaceport. Then they began transmitting radio messages on all frequencies, saying that this world is now a part of the Pug Protectorate, and that we must refrain from violence and give them a portion of the goods our world produces. Happened on a bunch of other systems, from what I heard from other captains."`
+			choice
+				`	"Did anyone try to resist the Pug Protectorate?"`
+					goto resist
+				`	"What do you think the Pug Protectorate's intentions are?"`
+					goto intentions
+				`	"Did they explain why the Pug Protectorate cut you off from the rest of the galaxy?"`
+					goto cut
+				`	"What happened to the Syndicate?"`
+					goto syndicate
+		
+			label resist
+			`	"A few. Their ships aren't invulnerable; a merchant in an Argosy managed to take out one of their smaller ships when it was landed with its shields down, before they blew his ship out of the air in retaliation. And those staffs they're carrying shoot some kind of stun ray, but if you cut them, they bleed, same as any other creature." He pauses, then taps the knife that is holstered at his belt and says, "Except, they bleed blue. Pale milky blue."`
+			choice
+				`	"What do you think their intentions are?"`
+					goto intentions2
+				`	"Did they explain why they cut you off from the rest of the galaxy?"`
+					goto cut2
+				`	"What happened to the Syndicate?"`
+					goto syndicate2
+		
+			label intentions
+			`	"Well, they want our resources, of course. And, they say they have come to bring a new era of peace and an end to all violence and conflict. I don't buy it, though; they saw that humanity was too divided to resist them, and they seized the opportunity to invade and plunder us. It's that simple."`
+			choice
+				`	"Did anyone try to resist them?"`
+					goto resist2
+				`	"Did they explain why they cut you off from the rest of the galaxy?"`
+					goto cut2
+				`	"What happened to the Syndicate?"`
+					goto syndicate2
+		
+			label cut
+			`	"I'd think that would be obvious. With the hyperspace links cut, there's no way for anyone from outside to assist us. And they struck at a part of human space without much in the way of militias or bounty hunters or Navy protection. And the few half-decent warships that happened to be in system when they attacked have already been destroyed trying to fight them." You wonder what happened to the supposed Syndicate fleet threatening Earth.`
+			choice
+				`	"Did anyone try to resist them?"`
+					goto resist2
+				`	"What do you think their intentions are?"`
+					goto intentions2
+				`	"What happened to the Syndicate?"`
+					goto syndicate2
+		
+			label syndicate
+			`	"No clue; I'm a planet-dweller. Guessing from what the other captains are saying, the Syndicate didn't put up much of a fight against the Pug."`
+			choice
+				`	"Did anyone try to resist them?"`
+					goto resist2
+				`	"What do you think their intentions are?"`
+					goto intentions2
+				`	"Did they explain why they cut you off from the rest of the galaxy?"`
+					goto cut2
+
+			label resist2
+			`	"A few. Their ships aren't invulnerable; a merchant in an Argosy managed to take out one of their smaller ships when it was landed with its shields down, before they blew his ship out of the air in retaliation. And those staffs they're carrying shoot some kind of stun ray, but if you cut them, they bleed, same as any other creature." He pauses, then taps the knife that is holstered at his belt and says, "Except, they bleed blue. Pale milky blue."`
+				goto end
+		
+			label intentions2
+			`	"Well, they want our resources, of course. And, they say they have come to bring a new era of peace and an end to all violence and conflict. I don't buy it, though; they saw that humanity was too divided to resist them, and they seized the opportunity to invade and plunder us. It's that simple."`
+				goto end
+		
+			label cut2
+			`	"I'd think that would be obvious. With the hyperspace links cut, there's no way for anyone from outside to assist us. And they struck at a part of human space without much in the way of militias or bounty hunters or Navy protection. And the few half-decent warships that happened to be in system when they attacked have already been destroyed trying to fight them."`
+				goto end
+		
+			label syndicate2
+			`	"No clue; I'm a planet-dweller. Guessing from what the other captains are saying, the Syndicate didn't put up much of a fight against the Pug."`
+				goto end
+			
+			label end
+			choice
+				`	"Where did the Pug come from?"`
+			`	"From a star system that was always a neighbor of ours, but wasn't linked to us or to any other part of human space. We always just assumed it was an uninhabited system, but it turns out they were there all along, biding their time, waiting for a good opportunity to attack us."`
+			`	You thank the man for risking his life to bring this information, and offer to give him a lift off-world. "No thanks," he replies. "I'd prefer to aid whoever I can down here." As he sneaks off, you return to your ship and prepare to head to the Free Worlds with your new information.`
+				accept
+	on accept
+		fail "FW Pug 1"
+		log "Visited Rand. Apparently, an alien force has taken over several human systems and cut them off from human space."
+
+
+
+mission "FW Pug JD 2"
+	landing
+	name "Meet with the Syndicate"
+	autosave
+	source "New Tibet"
+	destination "Foundry"
+	clearance
+	passengers 1
+	to offer
+		has "FW Pug JD 1: done"
+	on fail
+		dialog `You have failed an essential Free Worlds mission. If you want to complete the story line, revert to the autosave or another earlier snapshot of the game.`
+	on offer
+		log "Reported back to the other members of the Council. Was tasked to jump through Pug space to get to the Syndicate."
+		conversation
+			`By the time you arrive, Alondo and Freya have joined JJ and Katya on New Tibet; the entire Council is present. "Here's the story," says JJ. "A few weeks ago, hyperspace links on the edge of Syndicate space began collapsing. We weren't sure why. Then, more recently, the Syndicate fleet that had been occupying the Sol system retreated to Syndicate space - and the moment the last of their ships left, the hyperspace link disappeared behind them. We think the Syndicate has found a way to alter hyperspace links and is using it to wall themselves in, to escape retribution from the rest of humanity now that their guilt is so conclusively proven."`
+			choice
+				`	(Explain about what you found on Rand.)`
+			`	You talk about the lack of Syndicate presence on Rand, and of the alien race known as the Pug Protectorate currently occupying Rand. When you finish, everyone's face is a mix of surprise, confusion, disbelief, and fear.`
+			`	"How did the Pug Protectorate remove the hyperspace links?" Freya asks as soon as you stop talking. JJ interjects with, "Nevermind that, do you know why the Pug didn't attack you?" Before you can respond, Alondo asks, "What about the Pug's loyalties? Are they affiliated with the Syndicate? Or the Quarg? Or neither?"` 
+			`	You are bombarded with more and more questions about the Pug that you don't know the answers to. Eventually, Katya cuts them off with, "That's enough. <first> isn't going to have all the answers to the problem at hand just by landing on one planet and speaking with one person. Now, does anyone have any ideas on what we should do next?"`
+			choice
+				`	"We should inform the Republic of this as soon as possible."`
+					goto republic
+				`	"We should gather more information from the Syndicate."`
+					goto syndicate
+				`	"We should find out more about the Pug."`
+					goto pug
+			label republic
+			`	Alondo adds, "We should also talk with the Syndicate to figure out their connection to this mess." `
+			`	"We also need to find out more about the Pug," Freya says afterward.`
+				goto end
+			label syndicate
+			`	JJ adds, "We should also inform the Republic of what we know as soon as possible."`
+			`	"We also need to find out more about the Pug," Freya says afterward.`
+				goto end
+			label pug
+			`	JJ adds, "We should also inform the Republic of what we know as soon as possible."`
+			`	Alondo follows with, "We also need to know the Syndicate's connection to this mess."`
+				goto end
+			label end
+			`	Katya continues talking. "<first> will go to Syndicate space with Alondo." She turns towards you. "You said that the alien ships didn't attack you when you were in the system? Then you can head to the Pug center of government and figure out more about them. The rest of us will handle the talks with Parliament."`
+			choice
+				`	"Sounds good."`
+					accept
+				`	"I should join you with the talks with Parliament."`
+			`	"You're the only one of us that has a ship, let alone a jump drive," Katya responds. "Only you can talk with the Pug and Syndicate. Don't worry about Parliament, we'll be fine."`
+			choice
+				`	"I understand."`
+					accept
+	on enter
+		system
+			government "Syndicate"
+		"reputation: Syndicate" = 1
+		event "fw syndicate welcoming"
+	on visit
+		dialog `You land on <planet>, but realize that your escort carrying Alondo hasn't entered the system yet. Better depart and wait for it to arrive.`
+
+
+
+mission "FW Pug JD 2A Visit"
+	landing
+	source
+		near "Achernar" 1 100
+		government "Syndicate"
+	to offer
+		has "FW Pug JD 2A: active"
+	
+	on offer
+		conversation
+			`When you land on <origin> you find that the people here are in a state of confusion and fear. Either no one knows about the Pug and why they have been nearly cut off from the rest of human space, or every single person you talk to is united in a conspiracy to feign ignorance. They urge you to continue your journey to meet with the Syndicate executives on Foundry. "Maybe you can talk some sense into them," says one merchant captain. "First the nukes, and now this. The extremist faction within the Syndicate is getting out of hand."`
+				decline
+
+
+
+mission "FW Pug JD 2B"
+	landing
+	name "Investigate the Pug"
+	description "Travel to the Deneb system to investigate the Pug; if possible, make contact with them and determine what their goals and desires are."
+	autosave
+	source "Foundry"
+	destination "Pugglemug"
+	to offer
+		has "FW Pug JD 2A: done"
+	passengers 1
+	on fail
+		dialog `You have failed an essential Free Worlds mission. If you want to complete the story line, revert to the autosave or another earlier snapshot of the game.`
+	
+	on offer
+		log "The Syndicate CEO claims that the Syndicate has had contact with both the Pug, who are enigmatic and irrational, and an alien species of raiders and scavengers known as the Korath coming from the galactic core."
+		log "By plundering the Korath raiders, the Syndicate has acquired a total of 7 jump drives, which will be installed on seven other ships to attack Pug space."
+		conversation
+			`As you are coming in for a landing you announce yourselves to the spaceport authorities as diplomatic representatives of the Free Worlds and the Republic. The moment you have landed, a Syndicate employee meets you and escorts you to their headquarters, to the incredibly fancy corner office of Alastair Korban, the CEO of the entire Syndicate Corporation. "I'm very glad you've come," says Alastair. "It seems unlikely that we can defeat this attack unless we work together."`
+			`	"So," says Alondo, "you're not affiliated with the Pug Protectorate at all?"`
+			`	Alastair seems taken aback. "No, of course not. Why would we side with a force that would replace our influence with theirs? But if I may ask my own question, are you saying that you know of the Pug?"`
+			`	Alondo smirks. "Of course. Now, we have some of our own questions to ask." He gestures towards you.`
+			choice
+				`	"Why did you enact the bombings of Geminus and Martini?"`
+				`	"What do you know about the Pug?"`
+					goto who
+			
+			`	Alastair says, "That terrorism was the action of a certain extremist faction that we have since purged from our ranks, and we were in the process of hunting down the perpetrators. Your raid on Nimbus interrupted those plans and gave the others a chance to go into hiding, but we will see to it that they, too, are brought to justice. But now, we need to put the past behind us and figure out how to work together against our common foe."`
+			choice
+				`	"I think you're lying. You had years to turn over those extremists, and you did not."`
+				`	"Very well. Tell us what you know about the Pug."`
+					goto who
+			
+			`	"We are deeply, deeply sorry for the actions of these extremists," says Alastair, "and for our own inaction in turning them in. We had hoped that we could deal with them internally, without it becoming public knowledge that we were connected with them. That was a foolish choice for us to make, and we are more than willing to make whatever reparations you demand."`
+			choice
+				`	"You are aware that you started a war, right? Every Navy or Free Worlds militia member who died fighting each other is your responsibility."`
+				`	"Okay, we'll deal with that later. For now, tell us everything you know about the Pug."`
+					goto who
+			
+			`	"<first>, enough," says Alondo. "We'll sort out the reparations later. For now, we need to know more about the Pug."`
+			
+			label who
+			`	"The Pug," says Alastair, "an irrational alien species that previously inhabited a single star system in between Syndicate and Republic space. They have since expanded their territory to include all the human systems neighboring their own star, and have essentially made those human worlds into their slaves."`
+			`	"How do you know this?" asks Alondo.`
+			`	Alastair pauses for a minute as if trying to figure out the best way to explain himself, then says, "One of our ships traveled to the occupied systems, using a jump drive that we... acquired... from another alien species." He seems to realize how unlikely that sounds, and backpedals. "For years we've been dealing with occasional raids from a species called the Korath. As best we can tell, they're nomadic scavengers and pirates who currently inhabit the galactic core. Over the years we have disabled several of their ships and stolen their jump drives."`
+			choice
+				`	"Did it not occur to you that attacking the Korath might anger other alien species?"`
+					goto anger
+				`	"Wait, there's another alien species involved? This story is getting very convoluted."`
+					goto convoluted
+			
+			label anger
+			`	"That is unlikely. The equipment we stole from the Korath is most likely something they stole from someone else."`
+				goto help
+			
+			label convoluted
+			`	"Yes," he says, "it is a very convoluted mess. Which is why we need your help."`
+				goto help
+			
+			label help
+			`	"Assuming you're telling the truth," says Alondo, "what sort of help do you need from us?"`
+			`	Alastair says, "We have only seven jump drives, so whatever fleet attacks the Pug can only contain seven ships, plus the jump drive that Captain <last> has. Unless the Quarg or someone else will give you more drives, or if your captain over there will reveal where they got their jump drive, I suppose. So those ships must be stronger than any ship we have here in Syndicate space, because the Pug are very strong. They obliterated our fleet that had been occupying the Sol system, even though that fleet was armed with the majority of our nuclear arsenal."`
+			choice
+				`	"You're saying you'll provide the jump drives, and we'll provide the ships? Sounds fair enough."`
+					goto deal
+				`	"Wait, you're saying that your fleet that was in orbit around Earth... was armed with nuclear weapons? Are you genocidal?"`
+			
+			`	Alastair seems like the kind of person who seldom admits he is wrong, but your question definitely flusters him. "Okay, okay, I admit, we've been making one bad decision after another ever since... well, since that first bad decision. It just got out of control. We thought the Navy was going to raid us and put us all behind bars. We thought we needed a deterrent. It was stupid. I admit it, okay? Now please, let's just move on. We need your capital ships, and you need our jump drives."`
+			
+			label deal
+			`	"Well then," says Alondo, "we will work together until this threat is dealt with... and once it is dealt with, we will return our attention to bringing every member of the Syndicate who had a hand in those terrorist attacks to justice. Just tell us where to take our ships to install the jump drives." You nod in agreement.`
+			`	Alistair clearly isn't too keen on the idea of an investigation into the Syndicate's terrorism. "The jump drives are all being kept on Hephaestus," he says. "Our Systems division was trying to discover the secret behind them, with little success. If you take your warships there, I'll tell them to install the drives into the ships." You and Alondo leave and prepare to travel to the Pug homeworld.`
+				accept
+	on visit
+		dialog `You land on <planet>, but realize that your escort carrying Alondo hasn't entered the system yet. Better depart and wait for it to arrive.`
 
 
 
@@ -1411,8 +1639,9 @@ mission "FW Pug 3"
 	destination Earth
 	clearance
 	to offer
-		has "fw given jump drive"
-		has "FW Pug 2C: done"
+		or
+			has "FW Pug 2C: done"
+			has "FW Pug JD 2B: done"
 	passengers 1
 	on fail
 		dialog `You have failed an essential Free Worlds mission. If you want to complete the story line, revert to the autosave or another earlier snapshot of the game.`
@@ -1562,7 +1791,22 @@ mission "FW Pug 3A"
 	on offer
 		conversation
 			`Your ship caused quite a stir when it entered the Sol system via jump drive. Fortunately Parliament allowed you to land in one of their private hangars, but even so a few press drones managed to follow your ship into the hangar and have cameras pointed at you from the moment you and Alondo disembark.`
+			branch jd
+				has "already had jump drive"
 			`	You report to Parliament that the hyperspace links are being cut not by the Syndicate, but by an alien species, and that the Syndicate has offered to supply jump drives for an attack fleet if the Republic and the Free Worlds will supply the ships. You also report that the aliens' intention is to spread out to occupy more of human space and to demand a fraction of the resource production of all human planets, supposedly in the name of bringing "peace."`
+				goto choice
+			label jd
+			`	The rest of the Council greets you at your landing pad. "Glad to see both of you in one piece," Katya remarks.`
+			choice
+				`	(Tell them about what you learned from the Syndicate and the Pug.)`
+					goto explain
+				`	"What did you say to Parliament?"`
+			`	"Only what you told us," JJ replies. "We talked about the existence of the Pug Protectorate, and what they did to the systems they conquered." JJ faintly smiles. "Parliament has been much more attentive since the alien invasion started, though it's a shame that we can't use the opportunity to make peace."`
+			label explain
+			`	You tell them about how the Syndicate is not responsible for the Pug invasion, and their offer to supply jump drives to the other factions, as well as the Pug's plans to expand and tribute all of human space.`
+			`	"Well then," JJ starts, "Let's get this to Parliament."`
+			`	You and the rest of the council report to Parliament of the information you learned. As Alondo stands in front of the chamber, talking about the Pug and Syndicate, you notice that they listen with respect and deference, far different from how you have been treated here in the past.`
+			label choice
 			`	One of the senators asks, "Do you think we have any chance of defeating the aliens?"`
 			choice
 				`	"It's possible. They all live in a single star system, so we outnumber them."`
@@ -1640,7 +1884,6 @@ mission "FW Pug 3C"
 	destination Hephaestus
 	to offer
 		has "FW Pug 3B: done"
-		not "already had jump drive"
 	passengers 1
 	on fail
 		dialog `You have failed an essential Free Worlds mission. If you want to complete the story line, revert to the autosave or another earlier snapshot of the game.`
@@ -1655,6 +1898,17 @@ mission "FW Pug 3C"
 		ship "Dreadnought" "F.S. Independence"
 		ship "Dreadnought" "F.S. Freedom"
 	npc accompany save
+		to spawn
+			not "already had jump drive"
+		personality escort
+		government "Republic"
+		ship "Cruiser (Mark II)" "R.N.S. Everest"
+		ship "Cruiser (Mark II)" "R.N.S. Denali"
+		ship "Carrier (Mark II)" "R.N.S. Vesuvius"
+		ship "Carrier (Mark II)" "R.N.S. Haleakala"
+	npc accompany save
+		to spawn
+			has "already had jump drive"
 		personality escort
 		government "Republic"
 		ship "Cruiser (Mark II)" "R.N.S. Everest"
@@ -1664,45 +1918,6 @@ mission "FW Pug 3C"
 	
 	on visit
 		dialog "You have reached <planet>, but part of your fleet is not here yet. Better depart and wait for them to arrive in this star system."
-
-
-
-mission "FW Pug 3C (Extra)"
-	landing
-	name "Escort to Hephaestus"
-	description "Escort the combined Free Worlds and Navy fleet to <destination>, where the Syndicate will fit all the ships with jump drives."
-	autosave
-	source Geminus
-	destination Hephaestus
-	to offer
-		has "FW Pug 3B: done"
-		has "already had jump drive"
-	passengers 1
-	on fail
-		dialog `You have failed an essential Free Worlds mission. If you want to complete the story line, revert to the autosave or another earlier snapshot of the game.`
-	
-	on offer
-		log "The Free Worlds and Republic Navy are sending a joint fleet into Syndicate space, where they will be fitted with jump drives to make an assault on Pug territory. The Syndicate only has seven jump drives available, so this fleet will have to survive without reinforcements until a way is found to reopen the connection to the rest of human space."
-		conversation "fw pug"
-	
-	npc accompany save
-		government "Free Worlds"
-		personality escort
-		ship "Dreadnought" "F.S. Independence"
-		ship "Dreadnought" "F.S. Freedom"
-	npc accompany save
-		personality escort
-		government "Republic"
-		ship "Cruiser (Mark II)" "R.N.S. Everest"
-		ship "Cruiser (Mark II)" "R.N.S. Denali"
-		ship "Carrier (Mark II)" "R.N.S. Vesuvius"
-		ship "Carrier (Mark II)" "R.N.S. Haleakala"
-		ship "Cruiser (Mark II)" "R.N.S. Matterhorn"
-	
-	on visit
-		dialog "You have reached <planet>, but part of your fleet is not here yet. Better depart and wait for them to arrive in this star system."
-	on complete
-		set "FW Pug 3C: done"
 
 
 
@@ -1721,6 +1936,8 @@ mission "FW Pug 4: Escorts"
 		ship "Dreadnought (Jump)" "F.S. Independence"
 		ship "Dreadnought (Jump)" "F.S. Freedom"
 	npc kill
+		to spawn
+			not "already had jump drive"
 		personality escort heroic disables
 		government "Republic"
 		ship "Cruiser (Jump)" "R.N.S. Everest"
@@ -1755,20 +1972,44 @@ mission "FW Pug 4: Escorts"
 		ship "Combat Drone" "Yellow Ten"
 		ship "Combat Drone" "Yellow Eleven"
 		ship "Combat Drone" "Yellow Twelve"
-
-mission "FW Pug 4: Escorts (Extra)"
-	landing
-	invisible
-	source Hephaestus
-	to offer
-		has "FW Pug 3C: done"
-		has "already had jump drive"
-	to fail
-		has "FW Pug 6: done"
 	npc kill
+		to spawn
+			has "already had jump drive"
 		personality escort heroic disables
 		government "Republic"
+		ship "Cruiser (Jump)" "R.N.S. Everest"
+		ship "Cruiser (Jump)" "R.N.S. Denali"
 		ship "Cruiser (Jump)" "R.N.S. Matterhorn"
+		ship "Carrier (Jump)" "R.N.S. Vesuvius"
+		ship "Carrier (Jump)" "R.N.S. Haleakala"
+		ship "Dagger" "Red One"
+		ship "Dagger" "Red Two"
+		ship "Dagger" "Red Three"
+		ship "Dagger" "Red Four"
+		ship "Dagger" "Red Five"
+		ship "Dagger" "Red Six"
+		ship "Dagger" "Red Seven"
+		ship "Dagger" "Red Eight"
+		ship "Combat Drone" "Orange One"
+		ship "Combat Drone" "Orange Two"
+		ship "Combat Drone" "Orange Three"
+		ship "Combat Drone" "Orange Four"
+		ship "Combat Drone" "Orange Five"
+		ship "Combat Drone" "Orange Six"
+		ship "Combat Drone" "Orange Seven"
+		ship "Combat Drone" "Orange Eight"
+		ship "Combat Drone" "Yellow One"
+		ship "Combat Drone" "Yellow Two"
+		ship "Combat Drone" "Yellow Three"
+		ship "Combat Drone" "Yellow Four"
+		ship "Combat Drone" "Yellow Five"
+		ship "Combat Drone" "Yellow Six"
+		ship "Combat Drone" "Yellow Seven"
+		ship "Combat Drone" "Yellow Eight"
+		ship "Combat Drone" "Yellow Nine"
+		ship "Combat Drone" "Yellow Ten"
+		ship "Combat Drone" "Yellow Eleven"
+		ship "Combat Drone" "Yellow Twelve"
 		ship "Combat Drone" "Green One"
 		ship "Combat Drone" "Green Two"
 		ship "Combat Drone" "Green Three"

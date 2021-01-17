@@ -1120,6 +1120,7 @@ mission "FWC Pug 1B"
 		dialog `You have failed an essential Free Worlds mission. If you want to complete the story line, revert to the autosave or another earlier snapshot of the game.`
 	
 	on offer
+		require "Jump Drive" 0
 		log "The moment the nuclear-armed Wolf Pack ships arrived in-system to prepare for the assault on Earth, a fleet of alien ships appeared and attacked them. In addition, the aliens somehow cut off the Vega system from the rest of human space."
 		event "fwc pug peaceful"
 		conversation
@@ -1145,6 +1146,51 @@ mission "FWC Pug 1B"
 
 
 
+# If the player already has a JD
+mission "FWC Pug 1B JD"
+	landing
+	name "Investigate <system>"
+	description "This area of space has somehow been cut off from the rest of the galaxy. Visit <planet> to see if they, too, have been invaded by the aliens."
+	source "Silver"
+	destination "Shiver"
+	to offer
+		has "FWC Pug 1: done"
+	on fail
+		dialog `You have failed an essential Free Worlds mission. If you want to complete the story line, revert to the autosave or another earlier snapshot of the game.`
+	
+	on offer
+		require "Jump Drive"
+		log "The moment the nuclear-armed Wolf Pack ships arrived in-system to prepare for the assault on Earth, a fleet of alien ships appeared and attacked them. In addition, the aliens somehow cut off the Vega system from the rest of human space."
+		event "fwc pug peaceful"
+		conversation
+			`The spaceport is in chaos. You eventually find Katya and report that the alien invasion fleet has been destroyed, but at a steep cost. "I'm sure we'll come to regret those losses deeply," she says. "The Wolf Pack nukes were all spent to repel that assault. And based on what we've found out here, we aren't going to be receiving reinforcements any time soon. We've somehow been cut off from the rest of human space."`
+			choice
+				`	"How is that possible?"`
+					goto possible
+				`	"Do we have any idea who these aliens are?"`
+					goto aliens
+				`	"I can use a jump drive to get us out of here."`
+					goto jump
+			
+			label possible
+			`	"I have no idea," she says, "but the aliens must have the ability to collapse hyperspace links. That's why our communications were cut. It wasn't the relays that were destroyed, it was the hyperspace pathways themselves. And meanwhile, some new links have appeared, to here." She points on your map to a star that, until now, had been completely inaccessible via hyperspace. "Deneb. That must be where the aliens came from."`
+				goto next
+			
+			label aliens
+			`	"We have no idea," she says. "But, they appear to have the ability to destroy hyperspace links. That's why our communications went dead; it wasn't the relays we lost, it was the pathways themselves. And, they are apparently able to create new links as well." She points to a galactic map that she had been examining when you came in; several links have been scribbled out and new ones have been drawn in. "This is the star we call Deneb," she says, pointing to a star that, until now, had been inaccessible via hyperspace. "This must be where they came from."`
+				goto next
+
+			label jump
+			`	Katya raises an eyebrow inquisitively. "You have a jump drive? Like the Quarg do?" You nod. Katya thinks for a moment. "The jump drive will only be able to get one ship in or out, so using it to bring in extra firepower isn't feasable. It provides an escape route for us, but we don't have anything substantial to bring out with it."`
+				goto next
+			
+			label next
+			`	"What do we do now?" you ask.`
+			`	"Well," she says, "to start out with, we need more information. I'm hoping you can somehow get past the aliens and land on <planet>, and see if they were attacked too and if so, whether anyone is still alive there. I'll stay here with the rest of the Wolf Pack in case we need to repel another attack."`
+				accept
+
+
+
 mission "FWC Pug 2"
 	landing
 	name "Report to Katya"
@@ -1152,7 +1198,9 @@ mission "FWC Pug 2"
 	source "Shiver"
 	destination "Silver"
 	to offer
-		has "FWC Pug 1B: done"
+		or
+			has "FWC Pug 1B: done"
+			has "FWC Pug 1B JD: done"
 	on fail
 		dialog `You have failed an essential Free Worlds mission. If you want to complete the story line, revert to the autosave or another earlier snapshot of the game.`
 	
@@ -1343,6 +1391,7 @@ mission "FWC Pug 2D"
 		planet Oblivion
 	to offer
 		has "FWC Pug 2C: done"
+		not "FWC Pug 1B JD: done"
 	passengers 1
 	on fail
 		dialog `You have failed an essential Free Worlds mission. If you want to complete the story line, revert to the autosave or another earlier snapshot of the game.`
@@ -1368,6 +1417,34 @@ mission "FWC Pug 2D"
 
 
 
+mission "FWC Pug 2D JD"
+	landing
+	name "Escape Pug Space"
+	description "Jump out of Pug space and report to the Free Worlds that an alien invasion is imminent."
+	source "Oblivion"
+	destination "New Iceland"
+	to offer
+		has "FWC Pug 2C: done"
+		has "FWC Pug 1B JD: done"
+	passengers 1
+	on fail
+		dialog `You have failed an essential Free Worlds mission. If you want to complete the story line, revert to the autosave or another earlier snapshot of the game.`
+	
+	on offer
+		event "fwc navy retakes cebalrai"
+		conversation
+			`Just like Shiver, the spaceport on Oblivion is being patrolled by the Pug, and the locals seem to be resigned to their fate. Not surprisingly, you find that there are not many supplies left from when the main Free Worlds fleet was located here for a few days. But, at least the spaceport has a working repair shop and outfitter.`
+			`	While you are exploring the spaceport, a group of men in one of the local pubs see you walking past and gesture to you. "Hey, get in here," whispers one of them. They recognize you as a Council member, and tell you that they are leaders of a local resistance movement, biding their time and waiting for the right moment to strike back against the Pug. "Do you have a plan?" they ask.`
+			choice
+				`	"Sorry, not yet."`
+				`	"We'll let you know when it's time."`
+			`	They seem disappointed that you aren't here to liberate them immediately, but you tell them to wait and not do anything foolish, for now, and they tell you how to contact them when you are ready. Back inside your ship, you and Katya talk. "It sounds like the aliens are planning to invade more systems," she says. "We need to get a warning out somehow. Looks like it's time to use your jump drive to get to <planet> and contact the Senate and the rest of the Council."`
+				accept
+	on visit
+		dialog `You land on <planet>, but realize that your escort carrying Katya hasn't entered the system yet. Better depart and wait for it to arrive. (If your escorts don't have jump drives, try parking them so that Katya will be on your flagship.)`
+
+
+
 mission "FWC Pug 3"
 	landing
 	name "Talk to the Navy"
@@ -1376,7 +1453,9 @@ mission "FWC Pug 3"
 	destination "New Austria"
 	clearance
 	to offer
-		has "FWC Pug 2D: done"
+		or
+			has "FWC Pug 2D: done"
+			has "FWC Pug 2D JD: done"
 	passengers 1
 	on fail
 		dialog `You have failed an essential Free Worlds mission. If you want to complete the story line, revert to the autosave or another earlier snapshot of the game.`

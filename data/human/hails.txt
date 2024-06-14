@@ -1694,18 +1694,14 @@ phrase "friendly civilian"
 	word
 		" "
 	word
-		"1,"
-		"2,"
-		"3,"
-		"4,"
-		"5,"
+		"a few"
+		"one"
+		"two"
+		"three"
+		"four"
+		"five"
 	word
-		"000"
-		"250"
-		"500"
-		"750"
-	word
-		" "
+		" thousand "
 	word
 		"credits per jump"
 		"credits for every day of travel"

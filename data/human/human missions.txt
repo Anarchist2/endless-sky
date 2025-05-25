@@ -2188,6 +2188,7 @@ event "terraforming timer"
 
 mission "Terraforming 6"
 	landing
+	autosave
 	name "Unlawful Use of an Asteroid"
 	description `Travel to <destination> by <date> for questioning on your "unlawful use of an asteroid."`
 	source

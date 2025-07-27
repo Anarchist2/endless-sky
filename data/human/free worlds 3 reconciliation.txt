@@ -466,19 +466,19 @@ mission "FW Defend Farpoint"
 		fleet
 			names "pirate"
 			variant
-				"Leviathan"
+				"Leviathan (Civilian)"
 				"Raven (Afterburner)" 2
 		fleet
 			names "pirate"
 			variant
 				"Leviathan (Laser)"
-				"Firebird" 3
+				"Firebird (Civilian)" 3
 		fleet
 			names "pirate"
 			variant
 				"Splinter (Laser)"
-				"Manta" 2
-				"Quicksilver" 5
+				"Manta (Civilian)" 2
+				"Quicksilver (Civilian)" 5
 	
 	on visit
 		dialog `You've landed on <planet>, but there are still Pirate ships circling overhead. You should take off and help finish them off.`
@@ -680,8 +680,8 @@ mission "FW Embassy 1C"
 		fleet
 			names "pirate"
 			variant
-				"Leviathan"
-				"Firebird" 2
+				"Leviathan (Civilian)"
+				"Firebird (Civilian)" 2
 	
 	npc
 		government Pirate
@@ -691,8 +691,8 @@ mission "FW Embassy 1C"
 			names "pirate"
 			variant
 				"Splinter (Laser)" 2
-				"Manta" 3
-				"Quicksilver" 6
+				"Manta (Civilian)" 3
+				"Quicksilver (Civilian)" 6
 
 
 
@@ -819,7 +819,7 @@ mission "FW Syndicate Capture 1B"
 			names "syndicate capital"
 			variant
 				"Protector (Laser)"
-				"Protector" 3
+				"Protector (Quad Blaster)" 3
 				"Wasp" 12
 	
 	npc
@@ -2016,7 +2016,7 @@ mission "FW Pug 4B: Reinforcements"
 		fleet
 			names "syndicate capital"
 			variant
-				"Protector" 2
+				"Protector (Quad Blaster)" 2
 
 
 
@@ -2162,7 +2162,7 @@ mission "FW Pug 5A"
 				names "republic fighter"
 			variant
 				"Carrier (Mark II)"
-				"Lance" 8
+				"Lance (Sidewinder)" 8
 				"Combat Drone" 6
 				"Gunboat (Mark II)" 3
 
@@ -2207,7 +2207,7 @@ mission "FW Pug 5B"
 				names "republic fighter"
 			variant
 				"Carrier (Mark II)"
-				"Lance" 8
+				"Lance (Sidewinder)" 8
 				"Combat Drone" 6
 				"Gunboat (Mark II)" 3
 	
@@ -2273,7 +2273,7 @@ mission "FW Pug 6"
 				names "republic fighter"
 			variant
 				"Carrier (Mark II)"
-				"Lance" 8
+				"Lance (Sidewinder)" 8
 				"Combat Drone" 6
 				"Gunboat (Mark II)" 3
 	npc
@@ -2308,7 +2308,7 @@ mission "FW Pug 6"
 		fleet 2
 			names "syndicate capital"
 			variant
-				"Protector" 2
+				"Protector (Quad Blaster)" 2
 	
 	on visit
 		dialog `You land on <planet>, but realize that your escort carrying Freya hasn't entered the system yet. Better depart and wait for it to arrive.`
@@ -2537,12 +2537,12 @@ mission "FW Syndicate Extremists 1B"
 		fleet 3
 			names "syndicate capital"
 			variant
-				"Protector" 2
+				"Protector (Quad Blaster)" 2
 		fleet 2
 			names "syndicate capital"
 			variant
-				"Splinter"
-				"Quicksilver" 3
+				"Splinter (Civilian)"
+				"Quicksilver (Civilian)" 3
 	
 	npc
 		government "Navy (Oathkeeper)"
@@ -2554,7 +2554,7 @@ mission "FW Syndicate Extremists 1B"
 				names "republic fighter"
 			variant
 				"Carrier (Mark II)" 3
-				"Lance" 24
+				"Lance (Sidewinder)" 24
 				"Combat Drone" 18
 				"Cruiser (Mark II)" 3
 				"Combat Drone" 12

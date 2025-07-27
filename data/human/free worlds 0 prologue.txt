@@ -1087,9 +1087,9 @@ mission "FW Bounty 1"
 		ship "Hawk (Rocket)" "Cluny"
 		ship "Hawk (Speedy)" "Ferret"
 		ship "Berserker (Afterburner)" "Weasel"
-		ship "Wasp (Proton)" "Vixen"
+		ship "Wasp" "Vixen"
 		ship "Fury (Laser)" "Stoat"
-		ship "Sparrow" "Rat"
+		ship "Sparrow (Blaster)" "Rat"
 		dialog `The "Rat Pack" has been eliminated. You can claim the bounty payment by returning to <destination>.`
 	
 	on visit
@@ -1102,28 +1102,30 @@ mission "FW Bounty 1"
 
 ship "Mammoth" "Mammoth (Moonless)"
 	outfits
-		"Modified Blaster Turret" 2
-		"Heavy Laser Turret" 6
+		"Modified Blaster Turret" 4
+		"Laser Turret" 4
 		
-		"Fission Reactor"
-		"LP144a Battery Pack"
-		"D41-HY Shield Generator"
-		"Large Radar Jammer"
-		"Cooling Ducts"
+		"Breeder Reactor"
+		"LP036a Battery Pack"
+		"D41-HY Shield Generator" 2
+		"Liquid Nitrogen Cooler"
+		"Bunk Room"
+		"Cargo Expansion" 2
+		"Small Bunk Room"
 		"Laser Rifle" 18
 		
 		"A250 Atomic Thruster"
 		"A375 Atomic Steering"
 		"Scram Drive"
 
-	turret "Heavy Laser Turret"
-	turret "Heavy Laser Turret"
-	turret "Heavy Laser Turret"
-	turret "Heavy Laser Turret"
-	turret "Heavy Laser Turret"
-	turret "Heavy Laser Turret"
+	turret "Laser Turret"
+	turret "Laser Turret"
 	turret "Modified Blaster Turret"
 	turret "Modified Blaster Turret"
+	turret "Modified Blaster Turret"
+	turret "Modified Blaster Turret"
+	turret "Laser Turret"
+	turret "Laser Turret"
 
 
 
@@ -1173,6 +1175,24 @@ mission "FW Bounty 2"
 	on complete
 		payment 300000
 		dialog `The militia officer who asked you to hunt down the <npc> meets you in the spaceport and pays you <payment>. "Once again, thank you for assisting us," he says.`
+
+
+
+ship "Osprey" "Osprey (Alien Weapons)"
+	outfits
+		"Ion Cannon" 2
+		"Pulse Cannon" 2
+		"Chameleon Anti-Missile" 2
+		"Boulder Reactor"
+		"Hai Fissure Batteries"
+		"Hai Corundum Regenerator"
+		"Water Coolant System"
+		"Hai Williwaw Cooling"
+		"Cargo Expansion" 2
+		"Pulse Rifle" 3
+		`"Biroo" Atomic Thruster`
+		"Impala Plasma Steering"
+		Hyperdrive
 
 
 
@@ -2284,11 +2304,11 @@ mission "Defend Sabik"
 			fighters
 				names "republic fighter"
 			variant
-				"Cruiser"
+				"Cruiser (Deployed)"
 				"Combat Drone" 4
-				"Frigate"
+				"Frigate (Deployed)"
 				"Gunboat" 2
-				"Rainmaker"
+				"Rainmaker (Deployed)"
 	npc evade
 		government "Republic"
 		personality heroic
@@ -2298,12 +2318,12 @@ mission "Defend Sabik"
 			fighters
 				names "republic fighter"
 			variant
-				"Carrier"
+				"Carrier (Deployed)"
 				"Lance" 8
 				"Combat Drone" 6
-				"Frigate" 2
+				"Frigate (Deployed)" 2
 				"Gunboat" 3
-				"Rainmaker" 3
+				"Rainmaker (Deployed)" 3
 	
 	npc
 		government "Free Worlds"

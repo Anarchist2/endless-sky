@@ -660,8 +660,8 @@ mission "FW Wolf Pack 3"
 		system "Gacrux"
 		personality heroic staying
 		ship "Protector (Laser)" "R.N.S. Bulwark"
-		ship "Protector" "R.N.S. Citadel"
-		ship "Protector" "R.N.S. Rampart"
+		ship "Protector (Quad Blaster)" "R.N.S. Citadel"
+		ship "Protector (Quad Blaster)" "R.N.S. Rampart"
 	
 	on visit
 		dialog `You've landed on <planet>, but the freighters have not been eliminated yet. Hunt them down in the Gacrux system and destroy them before returning.`
@@ -736,7 +736,7 @@ mission "FW Wolf Pack 4"
 				names "republic fighter"
 			cargo 0
 			variant
-				"Carrier"
+				"Carrier (Deployed)"
 				"Lance" 8
 				"Combat Drone" 6
 	
@@ -805,7 +805,7 @@ mission "FW Stack Core 1B"
 			names "civilian"
 			cargo 3
 			variant
-				"Bulk Freighter" 3
+				"Bulk Freighter (Civilian)" 3
 	npc
 		government "Republic"
 		system "Menkent"

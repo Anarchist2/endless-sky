@@ -40,6 +40,8 @@ mission "Escort (Tiny, Northern, Dangerous Destination)"
 			variant
 				"Sparrow"
 			variant
+				"Sparrow (Blaster)"
+			variant
 				"Fury"
 			variant
 				"Berserker"
@@ -54,6 +56,8 @@ mission "Escort (Tiny, Northern, Dangerous Destination)"
 			names "pirate"
 			variant
 				"Sparrow"
+			variant
+				"Sparrow (Blaster)"
 			variant
 				"Fury"
 			variant
@@ -104,6 +108,8 @@ mission "Escort (Tiny, Northern, Dangerous Origin)"
 			variant
 				"Sparrow"
 			variant
+				"Sparrow (Blaster)"
+			variant
 				"Fury"
 			variant
 				"Berserker"
@@ -119,6 +125,8 @@ mission "Escort (Tiny, Northern, Dangerous Origin)"
 			names "pirate"
 			variant
 				"Sparrow"
+			variant
+				"Sparrow (Blaster)"
 			variant
 				"Fury"
 			variant
@@ -384,7 +392,7 @@ mission "Escort (Large, Northern, Dangerous Destination)"
 		fleet
 			names "civilian"
 			variant
-				"Behemoth"
+				"Behemoth (Civilian)"
 	on complete
 		payment 120000
 		dialog phrase "generic safe escort completion dialog"
@@ -430,7 +438,7 @@ mission "Escort (Large, Northern, Dangerous Origin)"
 		fleet
 			names "civilian"
 			variant
-				"Behemoth"
+				"Behemoth (Civilian)"
 	on complete
 		payment 120000
 		dialog phrase "generic safe escort completion dialog"
@@ -477,7 +485,7 @@ mission "Escort (Extra Large, Northern, Dangerous Destination)"
 		fleet
 			names "civilian"
 			variant
-				"Behemoth"
+				"Behemoth (Civilian)"
 	on complete
 		payment 150000
 		dialog phrase "generic safe escort completion dialog"
@@ -529,7 +537,7 @@ mission "Escort (Extra Large, Northern, Dangerous Origin)"
 		fleet
 			names "civilian"
 			variant
-				"Behemoth"
+				"Behemoth (Civilian)"
 	on complete
 		payment 150000
 		dialog phrase "generic safe escort completion dialog"
@@ -566,6 +574,8 @@ mission "Escort (Tiny, Core, Dangerous Destination)"
 			variant
 				"Sparrow"
 			variant
+				"Sparrow (Blaster)"
+			variant
 				"Fury"
 			variant
 				"Berserker"
@@ -580,6 +590,8 @@ mission "Escort (Tiny, Core, Dangerous Destination)"
 			names "pirate"
 			variant
 				"Sparrow"
+			variant
+				"Sparrow (Blaster)"
 			variant
 				"Fury"
 			variant
@@ -632,6 +644,8 @@ mission "Escort (Tiny, Core, Dangerous Origin)"
 			variant
 				"Sparrow"
 			variant
+				"Sparrow (Blaster)"
+			variant
 				"Fury"
 			variant
 				"Berserker"
@@ -645,6 +659,8 @@ mission "Escort (Tiny, Core, Dangerous Origin)"
 			names "pirate"
 			variant
 				"Sparrow"
+			variant
+				"Sparrow (Blaster)"
 			variant
 				"Fury"
 			variant
@@ -906,7 +922,7 @@ mission "Escort (Large, Core, Dangerous Destination)"
 		fleet
 			names "civilian"
 			variant
-				"Container Transport"
+				"Container Transport (Civilian)"
 	on complete
 		payment 120000
 		dialog phrase "generic safe escort completion dialog"
@@ -952,7 +968,7 @@ mission "Escort (Large, Core, Dangerous Origin)"
 		fleet
 			names "civilian"
 			variant
-				"Container Transport"
+				"Container Transport (Civilian)"
 	on complete
 		payment 120000
 		dialog phrase "generic safe escort completion dialog"
@@ -999,7 +1015,7 @@ mission "Escort (Extra Large, Core, Dangerous Destination)"
 		fleet
 			names "civilian"
 			variant
-				"Container Transport"
+				"Container Transport (Civilian)"
 	on complete
 		payment 150000
 		dialog phrase "generic safe escort completion dialog"
@@ -1052,7 +1068,7 @@ mission "Escort (Extra Large, Core, Dangerous Origin)"
 		fleet
 			names "civilian"
 			variant
-				"Container Transport"
+				"Container Transport (Civilian)"
 	on complete
 		payment 150000
 		dialog phrase "generic safe escort completion dialog"
@@ -1088,6 +1104,8 @@ mission "Escort (Tiny, Southern, Dangerous Origin or Destination)"
 			variant
 				"Sparrow"
 			variant
+				"Sparrow (Blaster)"
+			variant
 				"Fury"
 			variant
 				"Hawk"
@@ -1102,6 +1120,8 @@ mission "Escort (Tiny, Southern, Dangerous Origin or Destination)"
 			names "pirate"
 			variant
 				"Sparrow"
+			variant
+				"Sparrow (Blaster)"
 			variant
 				"Fury"
 			variant
@@ -1238,7 +1258,7 @@ mission "Escort (Large, Southern, Dangerous Origin or Destination)"
 		fleet
 			names "civilian"
 			variant
-				"Bulk Freighter"
+				"Bulk Freighter (Civilian)"
 	on complete
 		payment 120000
 		dialog phrase "generic safe escort completion dialog"
@@ -1279,7 +1299,7 @@ mission "Escort (Extra Large, Southern, Dangerous Origin or Destination)"
 		fleet
 			names "civilian"
 			variant
-				"Behemoth"
+				"Behemoth (Civilian)"
 	on complete
 		payment 150000
 		dialog phrase "generic safe escort completion dialog"
@@ -3130,8 +3150,10 @@ mission "Bounty Hunting (Very Tiny)"
 			names "pirate"
 			variant 3
 				"Scrapper"
-			variant 6
+			variant 3
 				"Sparrow"
+			variant 3
+				"Sparrow (Blaster)"
 			variant
 				"Wasp"
 			variant
@@ -3177,8 +3199,10 @@ mission "Bounty Hunting (Very Tiny, Local)"
 				"Scrapper (Gatling)"
 			variant
 				"Scrapper (Mod Blaster)"
-			variant 4
+			variant 2
 				"Sparrow"
+			variant 2
+				"Sparrow (Blaster)"
 			variant 2
 				"Sparrow (Gatling)"
 			variant 2
@@ -3327,23 +3351,23 @@ mission "Bounty Hunting (Very Small)"
 		fleet
 			names "pirate"
 			variant
-				"Quicksilver"
+				"Quicksilver (Civilian)"
 			variant
-				"Quicksilver (Proton)"
+				"Quicksilver (Particle)"
 			variant
-				"Raven"
+				"Raven (Civilian)"
 			variant
 				"Raven (Heavy)"
 			variant
 				"Raven (Afterburner)"
 			variant
-				"Headhunter"
+				"Headhunter (Civilian)"
 			variant
 				"Headhunter (Strike)"
 			variant
 				"Headhunter (Particle)"
 			variant
-				"Clipper"
+				"Clipper (Civilian)"
 			variant
 				"Clipper (Heavy)"
 			variant
@@ -3376,23 +3400,23 @@ mission "Bounty Hunting (Very Small, Local)"
 		fleet
 			names "pirate"
 			variant
-				"Quicksilver"
+				"Quicksilver (Civilian)"
 			variant
-				"Quicksilver (Proton)"
+				"Quicksilver (Particle)"
 			variant
-				"Raven"
+				"Raven (Civilian)"
 			variant
 				"Raven (Heavy)"
 			variant
 				"Raven (Afterburner)"
 			variant
-				"Headhunter"
+				"Headhunter (Civilian)"
 			variant
 				"Headhunter (Strike)"
 			variant
 				"Headhunter (Particle)"
 			variant
-				"Clipper"
+				"Clipper (Civilian)"
 			variant
 				"Clipper (Heavy)"
 			variant
@@ -3424,23 +3448,23 @@ mission "Bounty Hunting (Small)"
 		fleet
 			names "pirate"
 			variant
-				"Firebird"
+				"Firebird (Civilian)"
 			variant
 				"Firebird (Missile)"
 			variant
-				"Splinter"
+				"Splinter (Civilian)"
 			variant
 				"Splinter (Laser)"
 			variant
-				"Osprey"
+				"Osprey (Civilian)"
 			variant
 				"Osprey (Laser)"
 			variant
-				"Bastion"
+				"Bastion (Civilian)"
 			variant
-				"Manta"
+				"Manta (Civilian)"
 			variant
-				"Manta (Proton)"
+				"Manta (Particle)"
 		dialog phrase "generic hunted bounty eliminated and payment dialog"
 		on kill
 			payment 180000
@@ -3466,23 +3490,23 @@ mission "Bounty Hunting (Small, Local)"
 		fleet
 			names "pirate"
 			variant
-				"Firebird"
+				"Firebird (Civilian)"
 			variant
 				"Firebird (Missile)"
 			variant
-				"Splinter"
+				"Splinter (Civilian)"
 			variant
 				"Splinter (Laser)"
 			variant
-				"Osprey"
+				"Osprey (Civilian)"
 			variant
 				"Osprey (Laser)"
 			variant
-				"Bastion"
+				"Bastion (Civilian)"
 			variant
-				"Manta"
+				"Manta (Civilian)"
 			variant
-				"Manta (Proton)"
+				"Manta (Particle)"
 		dialog phrase "generic hunted bounty eliminated and payment dialog"
 		on kill
 			payment 180000
@@ -3510,7 +3534,7 @@ mission "Bounty Hunting (Medium)"
 		fleet
 			names "pirate"
 			variant
-				"Protector"
+				"Protector (Civilian)"
 			variant
 				"Protector (Laser)"
 			variant
@@ -3546,7 +3570,7 @@ mission "Bounty Hunting (Medium, Local)"
 		fleet
 			names "pirate"
 			variant
-				"Protector"
+				"Protector (Civilian)"
 			variant
 				"Protector (Proton)"
 			variant
@@ -3584,19 +3608,19 @@ mission "Bounty Hunting (Big)"
 		fleet
 			names "pirate"
 			variant
-				"Leviathan"
+				"Leviathan (Civilian)"
 			variant
 				"Leviathan (Heavy)"
 			variant
 				"Leviathan (Laser)"
 			variant
-				"Falcon"
+				"Falcon (Civilian)"
 			variant
 				"Falcon (Heavy)"
 			variant
 				"Falcon (Laser)"
 			variant
-				"Vanguard"
+				"Vanguard (Civilian)"
 			variant
 				"Vanguard (Particle)"
 		dialog phrase "generic hunted bounty eliminated and payment dialog"
@@ -3624,19 +3648,19 @@ mission "Bounty Hunting (Big, Local)"
 		fleet
 			names "pirate"
 			variant
-				"Leviathan"
+				"Leviathan (Civilian)"
 			variant
 				"Leviathan (Heavy)"
 			variant
 				"Leviathan (Laser)"
 			variant
-				"Falcon"
+				"Falcon (Civilian)"
 			variant
 				"Falcon (Heavy)"
 			variant
 				"Falcon (Laser)"
 			variant
-				"Vanguard"
+				"Vanguard (Civilian)"
 			variant
 				"Vanguard (Particle)"
 		dialog phrase "generic hunted bounty eliminated and payment dialog"
@@ -3669,23 +3693,23 @@ mission "Bounty Hunting (Small, Hidden)"
 		fleet
 			names "pirate"
 			variant
-				"Firebird"
+				"Firebird (Civilian)"
 			variant
 				"Firebird (Missile)"
 			variant
-				"Splinter"
+				"Splinter (Civilian)"
 			variant
 				"Splinter (Laser)"
 			variant
-				"Osprey"
+				"Osprey (Civilian)"
 			variant
 				"Osprey (Laser)"
 			variant
-				"Bastion"
+				"Bastion (Civilian)"
 			variant
-				"Manta"
+				"Manta (Civilian)"
 			variant
-				"Manta (Proton)"
+				"Manta (Particle)"
 		dialog phrase "generic hunted bounty eliminated and payment dialog"
 		on kill
 			payment 360000
@@ -3716,7 +3740,7 @@ mission "Bounty Hunting (Medium, Hidden)"
 		fleet
 			names "pirate"
 			variant
-				"Protector"
+				"Protector (Civilian)"
 			variant
 				"Protector (Laser)"
 			variant
@@ -3757,19 +3781,19 @@ mission "Bounty Hunting (Big, Hidden)"
 		fleet
 			names "pirate"
 			variant
-				"Leviathan"
+				"Leviathan (Civilian)"
 			variant
 				"Leviathan (Heavy)"
 			variant
 				"Leviathan (Laser)"
 			variant
-				"Falcon"
+				"Falcon (Civilian)"
 			variant
 				"Falcon (Heavy)"
 			variant
 				"Falcon (Laser)"
 			variant
-				"Vanguard"
+				"Vanguard (Civilian)"
 			variant
 				"Vanguard (Particle)"
 		dialog phrase "generic hunted bounty eliminated and payment dialog"

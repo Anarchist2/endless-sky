@@ -359,6 +359,29 @@ ship "Vanguard" "Vanguard Test Dummy"
 	add attributes
 		"automaton" 1
 		"self destruct" 1
+	outfits
+		"Proton Gun" 5
+		"Anti-Missile Turret"
+
+		"Fission Reactor"
+		"LP072a Battery Pack"
+		"D67-TM Shield Generator"
+		"Water Coolant System" 2
+		"Bunk Room" 4
+		"Cargo Expansion" 3
+		"Small Bunk Room"
+		"Laser Rifle" 4
+		
+		"X3700 Ion Thruster"
+		"X3200 Ion Steering"
+		"Hyperdrive"
+	gun "Proton Gun"
+	gun "Proton Gun"
+	gun "Proton Gun"
+	gun "Proton Gun"
+	gun "Proton Gun"
+	gun
+	gun
 
 
 mission "Syndicate Prisoner Transport [0]"

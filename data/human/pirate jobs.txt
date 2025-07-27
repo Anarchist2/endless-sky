@@ -2026,7 +2026,7 @@ mission "Mercenary Job (Medium, North, Dangerous Origin)"
 		fleet
 			names "pirate"
 			variant
-				"Headhunter"
+				"Headhunter (Civilian)"
 			variant
 				"Headhunter (Particle)"
 			variant
@@ -2090,7 +2090,7 @@ mission "Escort Illegal Cargo (Large, North, Dangerous Path)"
 			variant 2
 				"Firebird (Plasma)"
 			variant 1
-				"Leviathan"
+				"Leviathan (Civilian)"
 	on complete
 		"pirate jobs" ++
 		payment 240000
@@ -2131,7 +2131,7 @@ mission "Escort Stolen Vessel (Extra Large, North, Dangerous Path)"
 		fleet
 			names "pirate"
 			variant 6
-				"Leviathan"
+				"Leviathan (Civilian)"
 				"Hauler II"
 			variant 4
 				"Leviathan (Laser)"
@@ -2183,13 +2183,13 @@ mission "Mercenary Job (Medium, Core, Dangerous Origin)"
 		fleet
 			names "pirate"
 			variant 1
-				"Headhunter"
+				"Headhunter (Civilian)"
 			variant 1
 				"Headhunter (Particle)"
 			variant 1
-				"Quicksilver"
+				"Quicksilver (Civilian)"
 			variant 1
-				"Quicksilver (Proton)"
+				"Quicksilver (Particle)"
 	on complete
 		"pirate jobs" ++
 		payment 180000
@@ -2229,13 +2229,13 @@ mission "Escort Illegal Cargo (Large, Core, Dangerous Path)"
 		fleet
 			names "pirate"
 			variant 3
-				"Quicksilver (Proton)" 3
+				"Quicksilver (Particle)" 3
 			variant 2
-				"Manta (Proton)"
+				"Manta (Particle)"
 			variant 2
-				"Manta"
+				"Manta (Civilian)"
 			variant 1
-				"Splinter" 2
+				"Splinter (Civilian)" 2
 			variant 1
 				"Splinter (Laser)" 2
 	on complete
@@ -2285,7 +2285,7 @@ mission "Escort Stolen Vessel (Extra Large, Core, Dangerous Path)"
 				"Bounder"
 			variant 4
 				"Firebird (Missile)"
-				"Quicksilver"
+				"Quicksilver (Civilian)"
 			variant 2
 				"Falcon"
 				"Freighter"
@@ -3247,13 +3247,13 @@ mission "Cargo Theft (North)"
 			names "civilian"
 			variant
 				"Freighter (Secret Cargo)"
-				"Corvette" 2
+				"Corvette (Civilian)" 2
 			variant
 				"Freighter (Secret Cargo)"
-				"Firebird" 2
+				"Firebird (Civilian)" 2
 			variant
 				"Freighter (Secret Cargo)"
-				"Leviathan"
+				"Leviathan (Civilian)"
 	on visit
 		dialog "You land on <planet>, but you don't have the secret cargo! Return to the <npc> and bring the cargo back to <planet>."
 	on complete
@@ -3287,13 +3287,13 @@ mission "Cargo Theft (Core)"
 			names "civilian"
 			variant
 				"Freighter (Secret Cargo)"
-				"Quicksilver" 2
+				"Quicksilver (Civilian)" 2
 			variant
 				"Freighter (Secret Cargo)"
-				"Splinter" 2
+				"Splinter (Civilian)" 2
 			variant
 				"Freighter (Secret Cargo)"
-				"Vanguard"
+				"Vanguard (Civilian)"
 	on visit
 		dialog "You land on <planet>, but you don't have the secret cargo! Return to the <npc> and bring the cargo back to <planet>."
 	on complete
@@ -3329,13 +3329,13 @@ mission "Cargo Theft (South)"
 			names "civilian"
 			variant
 				"Freighter (Secret Cargo)"
-				"Bastion" 2
+				"Bastion (Civilian)" 2
 			variant
 				"Freighter (Secret Cargo)"
 				"Blackbird" 2
 			variant
 				"Freighter (Secret Cargo)"
-				"Falcon"
+				"Falcon (Civilian)"
 	on visit
 		dialog "You land on <planet>, but you don't have the secret cargo! Return to the <npc> and bring the cargo back to <planet>."
 	on complete
@@ -3386,7 +3386,7 @@ mission "FW Assassination [1]"
 				"Hawk" 3
 			variant 1
 				"Blackbird"
-				"Osprey"
+				"Osprey (Civilian)"
 		dialog "The target has been destroyed. Return to <destination> for your payment."
 	on complete
 		"pirate jobs" ++
@@ -3426,17 +3426,17 @@ mission "FW Assassination [2]"
 				"Blackbird"
 			variant 2
 				"Blackbird"
-				"Falcon"
+				"Falcon (Civilian)"
 			variant 3
 				"Blackbird"
-				"Osprey" 2
+				"Osprey (Civilian)" 2
 			variant 3
 				"Blackbird"
-				"Bastion"
-				"Osprey"
+				"Bastion (Civilian)"
+				"Osprey (Civilian)"
 			variant 2
 				"Blackbird"
-				"Bastion"
+				"Bastion (Civilian)"
 				"Sparrow" 4
 			variant 1
 				"Blackbird"
@@ -3480,23 +3480,23 @@ mission "Syndicate Assassination [1]"
 				"Bounder"
 			variant 2
 				"Arrow"
-				"Quicksilver" 2
+				"Quicksilver (Civilian)" 2
 			variant 2
 				"Bounder"
-				"Manta"
+				"Manta (Civilian)"
 			variant 3
 				"Arrow"
 				"Wasp" 3
 			variant 3
 				"Bounder"
-				"Quicksilver"
+				"Quicksilver (Civilian)"
 				"Wasp" 2
 			variant 1
 				"Arrow"
-				"Splinter"
+				"Splinter (Civilian)"
 			variant 1
 				"Bounder"
-				"Splinter"
+				"Splinter (Civilian)"
 		dialog "The target has been destroyed. Return to <destination> for your payment."
 	on complete
 		"pirate jobs" ++
@@ -3535,31 +3535,31 @@ mission "Syndicate Assassination [2]"
 				"Bounder"
 			variant 2
 				"Arrow"
-				"Vanguard"
+				"Vanguard (Civilian)"
 			variant 2
 				"Bounder"
-				"Protector"
+				"Protector (Quad Blaster)"
 			variant 4
 				"Arrow"
-				"Quicksilver" 4
+				"Quicksilver (Civilian)" 4
 			variant 2
 				"Bounder"
-				"Manta" 2
+				"Manta (Civilian)" 2
 			variant 2
 				"Arrow"
-				"Manta"
-				"Quicksilver" 2
+				"Manta (Civilian)"
+				"Quicksilver (Civilian)" 2
 			variant 4
 				"Bounder"
-				"Splinter"
+				"Splinter (Civilian)"
 				"Wasp" 3
 			variant 2
 				"Arrow"
-				"Manta"
-				"Splinter"
+				"Manta (Civilian)"
+				"Splinter (Civilian)"
 			variant 2
 				"Bounder"
-				"Splinter" 2
+				"Splinter (Civilian)" 2
 			variant 1
 				"Arrow" 10
 		dialog "The target has been destroyed. Return to <destination> for payment."
@@ -3602,7 +3602,7 @@ mission "Republic Assassination [1]"
 				"Scout"
 			variant 3
 				"Flivver"
-				"Raven"
+				"Raven (Military)"
 				"Berserker"
 			variant 2
 				"Scout"
@@ -3610,18 +3610,18 @@ mission "Republic Assassination [1]"
 				"Dagger" 4
 			variant 2
 				"Flivver"
-				"Firebird"
+				"Firebird (Civilian)"
 			variant 3
 				"Scout"
-				"Headhunter" 2
+				"Headhunter (Civilian)" 2
 			variant 1
 				"Flivver"
 				"Gunboat" 2
 			variant 1
 				"Scout"
-				"Frigate"
+				"Frigate (Deployed)"
 			variant 1
-				"Mule"
+				"Mule (Heavy)"
 				"Dagger"
 			variant 1
 				"Star Queen"
@@ -3665,7 +3665,7 @@ mission "Republic Assassination [2]"
 			variant 1
 				"Scout"
 			variant 2
-				"Mule"
+				"Mule (Heavy)"
 				"Dagger"
 			variant 2
 				"Star Queen"
@@ -3673,34 +3673,34 @@ mission "Republic Assassination [2]"
 				"Flivver"
 				"Aerie"
 				"Dagger" 4
-				"Frigate"
+				"Frigate (Deployed)"
 			variant 4
 				"Scout"
-				"Headhunter" 4
+				"Headhunter (Civilian)" 4
 			variant 3
-				"Mule"
+				"Mule (Heavy)"
 				"Dagger"
-				"Raven" 2
+				"Raven (Military)" 2
 			variant 2
 				"Star Queen"
-				"Corvette"
-				"Firebird"
+				"Corvette (Civilian)"
+				"Firebird (Civilian)"
 			variant 2
 				"Flivver"
-				"Leviathan"
+				"Leviathan (Civilian)"
 			variant 2
 				"Scout"
-				"Corvette"
-				"Mule"
+				"Corvette (Civilian)"
+				"Mule (Heavy)"
 				"Dagger"
 			variant 1
-				"Mule"
+				"Mule (Heavy)"
 				"Dagger"
-				"Cruiser"
+				"Cruiser (Deployed)"
 				"Combat Drone" 4
 			variant 1
 				"Star Queen"
-				"Carrier"
+				"Carrier (Deployed)"
 				"Lance" 8
 				"Combat Drone" 6
 		dialog "The target has been destroyed. Return to <destination> for payment."

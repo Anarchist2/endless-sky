@@ -713,7 +713,7 @@ event "southern carriers 1"
 		fighters
 			names "free worlds fighters"
 		add variant 1
-			"Nest"
+			"Nest (Civilian)"
 			"Finch" 2
 
 event "southern carriers 2"
@@ -729,19 +729,19 @@ event "southern carriers 2"
 			names "free worlds fighter"
 		add variant 15
 			"Hauler III"
-			"Nest"
+			"Nest (Civilian)"
 			"Finch" 2
 		add variant 15
-			"Argosy"
+			"Argosy (Civilian)"
 			"Hauler II"
-			"Nest"
+			"Nest (Civilian)"
 			"Finch" 2
 		add variant 5
 			"Hauler III" 3
-			"Roost"
+			"Roost (Civilian)"
 			"Finch" 4
 		add variant 5
-			"Roost" 3
+			"Roost (Civilian)" 3
 			"Finch" 6
 			"Boxwing" 6
 
@@ -749,10 +749,10 @@ event "southern carriers 2"
 		fighters
 			names "free worlds fighter"
 		add variant 1
-			"Nest"
+			"Nest (Civilian)"
 			"Barb" 2
 		add variant 1
-			"Nest"
+			"Nest (Civilian)"
 			"Barb"
 			"Boxwing"
 
@@ -768,13 +768,13 @@ event "southern carriers 3"
 		fighters
 			names "free worlds fighters"
 		add variant 2
-			"Roost"
+			"Roost (Civilian)"
 			"Finch" 4
 		add variant 2
 			"Skein"
 			"Finch" 6
 		add variant 1
-			"Roost" 2
+			"Roost (Civilian)" 2
 			"Finch" 6
 			"Boxwing" 2
 		add variant 1
@@ -784,10 +784,10 @@ event "southern carriers 3"
 
 	fleet "Small Southern Pirates"
 		add variant 1
-			"Nest"
+			"Nest (Civilian)"
 			"Barb" 2
 		add variant 1
-			"Nest"
+			"Nest (Civilian)"
 			"Barb (Gatling)" 2
 
 event "southern carriers 4"
@@ -799,54 +799,54 @@ event "southern carriers 4"
 			"Hauler II"
 			"Roost (Sidewinder)"
 			"Dagger" 2
-			"Lance" 2
+			"Lance (Sidewinder)" 2
 		add variant 2
 			"Hauler III"
 			"Hauler II"
 			"Roost (Sidewinder)"
 			"Lance (Gatling)" 2
-			"Lance" 2
+			"Lance (Sidewinder)" 2
 		add variant 2
-			"Roost" 3
-			"Dagger" 4
+			"Roost (Civilian)" 3
+			"Dagger (Meteor)" 4
 			"Lance" 4
 			"Boxwing" 4
 		add variant 2
-			"Roost" 3
+			"Roost (Civilian)" 3
 			"Lance (Gatling)" 4
 			"Lance" 4
 			"Boxwing" 4
 
 	fleet "Large Southern Pirates"
 		add variant 1
-			"Roost"
+			"Roost (Civilian)"
 			"Barb" 4
 		add variant 1
-			"Roost"
+			"Roost (Civilian)"
 			"Barb (Gatling)" 4
 
 	fleet "Large Independent"
 		fighters
 			names "free worlds fighter"
 		add variant 2
-			"Roost"
+			"Roost (Civilian)"
 			"Barb" 4
 		add variant 2
-			"Roost"
+			"Roost (Civilian)"
 			"Barb" 2
 			"Boxwing" 2
 
 	fleet "Small Northern Pirates"
 		add variant 1
-			"Nest"
+			"Nest (Civilian)"
 			"Lance" 2
 
 	fleet "Large Northern Pirates"
 		add variant 1
-			"Roost"
+			"Roost (Civilian)"
 			"Lance" 4
 		add variant 1
-			"Roost"
+			"Roost (Civilian)"
 			"Lance (Gatling)" 4
 
 	fleet "Human Miners"
@@ -1067,7 +1067,7 @@ event "recapture of Kornephoros"
 
 	fleet "Small Republic"
 		add variant 10
-			"Protector"
+			"Protector (Quad Blaster)"
 
 
 
@@ -1374,90 +1374,90 @@ event "catalytic ramscoop available"
 		add variant 19
 			"Auxiliary (Mark II)"
 			"Dropship" 2
-			"Lance" 2
-			"Cruiser"
+			"Lance (Sidewinder)" 2
+			"Cruiser (Deployed)"
 			"Combat Drone" 4
-			"Frigate"
+			"Frigate (Deployed)"
 			"Gunboat" 2
 		add variant 19
 			"Auxiliary (Cargo Mark II)"
 			"Dropship" 2
-			"Lance" 2
-			"Cruiser"
+			"Lance (Sidewinder)" 2
+			"Cruiser (Deployed)"
 			"Combat Drone" 4
-			"Frigate"
+			"Frigate (Deployed)"
 			"Gunboat" 2
 		add variant 19
 			"Auxiliary (Transport Mark II)"
 			"Dropship" 2
-			"Lance" 2
-			"Cruiser"
+			"Lance (Sidewinder)" 2
+			"Cruiser (Deployed)"
 			"Combat Drone" 4
-			"Frigate"
+			"Frigate (Deployed)"
 			"Gunboat" 2
 		add variant 1
 			"Auxiliary (Cargo Mark II)" 3
 			"Dropship" 3
 			"Lance" 9
-			"Cruiser" 2
+			"Cruiser (Deployed)" 2
 			"Combat Drone" 8
 		add variant 1
 			"Auxiliary (Transport Mark II)"
 			"Auxiliary (Cargo Mark II)"
 			"Auxiliary (Mark II)"
 			"Dropship" 6
-			"Lance" 6
-			"Cruiser" 2
+			"Lance (Sidewinder)" 6
+			"Cruiser (Deployed)" 2
 			"Combat Drone" 8
 		add variant 1
 			"Auxiliary (Transport Mark II)" 3
 			"Dropship" 9
-			"Lance" 3
-			"Cruiser" 2
+			"Lance (Sidewinder)" 3
+			"Cruiser (Deployed)" 2
 			"Combat Drone" 8
 		remove variant
-			"Auxiliary"
+			"Auxiliary (Deployed)"
 			"Dropship" 2
-			"Lance" 2
-			"Cruiser"
+			"Lance (Sidewinder)" 2
+			"Cruiser (Deployed)"
 			"Combat Drone" 4
-			"Frigate"
+			"Frigate (Deployed)"
 			"Gunboat" 2
 		remove variant
 			"Auxiliary (Cargo)"
 			"Dropship" 2
-			"Lance" 2
-			"Cruiser"
+			"Lance (Sidewinder)" 2
+			"Cruiser (Deployed)"
 			"Combat Drone" 4
-			"Frigate"
+			"Frigate (Deployed)"
 			"Gunboat" 2
 		remove variant
 			"Auxiliary (Transport)"
 			"Dropship" 2
-			"Lance" 2
-			"Cruiser"
+			"Lance (Sidewinder)" 2
+			"Cruiser (Deployed)"
 			"Combat Drone" 4
-			"Frigate"
+			"Frigate (Deployed)"
 			"Gunboat" 2
 		remove variant
 			"Auxiliary (Cargo)" 3
 			"Dropship" 3
-			"Lance" 9
-			"Cruiser" 2
+			"Lance (Sidewinder)" 9
+			"Cruiser (Deployed)" 2
 			"Combat Drone" 8
 		remove variant
 			"Auxiliary (Transport)"
 			"Auxiliary (Cargo)"
-			"Auxiliary"
+			"Auxiliary (Deployed)"
 			"Dropship" 6
-			"Lance" 6
-			"Cruiser" 2
+			"Lance (Sidewinder)" 6
+			"Cruiser (Deployed)" 2
 			"Combat Drone" 8
 		remove variant
 			"Auxiliary (Transport)" 3
 			"Dropship" 9
-			"Lance" 3
-			"Cruiser" 2
+			"Lance (Sidewinder)" 3
+			"Cruiser (Deployed)" 2
 			"Combat Drone" 8
 
 
@@ -1494,7 +1494,7 @@ event "navy using mark ii ships"
 		add variant 12
 			"Gunboat (Mark II)"
 		remove variant
-			"Protector"
+			"Protector (Quad Blaster)"
 	
 	fleet "Large Republic"
 		add variant 12
@@ -1511,11 +1511,11 @@ event "navy using mark ii ships"
 			"Rainmaker (Mark II)"
 		add variant 6
 			"Carrier (Mark II)"
-			"Lance" 8
+			"Lance (Sidewinder)" 8
 			"Combat Drone" 6
 		add variant 3
 			"Carrier (Mark II)"
-			"Lance" 8
+			"Lance (Sidewinder)" 8
 			"Combat Drone" 6
 			"Cruiser (Mark II)"
 			"Combat Drone" 4
@@ -1561,11 +1561,11 @@ event "navy using mark ii ships"
 			"Rainmaker (Mark II)"
 		add variant 6
 			"Carrier (Mark II)"
-			"Lance" 8
+			"Lance (Sidewinder)" 8
 			"Combat Drone" 6
 		add variant 3
 			"Carrier (Mark II)"
-			"Lance" 8
+			"Lance (Sidewinder)" 8
 			"Combat Drone" 6
 			"Cruiser (Mark II)"
 			"Combat Drone" 4

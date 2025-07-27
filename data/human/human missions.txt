@@ -2404,9 +2404,9 @@ mission "Terraforming 11"
 			names "pirate"
 			variant
 				"Marauder Quicksilver"
-				"Headhunter"
+				"Headhunter (Civilian)"
 				"Wasp"
-				"Bastion"
+				"Bastion (Civilian)"
 	npc
 		government "Republic"
 		personality heroic opportunistic
@@ -3717,18 +3717,19 @@ mission "Pirate Duel"
 
 ship "Vanguard" "Vanguard (Plasma Slow)"
 	outfits
-		"Plasma Cannon" 7
-		"Heavy Anti-Missile Turret"
+		"Plasma Cannon" 5
+		"Anti-Missile Turret"
 		"Fusion Reactor"
 		Supercapacitor
 		"D14-RN Shield Generator"
-		"Fuel Pod" 5
+		"Fuel Pod" 8
 		"Small Radar Jammer" 2
 		"Interference Plating" 4
-		"Cargo Expansion" 3
+		"Bunk Room" 2
+		"Cargo Expansion" 4
 		"Laser Rifle" 11
-		"X3700 Ion Thruster"
-		"X3200 Ion Steering"
+		"Greyhound Plasma Thruster"
+		"Greyhound Plasma Steering"
 		"Scram Drive"
 
 
@@ -4874,27 +4875,27 @@ mission "Saving Artifacts 3"
 	npc kill
 		personality heroic nemesis waiting staying target
 		government "Pirate"
-		ship "Falcon" "Pestilance"
+		ship "Falcon (Civilian)" "Pestilance"
 
 	npc kill
 		personality heroic nemesis waiting staying target
 		government "Pirate"
-		ship "Headhunter" "Deth"
+		ship "Headhunter (Civilian)" "Deth"
 
 	npc kill
 		personality heroic nemesis waiting staying target
 		government "Pirate"
-		ship "Headhunter" "Warr"
+		ship "Headhunter (Civilian)" "Warr"
 
 	npc kill
 		personality heroic nemesis waiting staying target
 		government "Pirate"
-		ship "Headhunter" "Famin"
+		ship "Headhunter (Civilian)" "Famin"
 
 	npc kill
 		personality heroic nemesis waiting staying target
 		government "Pirate"
-		ship "Headhunter" "Konkwest"
+		ship "Headhunter (Civilian)" "Konkwest"
 
 	on complete
 		conversation
@@ -5763,7 +5764,7 @@ mission "Escort offer (Betrayal)"
 		government "Pirate"
 		personality staying nemesis harvests plunders
 		system Moktar
-		ship "Splinter" "Hellblade"
+		ship "Splinter (Civilian)" "Hellblade"
 	npc accompany save
 		government "Escort (Betraying)"
 		personality nemesis harvests plunders
@@ -6003,12 +6004,12 @@ mission "Argosy Hijacking"
 				`	(Jump for cover.)`
 				`	(Take a shot at the <npc model> with your sidearm.)`
 					goto shoot
-			`	Both of you barely jump down for cover before the ship clips a stack of cargo crates, sending them flying into the refueling platform. The Quad Blaster Turret mounted on the top of the <npc model> swivels around aimlessly, then fires without warning, its energy bolts scattering some of the startled onlookers nearby and sending up debris where they hit the ground. It comes dangerously close to colliding with the <ship> before it veers off to the side and sends its repulsors into full thrust, fleeing away into the sky.`
+			`	Both of you barely jump down for cover before the ship clips a stack of cargo crates, sending them flying into the refueling platform. The Blaster Turret mounted on the top of the <npc model> swivels around aimlessly, then fires without warning, its energy bolts scattering some of the startled onlookers nearby and sending up debris where they hit the ground. It comes dangerously close to colliding with the <ship> before it veers off to the side and sends its repulsors into full thrust, fleeing away into the sky.`
 				goto dazed
 
 			label shoot
 			`	You fire a shot right at the cockpit with your pistol but the shot is absorbed by the <npc model>'s shield matrix, rendering it useless. The <npc> flies right over you, sending you backwards and into the ground.`
-			`	You prop yourself up to hear the <npc model>'s Quad Blaster Turret fire aimlessly around the spaceport, shortly replaced by the sounds of its repulsors being sent up to full thrust. By the time you get up, the <npc> has already started fleeing off into the sky.`
+			`	You prop yourself up to hear the <npc model>'s Blaster Turret fire aimlessly around the spaceport, shortly replaced by the sounds of its repulsors being sent up to full thrust. By the time you get up, the <npc> has already started fleeing off into the sky.`
 
 			label dazed
 			`	The Syndicated Security officer, dazed and coated in dust kicked up from the unpermitted departure, only just pulls himself up before another person runs up to accost him. "Oi, those kids, they just hijacked my <npc model>! Get someone on their tail!"`
@@ -7469,7 +7470,7 @@ mission "Adelita 4"
 		ship "Quicksilver" "Dog's Leash"
 		ship "Quicksilver" "Burning Whip"
 		ship "Quicksilver" "Iron Chains"
-		ship "Vanguard" "Cat o' Nine Tails"
+		ship "Vanguard (Civilian)" "Cat o' Nine Tails"
 
 	npc
 		personality fleeing uninterested launching
@@ -7561,7 +7562,7 @@ mission "Syndicate Business 1"
 		personality heroic staying vindictive
 			confusion 20
 		system "Moktar"
-		ship "Vanguard" "Golden Jewel"
+		ship "Vanguard (Civilian)" "Golden Jewel"
 		on kill
 			set "syndicate business: golden jewel dead"
 			dialog "The crew of the Golden Jewel are no more. You think you can make out the pirate captain drifting in space nearby."
@@ -7921,7 +7922,7 @@ mission "Syndicate Business 4"
 			variant
 				"Wasp" 3
 			variant
-				"Quicksilver"
+				"Quicksilver (Civilian)"
 
 	npc
 		government "Pirate"
@@ -7933,7 +7934,7 @@ mission "Syndicate Business 4"
 			variant
 				"Wasp" 3
 			variant
-				"Quicksilver"
+				"Quicksilver (Civilian)"
 
 	on complete
 		conversation
@@ -8032,7 +8033,7 @@ mission "Syndicate Business 5"
 		personality heroic staying vindictive
 			confusion 20
 		system "Moktar"
-		ship "Vanguard" "Golden Jewel"
+		ship "Vanguard (Civilian)" "Golden Jewel"
 		to despawn
 			has "syndicate business: golden jewel dead"
 		on encounter
@@ -8832,15 +8833,15 @@ mission "Timothy Radrickson 3b: Pirate Base"
 				"Marauder Falcon (Engines)"
 				"Falcon (Javelin)"
 				"Marauder Firebird (Weapons)"
-				"Firebird"
+				"Firebird (Civilian)"
 
 				"Marauder Raven"
 				"Modified Argosy (Gatling)" 2
 				"Osprey (Missile)"
 
 				"Hawk (Plasma)"
-				"Quicksilver" 2
-				"Headhunter"
+				"Quicksilver (Civilian)" 2
+				"Headhunter (Civilian)"
 				"Fury (Gatling)" 3
 		on kill
 			dialog "After destroying the last of the marauder ships you feel you can safely return to the base."
@@ -8856,7 +8857,7 @@ mission "Timothy Radrickson 3b: Pirate Base"
 				"Marauder Falcon (Engines)"
 				"Falcon (Javelin)"
 				"Marauder Firebird (Weapons)"
-				"Firebird"
+				"Firebird (Civilian)"
 
 				"Modified Argosy (Gatling)"
 				"Osprey (Missile)"

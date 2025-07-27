@@ -1210,7 +1210,7 @@ ship "Carrier" "Carrier (Alpha)"
 	outfits
 		"Ion Cannon" 2
 		"Hai Tracker Pod" 4
-		"Hai Tracker" 224
+		"Hai Tracker" 148
 		"Shield Disruptor Turret" 2
 		"Husk-Slice Turret" 2
 		

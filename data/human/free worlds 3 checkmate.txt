@@ -47,7 +47,7 @@ mission "FWC Scouting 1"
 				names "republic fighter"
 			variant
 				"Carrier (Mark II)"
-				"Lance" 8
+				"Lance (Sidewinder)" 8
 				"Combat Drone" 6
 		fleet 3
 			names "republic capital"
@@ -133,7 +133,7 @@ mission "FWC Attack Kaus Borealis"
 			names "free worlds capital"
 			variant
 				"Dreadnought"
-				"Osprey"
+				"Osprey (Civilian)"
 	
 	npc evade
 		personality staying heroic
@@ -145,7 +145,7 @@ mission "FWC Attack Kaus Borealis"
 				names "republic fighter"
 			variant
 				"Carrier (Mark II)"
-				"Lance" 8
+				"Lance (Sidewinder)" 8
 				"Combat Drone" 6
 		fleet 3
 			names "republic capital"
@@ -165,14 +165,14 @@ mission "FWC Attack Kaus Borealis"
 				names "republic fighter"
 			variant
 				"Carrier (Mark II)"
-				"Frigate" 2
+				"Frigate (Deployed)" 2
 		fleet
 			names "republic capital"
 			fighters
 				names "republic fighter"
 			variant
 				"Cruiser (Mark II)"
-				"Frigate" 2
+				"Frigate (Deployed)" 2
 
 
 
@@ -288,7 +288,7 @@ mission "FWC Cebalrai 1B"
 		fleet
 			names "free worlds capital"
 			variant
-				"Osprey"
+				"Osprey (Civilian)"
 				"Argosy (Blaster)" 2
 	
 	npc evade
@@ -301,7 +301,7 @@ mission "FWC Cebalrai 1B"
 				names "republic fighter"
 			variant
 				"Carrier (Mark II)"
-				"Lance" 8
+				"Lance (Sidewinder)" 8
 				"Combat Drone" 6
 				"Frigate (Mark II)" 2
 		fleet
@@ -316,16 +316,16 @@ mission "FWC Cebalrai 1B"
 			fighters
 				names "republic fighter"
 			variant
-				"Frigate"
+				"Frigate (Deployed)"
 				"Gunboat" 2
 		fleet
 			names "republic capital"
 			fighters
 				names "republic fighter"
 			variant
-				"Cruiser"
+				"Cruiser (Deployed)"
 				"Combat Drone" 4
-				"Frigate"
+				"Frigate (Deployed)"
 
 
 
@@ -590,7 +590,7 @@ mission "FWC Diplomacy 1C"
 				names "republic fighter"
 			variant
 				"Carrier (Mark II)"
-				"Lance" 8
+				"Lance (Sidewinder)" 8
 				"Combat Drone" 6
 		fleet 2
 			names "republic capital"
@@ -610,7 +610,7 @@ mission "FWC Diplomacy 1C"
 				names "republic fighter"
 			variant
 				"Carrier (Mark II)"
-				"Lance" 8
+				"Lance (Sidewinder)" 8
 				"Combat Drone" 6
 		fleet 2
 			names "republic capital"
@@ -667,7 +667,7 @@ mission "FWC Checkmate 1"
 		fleet
 			names "free worlds capital"
 			variant
-				"Osprey"
+				"Osprey (Civilian)"
 				"Argosy (Blaster)" 2
 	
 	npc
@@ -706,7 +706,7 @@ mission "FWC Checkmate 1"
 				names "republic fighter"
 			variant
 				"Carrier (Mark II)"
-				"Lance" 8
+				"Lance (Sidewinder)" 8
 				"Combat Drone" 6
 		fleet 2
 			names "republic capital"
@@ -726,7 +726,7 @@ mission "FWC Checkmate 1"
 				names "republic fighter"
 			variant
 				"Carrier (Mark II)"
-				"Lance" 8
+				"Lance (Sidewinder)" 8
 				"Combat Drone" 6
 		fleet 3
 			names "republic capital"
@@ -746,7 +746,7 @@ mission "FWC Checkmate 1"
 				names "republic fighter"
 			variant
 				"Carrier (Mark II)"
-				"Lance" 8
+				"Lance (Sidewinder)" 8
 				"Combat Drone" 6
 		fleet
 			names "republic capital"
@@ -919,7 +919,7 @@ mission "FWC Checkmate 1B"
 				names "republic fighter"
 			variant
 				"Carrier (Mark II)"
-				"Lance" 8
+				"Lance (Sidewinder)" 8
 				"Combat Drone" 6
 		fleet 2
 			names "republic capital"
@@ -1707,7 +1707,7 @@ mission "FWC Pug 3D: Reinforcements"
 				names "republic fighter"
 			variant
 				"Carrier (Mark II)"
-				"Lance" 8
+				"Lance (Sidewinder)" 8
 				"Combat Drone" 6
 				"Gunboat (Mark II)" 3
 	npc kill
@@ -2180,7 +2180,7 @@ mission "FWC Pug 5B"
 				names "republic fighter"
 			variant
 				"Carrier (Mark II)"
-				"Lance" 8
+				"Lance (Sidewinder)" 8
 				"Combat Drone" 6
 				"Cruiser (Mark II)"
 				"Combat Drone" 4
@@ -2223,7 +2223,7 @@ mission "FWC Pug 5C"
 				names "republic fighter"
 			variant
 				"Carrier (Mark II)"
-				"Lance" 8
+				"Lance (Sidewinder)" 8
 				"Combat Drone" 6
 				"Cruiser (Mark II)"
 				"Combat Drone" 4
@@ -2275,7 +2275,7 @@ mission "FWC Pug 6"
 				names "republic fighter"
 			variant
 				"Carrier (Mark II)"
-				"Lance" 8
+				"Lance (Sidewinder)" 8
 				"Combat Drone" 6
 				"Cruiser (Mark II)"
 				"Combat Drone" 4
@@ -2300,7 +2300,7 @@ mission "FWC Pug 6"
 				names "republic fighter"
 			variant
 				"Carrier (Mark II)"
-				"Lance" 8
+				"Lance (Sidewinder)" 8
 				"Combat Drone" 6
 				"Gunboat (Mark II)" 3
 	npc

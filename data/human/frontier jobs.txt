@@ -332,9 +332,9 @@ mission "Small Pirate gambling"
 		fleet
 			names "pirate"
 			variant
-				"Sparrow" 2
+				"Sparrow (Blaster)" 2
 			variant
 				"Wasp" 2
 			variant
 				"Wasp"
-				"Sparrow"
+				"Sparrow (Blaster)"

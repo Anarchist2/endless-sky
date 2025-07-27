@@ -53,7 +53,7 @@ mission "Liberate Kornephoros"
 			names "free worlds capital"
 			variant
 				"Falcon"
-				"Osprey"
+				"Osprey (Civilian)"
 				"Osprey (Missile)"
 	npc
 		government "Free Worlds"
@@ -62,7 +62,7 @@ mission "Liberate Kornephoros"
 		fleet
 			names "free worlds capital"
 			variant
-				"Osprey"
+				"Osprey (Civilian)"
 				"Falcon (Heavy)"
 				"Hawk" 2
 		fleet
@@ -100,7 +100,7 @@ mission "Liberate Kornephoros"
 			variant
 				"Cruiser (Heavy)" 2
 				"Combat Drone" 8
-				"Rainmaker" 2
+				"Rainmaker (Deployed)" 2
 		fleet
 			names "republic capital"
 			fighters
@@ -108,7 +108,7 @@ mission "Liberate Kornephoros"
 			variant
 				"Cruiser (Heavy)"
 				"Combat Drone" 4
-				"Frigate"
+				"Frigate (Deployed)"
 				"Gunboat" 2
 		fleet
 			names "republic capital"
@@ -116,8 +116,8 @@ mission "Liberate Kornephoros"
 				names "republic fighter"
 			variant
 				"Gunboat" 2
-				"Frigate"
-				"Rainmaker"
+				"Frigate (Deployed)"
+				"Rainmaker (Deployed)"
 	
 	on visit
 		dialog `There are still Navy ships patrolling overhead. Staying on <planet> while your allies are dying in orbit would be a very bad idea.`
@@ -1332,7 +1332,7 @@ mission "FW Pirates: Attack 2"
 		fleet
 			names "free worlds capital"
 			variant
-				"Osprey"
+				"Osprey (Civilian)"
 				"Osprey (Missile)"
 		fleet
 			names "free worlds capital"
@@ -1364,8 +1364,8 @@ mission "FW Pirates: Attack 2"
 			names "civilian"
 			variant
 				"Firebird"
-				"Behemoth"
-				"Modified Argosy"
+				"Behemoth (Civilian)"
+				"Modified Argosy (Pirate)"
 				"Clipper (Speedy)"
 	npc evade
 		government "Pirate"
@@ -1377,18 +1377,18 @@ mission "FW Pirates: Attack 2"
 			variant
 				"Falcon (Heavy)"
 				"Clipper (Heavy)"
-				"Modified Argosy"
+				"Modified Argosy (Pirate)"
 		fleet
 			government "Pirate"
 			names "pirate"
 			variant
-				"Bastion"
-				"Modified Argosy" 2
+				"Bastion (Civilian)"
+				"Modified Argosy (Pirate)" 2
 		fleet
 			government "Pirate"
 			names "pirate"
 			variant
-				"Bastion"
+				"Bastion (Civilian)"
 				"Sparrow (Gatling)" 3
 		fleet
 			government "Pirate"
@@ -1413,7 +1413,7 @@ mission "FW Pirates: Attack 2"
 			names "pirate"
 			variant
 				"Mule (Heavy)"
-				"Dagger"
+				"Dagger (Meteor)"
 	
 	on visit
 		dialog `You've landed on <planet>, but there are still pirates defending the system. All pirates in the system must be eliminated before <planet> can be taken.`
@@ -1562,7 +1562,7 @@ mission "FW Pirates: Diplomacy 2"
 	npc evade
 		government "Pirate"
 		personality plunders
-		ship "Leviathan" "Dire Rain"
+		ship "Leviathan (Civilian)" "Dire Rain"
 	npc evade
 		government "Pirate"
 		personality plunders entering
@@ -1752,9 +1752,9 @@ mission "FW Early Warning 1"
 		fleet
 			names "republic capital"
 			variant
-				"Frigate"
+				"Frigate (Deployed)"
 				"Gunboat" 3
-				"Rainmaker"
+				"Rainmaker (Deployed)"
 	npc
 		government "Republic"
 		personality staying heroic
@@ -1762,9 +1762,9 @@ mission "FW Early Warning 1"
 		fleet
 			names "republic capital"
 			variant
-				"Frigate" 2
+				"Frigate (Deployed)" 2
 				"Gunboat" 2
-				"Rainmaker"
+				"Rainmaker (Deployed)"
 		fleet
 			names "republic capital"
 			variant
@@ -1776,13 +1776,13 @@ mission "FW Early Warning 1"
 		fleet
 			names "republic capital"
 			variant
-				"Frigate" 2
+				"Frigate (Deployed)" 2
 				"Gunboat" 2
-				"Rainmaker"
+				"Rainmaker (Deployed)"
 		fleet
 			names "republic capital"
 			variant
-				"Frigate"
+				"Frigate (Deployed)"
 				"Gunboat" 2
 
 	npc
@@ -1793,12 +1793,12 @@ mission "FW Early Warning 1"
 			names "republic capital"
 			variant
 				"Gunboat"
-				"Rainmaker" 2
+				"Rainmaker (Deployed)" 2
 		fleet
 			names "republic capital"
 			variant
 				"Protector (Quad Blaster)"
-				"Protector"
+				"Protector (Quad Blaster)"
 	
 	on visit
 		dialog phrase "generic waypoint on visit"
@@ -1918,7 +1918,7 @@ mission "FW Early Warning 3"
 			names "free worlds capital"
 			variant
 				"Falcon" 2
-				"Osprey" 2
+				"Osprey (Civilian)" 2
 		fleet
 			names "free worlds capital"
 			variant
@@ -1932,7 +1932,7 @@ mission "FW Early Warning 3"
 			names "free worlds capital"
 			variant
 				"Falcon"
-				"Osprey"
+				"Osprey (Civilian)"
 				"Sparrow" 3
 	npc evade
 		government "Republic"
@@ -1942,7 +1942,7 @@ mission "FW Early Warning 3"
 			names "republic capital"
 			variant
 				"Protector (Quad Blaster)"
-				"Frigate" 2
+				"Frigate (Deployed)" 2
 	npc evade
 		government "Republic"
 		personality heroic staying derelict
@@ -1950,9 +1950,9 @@ mission "FW Early Warning 3"
 		fleet
 			names "republic capital"
 			variant
-				"Cruiser"
+				"Cruiser (Deployed)"
 				"Gunboat"
-				"Rainmaker"
+				"Rainmaker (Deployed)"
 	
 	on visit
 		dialog `You've landed on <planet>, but you haven't yet completed all the objectives. Either there are still Navy ships in the system, or one of your ships carrying JJ is not yet in the system.`
@@ -1985,7 +1985,7 @@ mission "FW Early Warning 4"
 			names "free worlds capital"
 			variant
 				"Falcon"
-				"Osprey"
+				"Osprey (Civilian)"
 		fleet
 			names "free worlds capital"
 			variant
@@ -1997,7 +1997,7 @@ mission "FW Early Warning 4"
 		fleet
 			names "free worlds capital"
 			variant
-				"Osprey"
+				"Osprey (Civilian)"
 				"Osprey (Missile)"
 		fleet
 			names "free worlds capital"
@@ -2041,20 +2041,20 @@ mission "FW Early Warning 4"
 			variant
 				"Cruiser (Heavy)" 2
 				"Combat Drone" 8
-				"Frigate"
-				"Rainmaker" 2
+				"Frigate (Deployed)"
+				"Rainmaker (Deployed)" 2
 		fleet
 			names "republic capital"
 			variant
 				"Protector (Quad Blaster)"
-				"Frigate" 2
+				"Frigate (Deployed)" 2
 				"Gunboat"
 		fleet
 			names "republic capital"
 			variant
 				"Protector (Quad Blaster)" 2
-				"Frigate"
-				"Rainmaker" 2
+				"Frigate (Deployed)"
+				"Rainmaker (Deployed)" 2
 	
 	on visit
 		dialog `There are still Navy ships overhead. Staying on <planet> while your allies are dying in orbit would be a very bad idea.`

@@ -349,7 +349,7 @@ mission "Intro [1 Interceptor]"
 	npc
 		government Pirate
 		personality entering plunders
-		ship "Sparrow" "Bloodletter"
+		ship "Sparrow (Blaster)" "Bloodletter"
 		ship "Fury" "Hand of Fate"
 	
 	on offer
@@ -386,7 +386,7 @@ mission "Intro [2 Interceptor]"
 	npc
 		government Pirate
 		personality entering plunders
-		ship "Bastion" "Hammer of Thor"
+		ship "Bastion (Civilian)" "Hammer of Thor"
 	
 	on offer
 		conversation

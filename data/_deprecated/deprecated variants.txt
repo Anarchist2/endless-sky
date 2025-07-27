@@ -1,0 +1,330 @@
+# Copyright (c) 2014-2016 by Michael Zahniser
+#
+# Endless Sky is free software: you can redistribute it and/or modify it under the
+# terms of the GNU General Public License as published by the Free Software
+# Foundation, either version 3 of the License, or (at your option) any later version.
+#
+# Endless Sky is distributed in the hope that it will be useful, but WITHOUT ANY
+# WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
+# PARTICULAR PURPOSE. See the GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License along with
+# this program. If not, see <https://www.gnu.org/licenses/>.
+
+# Note: this file contains ship variants that are no longer used in the game, but that
+# must be maintained in case of any save file or plugin still referencing them.
+
+ship "Bactrian" "Bactrian (Hired Gun)"
+	outfits
+		"Heavy Laser" 4
+		"Heavy Laser Turret" 6
+		"Armageddon Core"
+		"LP144a Battery Pack"
+		"D94-YV Shield Generator"
+		"D41-HY Shield Generator"
+		"Liquid Nitrogen Cooler"
+		"Water Coolant System"
+		"Outfits Expansion" 2
+		"Laser Rifle" 20
+		"Large Radar Jammer"
+		"A520 Atomic Thruster"
+		"A525 Atomic Steering"
+		"Hyperdrive"
+
+
+# Troop transport Bactrians
+ship "Bactrian" "Bactrian (Troop Jump)"
+	outfits
+		"Liquid Helium Cooler"
+		"Catalytic Ramscoop"
+		"Hai Tracker Pod" 4
+		"Hai Tracker" 224
+		`"Bufaer" Atomic Thruster`
+		"Jump Drive"
+		"Outfits Expansion"
+		"Boulder Reactor" 2
+		`"Bufaer" Atomic Steering`
+		"Pulse Rifle" 247
+		"Bullfrog Anti-Missile" 4
+		"Hai Diamond Regenerator" 2
+		"Hai Chasm Batteries"
+		Brig
+		Supercapacitor 2
+		"Small Bunk Room"
+		"Fuel Pod"
+		"Liquid Nitrogen Cooler"
+		"Security Station"
+		"Fragmentation Grenades" 247
+		"Quad Blaster Turret" 2
+		"Quantum Key Stone"
+
+
+# This variant uses outfits acquired in the post-war condition that were surplus or black market for diversity *after* the main campaign.
+ship "Bactrian" "Bactrian (Plasma Blaster Anti-Missile)"
+	outfits
+		"Heavy Anti-Missile Turret" 3
+		"Armageddon Core"
+		"LP036a Battery Pack"
+		"S-970 Regenerator"
+		"Liquid Helium Cooler" 2
+		Hyperdrive
+		"LP072a Battery Pack"
+		"Outfits Expansion" 5
+		"Liquid Nitrogen Cooler"
+		"Plasma Cannon" 4
+		"A520 Atomic Thruster"
+		"A255 Atomic Steering"
+		"A525 Atomic Steering"
+		"Fission Reactor"
+		"Quad Blaster Turret" 3
+		"Laser Rifle" 15
+
+
+
+ship "Corvette" "Corvette (Particle Chaser)"
+	outfits
+		"Particle Cannon" 4
+		"Heavy Anti-Missile Turret"
+		"Fusion Reactor"
+		"Supercapacitor"
+		"D41-HY Shield Generator"
+		"Liquid Nitrogen Cooler"
+		"Water Coolant System"
+		"Laser Rifle" 2
+		"A370 Atomic Thruster"
+		"A375 Atomic Steering"
+		"Hyperdrive"
+		"Fuel Pod"
+		"Outfits Expansion" 2
+		"Catalytic Ramscoop"
+
+
+# This variant uses outfits acquired in the post-war condition that were surplus or black market for diversity *after* the main campaign.
+ship "Corvette" "Corvette (Flamethrower Electron Anti-Missile)"
+	outfits
+		"Heavy Anti-Missile Turret" 2
+		"LP036a Battery Pack"
+		"S-970 Regenerator"
+		"Catalytic Ramscoop"
+		Hyperdrive
+		Supercapacitor
+		"Fuel Pod" 3
+		"Outfits Expansion" 2
+		"Liquid Nitrogen Cooler"
+		"A370 Atomic Thruster"
+		"A375 Atomic Steering"
+		Flamethrower 2
+		"Electron Beam" 2
+		"Laser Rifle" 3
+		"Water Coolant System"
+		"Fusion Reactor"
+
+
+
+ship "Cruiser" "Cruiser (Republic Intelligence)"
+	outfits
+		"Typhoon Launcher" 2
+		"Typhoon Torpedo" 60
+		"Sidewinder Missile Launcher" 3
+		"Sidewinder Missile" 134
+		"Electron Turret" 2
+		"Heavy Anti-Missile Turret" 2
+		"Armageddon Core"
+		"LP144a Battery Pack"
+		"S-970 Regenerator"
+		"Large Radar Jammer"
+		"Small Radar Jammer" 2
+		"Liquid Helium Cooler"
+		"Fuel Pod"
+		"Tactical Scanner"
+		"Laser Rifle" 25
+		"Fragmentation Grenades" 25
+		"A520 Atomic Thruster"
+		"A525 Atomic Steering"
+		"Hyperdrive"
+		"Outfit Scanner" 3
+		"Cargo Scanner" 2
+		"Catalytic Ramscoop"
+		"Outfits Expansion"
+	gun "Sidewinder Missile Launcher"
+	gun "Sidewinder Missile Launcher"
+	gun "Sidewinder Missile Launcher"
+	gun
+	gun "Typhoon Launcher"
+	gun "Typhoon Launcher"
+	turret "Heavy Anti-Missile Turret"
+	turret "Electron Turret"
+	turret "Electron Turret"
+	turret "Heavy Anti-Missile Turret"
+
+
+
+# This variant uses outfits acquired in the post-war condition that were surplus or black market for diversity *after* the main campaign.
+ship "Dreadnought" "Dreadnought (Plasma Blaster Anti-Missile)"
+	outfits
+		"Heavy Anti-Missile Turret" 3
+		"Armageddon Core"
+		"S-970 Regenerator"
+		"Liquid Helium Cooler" 2
+		Hyperdrive
+		"Volcano Afterburner"
+		Supercapacitor
+		"Outfits Expansion" 2
+		"Plasma Cannon" 4
+		"A520 Atomic Thruster"
+		"A525 Atomic Steering"
+		"Breeder Reactor"
+		"Quad Blaster Turret" 2
+		"Laser Rifle" 25
+		"Water Coolant System"
+		"S-270 Regenerator" 2
+		"LP144a Battery Pack"
+
+
+
+ship "Falcon" "Falcon (Laser Chaser)"
+	outfits
+		"Outfits Expansion" 2
+		Hyperdrive
+		"A370 Atomic Thruster"
+		"A525 Atomic Steering"
+		"Liquid Helium Cooler"
+		"D94-YV Shield Generator"
+		"Catalytic Ramscoop"
+		"Heavy Anti-Missile Turret"
+		"Quad Blaster Turret" 3
+		"Laser Rifle" 30
+		"LP036a Battery Pack"
+		"Heavy Laser" 4
+		"Armageddon Core"
+
+
+
+ship "Leviathan" "Leviathan (Particle Chaser)"
+	outfits
+		"Scram Drive"
+		"Outfits Expansion" 3
+		"A370 Atomic Thruster"
+		"A525 Atomic Steering"
+		"D94-YV Shield Generator"
+		"Heavy Anti-Missile Turret"
+		"Liquid Helium Cooler"
+		"Liquid Nitrogen Cooler"
+		"Catalytic Ramscoop"
+		"Fuel Pod" 4
+		"LP072a Battery Pack"
+		"Particle Cannon" 4
+		"Laser Rifle" 32
+		"Quad Blaster Turret" 2
+		"Armageddon Core"
+
+
+
+# The default loadout of the Manta was changed to Proton Guns, making this variant redundant.
+ship "Manta" "Manta (Proton)"
+	outfits
+		"Meteor Missile Launcher" 2
+		"Meteor Missile" 20
+		"Proton Gun" 4
+		"RT-I Radiothermal"
+		"LP072a Battery Pack"
+		"D14-RN Shield Generator"
+		"Bunk Room" 2
+		"Cargo Expansion"
+		"Laser Rifle" 2
+		"X2700 Ion Thruster"
+		"X2200 Ion Steering"
+		"Hyperdrive"
+	gun "Meteor Missile Launcher"
+	gun "Meteor Missile Launcher"
+	gun "Proton Gun"
+	gun "Proton Gun"
+	gun "Proton Gun"
+	gun "Proton Gun"
+
+
+
+ship "Nest" "Nest (Sidewinder)"
+	outfits
+		"Sidewinder Missile Launcher" 2
+		"Sidewinder Missile" 90
+		"Quad Blaster Turret" 2
+		"Anti-Missile Turret"
+		"Heavy Anti-Missile Turret"
+		"S3 Thermionic"
+		"LP144a Battery Pack"
+		"D94-YV Shield Generator"
+		"Large Radar Jammer"
+		"Laser Rifle" 2
+		"A250 Atomic Thruster"
+		"A375 Atomic Steering"
+		"Hyperdrive"
+
+
+
+# This variant uses outfits acquired in the post-war condition that were surplus or black market for diversity *after* the main campaign.
+ship "Osprey" "Osprey (Particle Anti-Missile)"
+	outfits
+		"Heavy Anti-Missile Turret"
+		"LP036a Battery Pack"
+		"S-970 Regenerator"
+		Hyperdrive
+		"LP072a Battery Pack"
+		"Volcano Afterburner"
+		"Outfits Expansion" 2
+		"Liquid Nitrogen Cooler"
+		"Particle Cannon" 4
+		"A370 Atomic Thruster"
+		"A375 Atomic Steering"
+		"Laser Rifle" 3
+		"Water Coolant System"
+		"Fusion Reactor"
+
+
+
+# The default loadout of the Quicksilver was changed to Proton Guns, making this variant redundant.
+ship "Quicksilver" "Quicksilver (Proton)"
+	outfits
+		"Proton Gun" 2
+		
+		"nGVF-BB Fuel Cell"
+		"LP036a Battery Pack"
+		"Cargo Expansion" 3
+
+		"Capybara Reverse Thruster"
+		"Chipmunk Plasma Thruster"
+		"Chipmunk Plasma Steering"
+		"Hyperdrive"
+
+
+
+ship "Skein" "Skein (Sidewinder)"
+	outfits
+		"Sidewinder Missile Launcher" 2
+		"Sidewinder Missile" 90
+		"Quad Blaster Turret" 2
+		"Heavy Anti-Missile Turret"
+		"Anti-Missile Turret"
+		"LP144a Battery Pack"
+		"Fission Reactor"
+		"D94-YV Shield Generator" 3
+		"Large Radar Jammer"
+		"Outfits Expansion" 2
+		"Laser Rifle" 2
+		"A250 Atomic Thruster"
+		"A375 Atomic Steering"
+		Hyperdrive
+
+
+
+ship "Sparrow" "Sparrow (Patrol)"
+	outfits
+		"Beam Laser" 2
+		"nGVF-BB Fuel Cell"
+		"LP036a Battery Pack"
+		"D14-RN Shield Generator"
+		"Cargo Scanner"
+		"Outfit Scanner"
+		"Chipmunk Plasma Thruster"
+		"Chipmunk Plasma Steering"
+		"Hyperdrive"

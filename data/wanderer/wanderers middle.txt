@@ -2060,7 +2060,7 @@ mission "Wanderers: Sestor: Farpoint Attack 1"
 				names "republic fighter"
 			variant
 				"Carrier (Mark II)"
-				"Lance" 8
+				"Lance (Sidewinder)" 8
 				"Combat Drone" 6
 				"Cruiser (Mark II)"
 				"Combat Drone" 4
@@ -2085,7 +2085,7 @@ mission "Wanderers: Sestor: Farpoint Attack 1"
 				names "republic fighter"
 			variant
 				"Carrier (Mark II)"
-				"Lance" 8
+				"Lance (Sidewinder)" 8
 				"Combat Drone" 6
 				"Cruiser (Mark II)"
 				"Combat Drone" 4
@@ -2257,7 +2257,7 @@ mission "Wanderers: Sestor: Farpoint Attack 2"
 				names "republic fighter"
 			variant
 				"Carrier (Mark II)"
-				"Lance" 8
+				"Lance (Sidewinder)" 8
 				"Combat Drone" 6
 				"Cruiser (Mark II)"
 				"Combat Drone" 4
@@ -2301,7 +2301,7 @@ mission "Wanderers: Sestor: Farpoint Attack 2"
 				names "republic fighter"
 			variant
 				"Carrier (Mark II)"
-				"Lance" 8
+				"Lance (Sidewinder)" 8
 				"Combat Drone" 6
 				"Frigate (Mark II)" 3
 	npc evade
@@ -2760,7 +2760,7 @@ mission "Wanderers: Sestor: Drones in Alnilam"
 				names "republic fighter"
 			variant
 				"Carrier (Mark II)"
-				"Lance" 8
+				"Lance (Sidewinder)" 8
 				"Combat Drone" 6
 				"Cruiser (Mark II)"
 				"Combat Drone" 4

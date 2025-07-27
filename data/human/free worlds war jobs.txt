@@ -180,19 +180,19 @@ mission "FW Convoy Defense [0]"
 				"Freighter" 2
 				"Bastion"
 			variant
-				"Behemoth"
+				"Behemoth (Civilian)"
 				"Clipper" 2
 			variant
-				"Behemoth" 2
+				"Behemoth (Civilian)" 2
 			variant
 				"Hauler III"
 				"Bastion" 2
 			variant
 				"Hauler II" 2
-				"Osprey"
+				"Osprey (Civilian)"
 			variant
 				"Argosy" 2
-				"Osprey"
+				"Osprey (Civilian)"
 	on complete
 		payment 270000
 		dialog phrase "free worlds convoy supplies payment"
@@ -244,19 +244,19 @@ mission "FW Convoy Defense [1]"
 				"Freighter" 2
 				"Bastion"
 			variant
-				"Behemoth"
+				"Behemoth (Civilian)"
 				"Clipper" 2
 			variant
-				"Behemoth" 2
+				"Behemoth (Civilian)" 2
 			variant
 				"Hauler III"
 				"Bastion" 2
 			variant
 				"Hauler II" 2
-				"Osprey"
+				"Osprey (Civilian)"
 			variant
 				"Argosy" 2
-				"Osprey"
+				"Osprey (Civilian)"
 	on complete
 		payment 270000
 		dialog phrase "free worlds convoy supplies payment"
@@ -308,19 +308,19 @@ mission "FW Convoy Defense [2]"
 				"Freighter" 2
 				"Bastion"
 			variant
-				"Behemoth"
+				"Behemoth (Civilian)"
 				"Clipper" 2
 			variant
-				"Behemoth" 2
+				"Behemoth (Civilian)" 2
 			variant
 				"Hauler III"
 				"Bastion" 2
 			variant
 				"Hauler II" 2
-				"Osprey"
+				"Osprey (Civilian)"
 			variant
 				"Argosy" 2
-				"Osprey"
+				"Osprey (Civilian)"
 	on complete
 		payment 270000
 		dialog phrase "free worlds convoy supplies payment"

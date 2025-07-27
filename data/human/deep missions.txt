@@ -46,8 +46,8 @@ mission "Deep: Syndicate Convoy"
 		fleet
 			names "civilian"
 			variant
-				"Container Transport" 2
-				"Mule"
+				"Container Transport (Civilian)" 2
+				"Mule (Civilian)"
 	npc
 		government "Merchant"
 		personality timid
@@ -137,7 +137,7 @@ mission "Deep: Tarazed Convoy"
 			names "civilian"
 			variant
 				"Freighter" 3
-				"Mule" 2
+				"Mule (Civilian)" 2
 	npc
 		government "Merchant"
 		personality timid
@@ -229,7 +229,7 @@ mission "Deep: Kraz Convoy"
 		fleet
 			names "civilian"
 			variant
-				"Behemoth" 3
+				"Behemoth (Civilian)" 3
 	npc
 		government "Pirate"
 		personality nemesis staying
@@ -450,7 +450,7 @@ mission "Deep: Mystery Cubes 2"
 		fleet
 			names "deep"
 			variant
-				"Mule"
+				"Mule (Heavy)"
 				"Raven" 2
 	npc accompany save
 		government "Republic"
@@ -478,7 +478,7 @@ mission "Deep: Mystery Cubes 3: Escorts"
 			fighters
 				names "deep fighter"
 			variant
-				"Mule"
+				"Mule (Heavy)"
 				"Raven" 2
 				"Dagger"
 	npc kill
@@ -538,7 +538,7 @@ mission "Deep: Mystery Cubes 3"
 		fleet
 			names "pirate"
 			variant
-				"Cruiser" 2
+				"Cruiser (Deployed)" 2
 				"Fury (Laser)" 3
 
 
@@ -570,7 +570,7 @@ mission "Deep: Mystery Cubes 4"
 			variant
 				"Carrier"
 				"Combat Drone" 6
-				"Dagger" 8
+				"Dagger (Meteor)" 8
 	npc
 		government "Merchant"
 		personality staying vindictive
@@ -601,7 +601,7 @@ mission "Deep: Mystery Cubes 4"
 			fighters
 				names "deep fighter"
 			variant
-				"Aerie" 2
+				"Aerie (Military)" 2
 				"Dagger" 8
 				"Corvette (Speedy)"
 	npc
@@ -625,7 +625,7 @@ mission "Deep: Mystery Cubes 4"
 		fleet
 			names pirate
 			variant
-				"Cruiser" 3
+				"Cruiser (Deployed)" 3
 				"Marauder Leviathan"
 				"Leviathan (Hai Engines)"
 				"Headhunter (Particle)" 3
@@ -2209,7 +2209,7 @@ mission "Deep: Scientist Rescue 1: Escorts"
 			fighters
 				names "deep fighter"
 			variant
-				"Aerie"
+				"Aerie (Military)"
 				"Dagger" 4
 
 
@@ -3838,12 +3838,12 @@ mission "Home for Skadenga 11"
 	npc accompany save
 		government "Merchant"
 		personality timid escort
-		ship "Behemoth" "H.H.H. Hroar's Howl"
+		ship "Behemoth (Civilian)" "H.H.H. Hroar's Howl"
 		ship "Hauler" "H.H.H. Red Dawn"
 		ship "Hauler" "H.H.H. Crimson Carrier"
 		ship "Hauler III" "H.H.H. Unstoppable Force"
 		ship "Hauler II" "H.H.H. Fixed Income"
-		ship "Mule" "H.H.H. Breadbasket"
+		ship "Mule (Civilian)" "H.H.H. Breadbasket"
 		ship "Star Queen" "H.H.H. Land of Plenty"
 		ship "Star Barge" "H.H.H. Bandwagon"
 		ship "Bounder" "H.H.H. Rustborn"
@@ -3886,12 +3886,12 @@ mission "Home for Skadenga 12"
 	npc accompany save
 		government "Merchant"
 		personality timid escort
-		ship "Behemoth" "H.H.H. Hroar's Howl"
+		ship "Behemoth (Civilian)" "H.H.H. Hroar's Howl"
 		ship "Hauler" "H.H.H. Red Dawn"
 		ship "Hauler" "H.H.H. Crimson Carrier"
 		ship "Hauler III" "H.H.H. Unstoppable Force"
 		ship "Hauler II" "H.H.H. Fixed Income"
-		ship "Mule" "H.H.H. Breadbasket"
+		ship "Mule (Civilian)" "H.H.H. Breadbasket"
 		ship "Star Queen" "H.H.H. Land of Plenty"
 		ship "Star Barge" "H.H.H. Bandwagon"
 		ship "Bounder" "H.H.H. Rustborn"

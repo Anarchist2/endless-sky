@@ -477,7 +477,7 @@ mission "FW Southern Battle 2"
 			names "free worlds capital"
 			variant
 				"Falcon (Plasma)"
-				"Osprey" 2
+				"Osprey (Civilian)" 2
 		fleet
 			names "free worlds capital"
 			variant
@@ -518,7 +518,7 @@ mission "FW Southern Battle 2"
 				names "republic fighter"
 			variant
 				"Carrier (Mark II)"
-				"Lance" 8
+				"Lance (Sidewinder)" 8
 				"Combat Drone" 6
 		fleet 3
 			names "republic capital"
@@ -1235,7 +1235,7 @@ mission "FW Alphas 1.1"
 		personality heroic staying target
 		system Graffias
 		ship "Leviathan (Heavy)" "Dread Lord"
-		ship "Leviathan" "Dominator"
+		ship "Leviathan (Civilian)" "Dominator"
 		ship "Firebird (Plasma)" "Vengeance"
 		ship "Firebird (Missile)" "Revenant"
 		ship "Firebird" "Draugbreath"
@@ -1326,7 +1326,7 @@ mission "FW Alphas 1.2"
 		personality heroic staying target
 		system Graffias
 		ship "Leviathan (Heavy)" "Dread Lord"
-		ship "Leviathan" "Dominator"
+		ship "Leviathan (Civilian)" "Dominator"
 		ship "Firebird (Plasma)" "Vengeance"
 		ship "Firebird (Missile)" "Revenant"
 		ship "Firebird" "Draugbreath"
@@ -1598,6 +1598,32 @@ mission "FW Bloodsea 1.1B"
 				accept
 
 
+ship "Behemoth" "Behemoth (Heavy)"
+	outfits
+		"Torpedo Launcher" 2
+		Torpedo 60
+		"Quad Blaster Turret" 2
+		"Plasma Turret" 2
+		"Heavy Anti-Missile Turret"
+		"Anti-Missile Turret"
+		"Laser Rifle" 16
+		"Fusion Reactor"
+		"Supercapacitor"
+		"D94-YV Shield Generator"
+		"Outfits Expansion" 6
+		"Liquid Helium Cooler"
+		"Liquid Nitrogen Cooler"
+		"Greyhound Plasma Thruster"
+		"Impala Plasma Steering"
+		"Hyperdrive"
+	turret "Quad Blaster Turret"
+	turret "Anti-Missile Turret"
+	turret "Plasma Turret"
+	turret "Plasma Turret"
+	turret "Heavy Anti-Missile Turret"
+	turret "Quad Blaster Turret"
+
+
 
 mission "Ijs catches another ride"
 	landing
@@ -1672,8 +1698,8 @@ mission "FW Bloodsea 1.2A"
 				"Hawk (Rocket)" 2
 				"Fury (Flamethrower)" 3
 				Sparrow 5
-		ship "Leviathan" "Freedom"
-		ship "Manta" "Lucifer"
+		ship "Leviathan (Civilian)" "Freedom"
+		ship "Manta (Civilian)" "Lucifer"
 		ship "Bastion (Heavy)" "Punisher"
 	
 	on visit
@@ -1973,7 +1999,7 @@ mission "FW Rand 1"
 				names "republic fighter"
 			variant
 				"Carrier (Mark II)"
-				"Lance" 8
+				"Lance (Sidewinder)" 8
 				"Combat Drone" 6
 				"Gunboat (Mark II)"
 	
@@ -2316,7 +2342,7 @@ mission "FW Liberate Delta Sagittarii"
 			names "free worlds capital"
 			variant
 				"Falcon (Plasma)"
-				"Osprey"
+				"Osprey (Civilian)"
 		fleet
 			names "free worlds capital"
 			variant
@@ -2343,7 +2369,7 @@ mission "FW Liberate Delta Sagittarii"
 				names "republic fighter"
 			variant
 				"Carrier (Mark II)"
-				"Lance" 8
+				"Lance (Sidewinder)" 8
 				"Combat Drone" 6
 				"Gunboat (Mark II)" 3
 		fleet
@@ -2365,14 +2391,14 @@ mission "FW Liberate Delta Sagittarii"
 				names "republic fighter"
 			variant
 				"Carrier (Mark II)"
-				"Frigate" 2
+				"Frigate (Deployed)" 2
 		fleet
 			names "republic capital"
 			fighters
 				names "republic fighter"
 			variant
 				"Cruiser (Mark II)"
-				"Frigate" 4
+				"Frigate (Deployed)" 4
 	
 	npc
 		personality staying heroic

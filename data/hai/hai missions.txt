@@ -890,10 +890,10 @@ event "shipyard on greenwater"
 			"Bounder"
 			"Wasp" 2
 		add variant 5
-			"Manta"
+			"Manta (Civilian)"
 		add variant 5
 			"Freighter" 2
-			"Manta"
+			"Manta (Civilian)"
 	fleet "Large Human Merchants (Hai)"
 		add variant 6
 			"Freighter (Proton)" 2
@@ -901,7 +901,7 @@ event "shipyard on greenwater"
 		add variant 6
 			"Freighter" 4
 			"Quicksilver" 2
-			"Splinter" 1
+			"Splinter (Civilian)" 1
 		add variant 3
 			"Freighter" 4
 			"Quicksilver" 2

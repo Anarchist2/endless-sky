@@ -570,7 +570,7 @@ mission "Deep: Mystery Cubes 4"
 			variant
 				"Carrier"
 				"Combat Drone" 6
-				"Dagger (Meteor)" 8
+				"Dagger" 8
 	npc
 		government "Merchant"
 		personality staying vindictive

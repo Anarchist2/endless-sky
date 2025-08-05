@@ -334,7 +334,7 @@ mission "Small Pirate gambling"
 			variant
 				"Sparrow (Blaster)" 2
 			variant
-				"Wasp" 2
+				"Wasp (Blaster)" 2
 			variant
-				"Wasp"
+				"Wasp (Blaster)"
 				"Sparrow (Blaster)"

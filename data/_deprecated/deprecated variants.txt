@@ -328,3 +328,20 @@ ship "Sparrow" "Sparrow (Patrol)"
 		"Chipmunk Plasma Thruster"
 		"Chipmunk Plasma Steering"
 		"Hyperdrive"
+
+
+
+ship "Wasp" "Wasp (Meteor)"
+	outfits
+		"Energy Blaster"
+		"Meteor Missile Pod" 2
+		"Meteor Missile" 14
+		"nGVF-BB Fuel Cell"
+		"LP036a Battery Pack"
+		"D14-RN Shield Generator"
+		"X2700 Ion Thruster"
+		"X2200 Ion Steering"
+		"Hyperdrive"
+	gun "Energy Blaster"
+	gun "Meteor Missile Pod"
+	gun "Meteor Missile Pod"

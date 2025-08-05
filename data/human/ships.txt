@@ -2019,9 +2019,7 @@ ship "Fury"
 			"hull damage" 120
 			"hit force" 360
 	outfits
-		"Energy Blaster" 2
-		"Javelin Mini Pod" 2
-		"Javelin" 60
+		"Energy Blaster" 4
 		
 		"nGVF-CC Fuel Cell"
 		"LP036a Battery Pack"
@@ -2130,8 +2128,6 @@ ship "Hauler"
 			"hull damage" 300
 			"hit force" 900
 	outfits
-		"Meteor Missile Pod" 2
-		"Meteor Missile" 14
 		"Blaster Turret" 2
 		"Anti-Missile Turret" 2
 		
@@ -2189,8 +2185,6 @@ ship "Hauler II"
 			"hull damage" 400
 			"hit force" 1200
 	outfits
-		"Meteor Missile Pod" 2
-		"Meteor Missile" 14
 		"Blaster Turret" 2
 		"Anti-Missile Turret" 2
 		
@@ -2248,8 +2242,6 @@ ship "Hauler III"
 			"hull damage" 500
 			"hit force" 1500
 	outfits
-		"Meteor Missile Pod" 2
-		"Meteor Missile" 14
 		"Blaster Turret" 2
 		"Anti-Missile Turret" 2
 		
@@ -3914,8 +3906,6 @@ ship "Star Queen"
 			"hull damage" 300
 			"hit force" 900
 	outfits
-		"Sidewinder Missile Pod" 2
-		"Sidewinder Missile" 12
 		"Heavy Anti-Missile Turret" 2
 		
 		"KP-6 Photovoltaic Array" 4
@@ -3936,8 +3926,8 @@ ship "Star Queen"
 	"reverse engine" 19 51
 		over
 	gun 0 -113
-	gun -24 -76 "Sidewinder Missile Pod"
-	gun 24 -76 "Sidewinder Missile Pod"
+	gun -24 -76
+	gun 24 -76
 	turret -21.5 2.5 "Heavy Anti-Missile Turret"
 	turret 21.5 2.5 "Heavy Anti-Missile Turret"
 	leak "leak" 50 50

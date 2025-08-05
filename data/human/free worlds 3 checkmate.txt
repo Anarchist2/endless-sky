@@ -47,7 +47,7 @@ mission "FWC Scouting 1"
 				names "republic fighter"
 			variant
 				"Carrier (Mark II)"
-				"Lance (Sidewinder)" 8
+				"Lance (Blaster)" 8
 				"Combat Drone" 6
 		fleet 3
 			names "republic capital"
@@ -145,7 +145,7 @@ mission "FWC Attack Kaus Borealis"
 				names "republic fighter"
 			variant
 				"Carrier (Mark II)"
-				"Lance (Sidewinder)" 8
+				"Lance (Blaster)" 8
 				"Combat Drone" 6
 		fleet 3
 			names "republic capital"
@@ -301,7 +301,7 @@ mission "FWC Cebalrai 1B"
 				names "republic fighter"
 			variant
 				"Carrier (Mark II)"
-				"Lance (Sidewinder)" 8
+				"Lance (Blaster)" 8
 				"Combat Drone" 6
 				"Frigate (Mark II)" 2
 		fleet
@@ -706,7 +706,7 @@ mission "FWC Checkmate 1"
 				names "republic fighter"
 			variant
 				"Carrier (Mark II)"
-				"Lance (Sidewinder)" 8
+				"Lance (Blaster)" 8
 				"Combat Drone" 6
 		fleet 2
 			names "republic capital"
@@ -726,7 +726,7 @@ mission "FWC Checkmate 1"
 				names "republic fighter"
 			variant
 				"Carrier (Mark II)"
-				"Lance (Sidewinder)" 8
+				"Lance (Blaster)" 8
 				"Combat Drone" 6
 		fleet 3
 			names "republic capital"
@@ -746,7 +746,7 @@ mission "FWC Checkmate 1"
 				names "republic fighter"
 			variant
 				"Carrier (Mark II)"
-				"Lance (Sidewinder)" 8
+				"Lance (Blaster)" 8
 				"Combat Drone" 6
 		fleet
 			names "republic capital"
@@ -919,7 +919,7 @@ mission "FWC Checkmate 1B"
 				names "republic fighter"
 			variant
 				"Carrier (Mark II)"
-				"Lance (Sidewinder)" 8
+				"Lance (Blaster)" 8
 				"Combat Drone" 6
 		fleet 2
 			names "republic capital"

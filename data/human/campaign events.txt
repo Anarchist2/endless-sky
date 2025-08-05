@@ -714,7 +714,7 @@ event "southern carriers 1"
 			names "free worlds fighters"
 		add variant 1
 			"Nest (Civilian)"
-			"Finch" 2
+			"Finch (Blaster)" 2
 
 event "southern carriers 2"
 	shipyard "Southbound Basics"
@@ -730,19 +730,19 @@ event "southern carriers 2"
 		add variant 15
 			"Hauler III"
 			"Nest (Civilian)"
-			"Finch" 2
+			"Finch (Blaster)" 2
 		add variant 15
 			"Argosy (Civilian)"
 			"Hauler II"
 			"Nest (Civilian)"
-			"Finch" 2
+			"Finch (Blaster)" 2
 		add variant 5
 			"Hauler III" 3
 			"Roost (Civilian)"
-			"Finch" 4
+			"Finch (Blaster)" 4
 		add variant 5
 			"Roost (Civilian)" 3
-			"Finch" 6
+			"Finch (Blaster)" 6
 			"Boxwing" 6
 
 	fleet "Small Independent"
@@ -769,17 +769,17 @@ event "southern carriers 3"
 			names "free worlds fighters"
 		add variant 2
 			"Roost (Civilian)"
-			"Finch" 4
+			"Finch (Blaster)" 4
 		add variant 2
 			"Skein"
-			"Finch" 6
+			"Finch (Blaster)" 6
 		add variant 1
 			"Roost (Civilian)" 2
-			"Finch" 6
+			"Finch (Blaster)" 6
 			"Boxwing" 2
 		add variant 1
 			"Skein" 2
-			"Finch" 8
+			"Finch (Blaster)" 8
 			"Boxwing" 4
 
 	fleet "Small Southern Pirates"
@@ -808,13 +808,13 @@ event "southern carriers 4"
 			"Lance (Sidewinder)" 2
 		add variant 2
 			"Roost (Civilian)" 3
-			"Dagger (Meteor)" 4
-			"Lance" 4
+			"Dagger (Beam)" 4
+			"Lance (Blaster)" 4
 			"Boxwing" 4
 		add variant 2
 			"Roost (Civilian)" 3
 			"Lance (Gatling)" 4
-			"Lance" 4
+			"Lance (Blaster)" 4
 			"Boxwing" 4
 
 	fleet "Large Southern Pirates"
@@ -839,12 +839,12 @@ event "southern carriers 4"
 	fleet "Small Northern Pirates"
 		add variant 1
 			"Nest (Civilian)"
-			"Lance" 2
+			"Lance (Blaster)" 2
 
 	fleet "Large Northern Pirates"
 		add variant 1
 			"Roost (Civilian)"
-			"Lance" 4
+			"Lance (Blaster)" 4
 		add variant 1
 			"Roost (Civilian)"
 			"Lance (Gatling)" 4
@@ -1418,7 +1418,7 @@ event "catalytic ramscoop available"
 		remove variant
 			"Auxiliary (Deployed)"
 			"Dropship" 2
-			"Lance (Sidewinder)" 2
+			"Lance (Blaster)" 2
 			"Cruiser (Deployed)"
 			"Combat Drone" 4
 			"Frigate (Deployed)"
@@ -1426,7 +1426,7 @@ event "catalytic ramscoop available"
 		remove variant
 			"Auxiliary (Cargo)"
 			"Dropship" 2
-			"Lance (Sidewinder)" 2
+			"Lance (Blaster)" 2
 			"Cruiser (Deployed)"
 			"Combat Drone" 4
 			"Frigate (Deployed)"
@@ -1434,7 +1434,7 @@ event "catalytic ramscoop available"
 		remove variant
 			"Auxiliary (Transport)"
 			"Dropship" 2
-			"Lance (Sidewinder)" 2
+			"Lance (Blaster)" 2
 			"Cruiser (Deployed)"
 			"Combat Drone" 4
 			"Frigate (Deployed)"
@@ -1442,7 +1442,7 @@ event "catalytic ramscoop available"
 		remove variant
 			"Auxiliary (Cargo)" 3
 			"Dropship" 3
-			"Lance (Sidewinder)" 9
+			"Lance (Blaster)" 9
 			"Cruiser (Deployed)" 2
 			"Combat Drone" 8
 		remove variant
@@ -1450,13 +1450,13 @@ event "catalytic ramscoop available"
 			"Auxiliary (Cargo)"
 			"Auxiliary (Deployed)"
 			"Dropship" 6
-			"Lance (Sidewinder)" 6
+			"Lance (Blaster)" 6
 			"Cruiser (Deployed)" 2
 			"Combat Drone" 8
 		remove variant
 			"Auxiliary (Transport)" 3
 			"Dropship" 9
-			"Lance (Sidewinder)" 3
+			"Lance (Blaster)" 3
 			"Cruiser (Deployed)" 2
 			"Combat Drone" 8
 

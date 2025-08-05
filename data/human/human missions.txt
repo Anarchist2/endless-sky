@@ -2405,7 +2405,7 @@ mission "Terraforming 11"
 			variant
 				"Marauder Quicksilver"
 				"Headhunter (Civilian)"
-				"Wasp"
+				"Wasp (Blaster)"
 				"Bastion (Civilian)"
 	npc
 		government "Republic"
@@ -7920,7 +7920,7 @@ mission "Syndicate Business 4"
 		fleet
 			names "pirate"
 			variant
-				"Wasp" 3
+				"Wasp (Blaster)" 3
 			variant
 				"Quicksilver (Civilian)"
 
@@ -7932,7 +7932,7 @@ mission "Syndicate Business 4"
 		fleet
 			names "pirate"
 			variant
-				"Wasp" 3
+				"Wasp (Blaster)" 3
 			variant
 				"Quicksilver (Civilian)"
 

@@ -3486,11 +3486,11 @@ mission "Syndicate Assassination [1]"
 				"Manta (Civilian)"
 			variant 3
 				"Arrow"
-				"Wasp" 3
+				"Wasp (Blaster)" 3
 			variant 3
 				"Bounder"
 				"Quicksilver (Civilian)"
-				"Wasp" 2
+				"Wasp (Blaster)" 2
 			variant 1
 				"Arrow"
 				"Splinter (Civilian)"
@@ -3552,7 +3552,7 @@ mission "Syndicate Assassination [2]"
 			variant 4
 				"Bounder"
 				"Splinter (Civilian)"
-				"Wasp" 3
+				"Wasp (Blaster)" 3
 			variant 2
 				"Arrow"
 				"Manta (Civilian)"
@@ -3607,7 +3607,7 @@ mission "Republic Assassination [1]"
 			variant 2
 				"Scout"
 				"Aerie"
-				"Dagger" 4
+				"Dagger (Beam)" 4
 			variant 2
 				"Flivver"
 				"Firebird (Civilian)"
@@ -3622,7 +3622,7 @@ mission "Republic Assassination [1]"
 				"Frigate (Deployed)"
 			variant 1
 				"Mule (Heavy)"
-				"Dagger"
+				"Dagger (Beam)"
 			variant 1
 				"Star Queen"
 		dialog "The target has been destroyed. Return to <destination> for your payment."
@@ -3666,20 +3666,20 @@ mission "Republic Assassination [2]"
 				"Scout"
 			variant 2
 				"Mule (Heavy)"
-				"Dagger"
+				"Dagger (Beam)"
 			variant 2
 				"Star Queen"
 			variant 2
 				"Flivver"
 				"Aerie"
-				"Dagger" 4
+				"Dagger (Beam)" 4
 				"Frigate (Deployed)"
 			variant 4
 				"Scout"
 				"Headhunter (Civilian)" 4
 			variant 3
 				"Mule (Heavy)"
-				"Dagger"
+				"Dagger (Beam)"
 				"Raven (Military)" 2
 			variant 2
 				"Star Queen"
@@ -3692,16 +3692,16 @@ mission "Republic Assassination [2]"
 				"Scout"
 				"Corvette (Civilian)"
 				"Mule (Heavy)"
-				"Dagger"
+				"Dagger (Beam)"
 			variant 1
 				"Mule (Heavy)"
-				"Dagger"
+				"Dagger (Beam)"
 				"Cruiser (Deployed)"
 				"Combat Drone" 4
 			variant 1
 				"Star Queen"
 				"Carrier (Deployed)"
-				"Lance" 8
+				"Lance (Blaster)" 8
 				"Combat Drone" 6
 		dialog "The target has been destroyed. Return to <destination> for payment."
 	on complete

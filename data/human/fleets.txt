@@ -54,10 +54,10 @@ fleet "Small Southern Merchants"
 		"Blackbird"
 	variant 1
 		"Mule (Civilian)"
-		"Dagger"
+		"Dagger (Beam)"
 	variant 1
 		"Mule (Heavy)"
-		"Dagger (Meteor)"
+		"Dagger (Beam)"
 	variant 2
 		"Bounder"
 	variant 4
@@ -96,7 +96,7 @@ fleet "Large Southern Merchants"
 		"Freighter (Fancy)"
 		"Freighter"
 		"Sparrow (Blaster)" 2
-	variant 30
+	variant 15
 		"Argosy (Civilian)"
 	variant 20
 		"Argosy (Laser)"
@@ -115,7 +115,7 @@ fleet "Large Southern Merchants"
 	variant 10
 		"Bastion (Laser)"
 		"Freighter" 3
-	variant 20
+	variant 10
 		"Bastion (Civilian)"
 		"Argosy (Civilian)"
 	variant 10
@@ -136,9 +136,9 @@ fleet "Large Southern Merchants"
 		"Star Barge (Armed)" 4
 		"Fury (Missile)"
 		"Sparrow (Blaster)" 2
-	variant 20
-		"Argosy (Civilian)" 2
 	variant 10
+		"Argosy (Civilian)" 2
+	variant 20
 		"Argosy (Blaster)"
 		"Argosy (Laser)"
 	variant 10
@@ -149,7 +149,7 @@ fleet "Large Southern Merchants"
 		"Sparrow (Blaster)" 2
 	variant 2
 		"Bactrian (Civilian)"
-		"Dagger" 3
+		"Dagger (Beam)" 3
 	variant 12
 		"Hauler III"
 		"Hauler II"
@@ -188,7 +188,7 @@ fleet "Small Core Merchants"
 		"Freighter (Proton)"
 	variant 10
 		"Freighter"
-		"Wasp"
+		"Wasp (Blaster)"
 	variant 20
 		"Freighter"
 		"Star Barge (Armed)" 2
@@ -200,17 +200,17 @@ fleet "Small Core Merchants"
 		"Bounder"
 	variant 30
 		"Bounder (Luxury)"
-		"Wasp"
+		"Wasp (Blaster)"
 	variant 10
 		"Freighter"
-		"Wasp" 2
+		"Wasp (Blaster)" 2
 	variant 1
 		"Mule (Civilian)"
-		"Dagger"
+		"Dagger (Beam)"
 	variant 1
 		"Mule (Heavy)"
-		"Dagger (Meteor)"
-	variant 3
+		"Dagger (Beam)"
+	variant 2
 		"Argosy (Civilian)"
 	variant 2
 		"Argosy (Blaster)"
@@ -257,11 +257,11 @@ fleet "Large Core Merchants"
 		"Wasp (Proton)" 2
 	variant 40
 		"Container Transport (Civilian)"
+		"Wasp (Blaster)"
 		"Wasp"
-		"Wasp (Meteor)"
 	variant 15
 		"Container Transport (Blaster)"
-		"Wasp" 2
+		"Wasp (Blaster)" 2
 	variant 8
 		"Container Transport (Heavy)"
 		"Wasp (Proton)" 2
@@ -270,8 +270,8 @@ fleet "Large Core Merchants"
 		"Wasp (Proton)" 2
 	variant 8
 		"Container Transport (Proton)"
+		"Wasp (Blaster)"
 		"Wasp"
-		"Wasp (Meteor)"
 	variant 15
 		"Container Transport (Civilian)"
 	variant 8
@@ -322,8 +322,8 @@ fleet "Large Core Merchants"
 		"Protector (Civilian)" 1
 	variant 8
 		"Container Transport (Civilian)" 2
-		"Wasp" 3
-		"Wasp (Meteor)" 2
+		"Wasp (Blaster)" 3
+		"Wasp" 2
 	variant 8
 		"Container Transport (Civilian)" 2
 		"Vanguard (Civilian)" 1
@@ -344,10 +344,10 @@ fleet "Large Core Merchants"
 		"Quicksilver (Civilian)" 2
 	variant 1
 		"Bactrian (Civilian)"
-		"Dagger" 3
+		"Dagger (Beam)" 3
 	variant 1
 		"Bactrian (Civilian)"
-		"Lance (Sidewinder)" 3
+		"Lance (Blaster)" 3
 	variant 5
 		"Arrow"
 		"Wasp (Proton)" 2
@@ -358,11 +358,11 @@ fleet "Large Core Merchants"
 		"Wasp (Proton)" 2
 	variant 10
 		"Bulk Freighter (Civilian)"
+		"Wasp (Blaster)"
 		"Wasp"
-		"Wasp (Meteor)"
 	variant 5
 		"Bulk Freighter (Blaster)"
-		"Wasp" 2
+		"Wasp (Blaster)" 2
 	variant 2
 		"Bulk Freighter (Heavy)"
 		"Wasp (Proton)" 2
@@ -371,8 +371,8 @@ fleet "Large Core Merchants"
 		"Wasp (Proton)" 2
 	variant 2
 		"Bulk Freighter (Proton)"
+		"Wasp (Blaster)"
 		"Wasp"
-		"Wasp (Meteor)"
 	variant 5
 		"Bulk Freighter (Civilian)"
 	variant 2
@@ -400,8 +400,8 @@ fleet "Large Core Merchants"
 		"Protector (Civilian)" 1
 	variant 2
 		"Bulk Freighter (Civilian)" 2
-		"Wasp" 3
-		"Wasp (Meteor)" 2
+		"Wasp (Blaster)" 3
+		"Wasp" 2
 	variant 2
 		"Bulk Freighter (Civilian)" 2
 		"Vanguard (Civilian)" 1
@@ -427,14 +427,14 @@ fleet "Paradise Merchants"
 		"Sparrow (Blaster)" 5
 	variant 3
 		"Star Queen"
-		"Wasp" 4
+		"Wasp (Blaster)" 4
 	variant 3
 		"Star Queen"
 		"Wasp (Proton)" 3
 	variant 2
 		"Star Queen"
-		"Wasp" 2
-		"Wasp (Meteor)"
+		"Wasp (Blaster)" 2
+		"Wasp"
 	variant 2
 		"Star Queen"
 		"Berserker" 3
@@ -521,10 +521,10 @@ fleet "Small Northern Merchants"
 		"Blackbird"
 	variant 3
 		"Mule (Civilian)"
-		"Dagger"
+		"Dagger (Beam)"
 	variant 3
 		"Mule (Heavy)"
-		"Dagger (Meteor)"
+		"Dagger (Beam)"
 	variant 2
 		"Bounder"
 	variant 2
@@ -689,10 +689,10 @@ fleet "Large Northern Merchants"
 		"Firebird (Civilian)" 1
 	variant 2
 		"Bactrian (Civilian)"
-		"Dagger" 3
+		"Dagger (Beam)" 3
 	variant 2
 		"Bactrian (Civilian)"
-		"Lance (Sidewinder)" 3
+		"Lance (Blaster)" 3
 	variant 2
 		"Arrow"
 	variant 1
@@ -796,10 +796,10 @@ fleet "Small Human Merchants (Hai)"
 		"Sparrow (Blaster)" 1
 	variant 3
 		"Mule (Hai Engines)"
-		"Dagger"
+		"Dagger (Beam)"
 	variant 3
 		"Mule (Hai Weapons)"
-		"Dagger (Meteor)"
+		"Dagger (Beam)"
 	variant 2
 		"Bounder"
 	variant 2
@@ -1047,7 +1047,7 @@ fleet "Human Miners"
 		"Mining Drone" 2
 	variant
 		"Aerie (Miner)"
-		"Dagger (Meteor)" 4
+		"Dagger (Beam)" 4
 	variant
 		"Aerie (Civilian)"
 		"Dagger (Miner)" 4
@@ -1136,7 +1136,7 @@ fleet "Large Free Worlds"
 	variant 4
 		"Osprey (Laser)"
 		"Fury (Laser)"
-	variant 4
+	variant 3
 		"Argosy (Civilian)"
 	variant 3
 		"Argosy (Blaster)"
@@ -1299,7 +1299,7 @@ fleet "Large Militia"
 	variant 4
 		"Osprey (Laser)"
 		"Fury (Laser)"
-	variant 4
+	variant 3
 		"Argosy (Civilian)"
 	variant 3
 		"Argosy (Blaster)"
@@ -1419,7 +1419,7 @@ fleet "Republic Logistics"
 	variant 19
 		"Auxiliary (Deployed)"
 		"Dropship" 2
-		"Lance (Sidewinder)" 2
+		"Lance (Blaster)" 2
 		"Cruiser (Deployed)"
 		"Combat Drone" 4
 		"Frigate (Deployed)"
@@ -1427,7 +1427,7 @@ fleet "Republic Logistics"
 	variant 19
 		"Auxiliary (Cargo)"
 		"Dropship" 2
-		"Lance (Sidewinder)" 2
+		"Lance (Blaster)" 2
 		"Cruiser (Deployed)"
 		"Combat Drone" 4
 		"Frigate (Deployed)"
@@ -1435,7 +1435,7 @@ fleet "Republic Logistics"
 	variant 19
 		"Auxiliary (Transport)"
 		"Dropship" 2
-		"Lance (Sidewinder)" 2
+		"Lance (Blaster)" 2
 		"Cruiser (Deployed)"
 		"Combat Drone" 4
 		"Frigate (Deployed)"
@@ -1443,7 +1443,7 @@ fleet "Republic Logistics"
 	variant 1
 		"Auxiliary (Cargo)" 3
 		"Dropship" 3
-		"Lance (Sidewinder)" 9
+		"Lance (Blaster)" 9
 		"Cruiser (Deployed)" 2
 		"Combat Drone" 8
 	variant 1
@@ -1451,13 +1451,13 @@ fleet "Republic Logistics"
 		"Auxiliary (Cargo)"
 		"Auxiliary (Deployed)"
 		"Dropship" 6
-		"Lance (Sidewinder)" 6
+		"Lance (Blaster)" 6
 		"Cruiser (Deployed)" 2
 		"Combat Drone" 8
 	variant 1
 		"Auxiliary (Transport)" 3
 		"Dropship" 9
-		"Lance (Sidewinder)" 3
+		"Lance (Blaster)" 3
 		"Cruiser (Deployed)" 2
 		"Combat Drone" 8
 
@@ -1483,20 +1483,20 @@ fleet "Small Deep Merchants"
 		heroic
 	variant 4
 		"Aerie (Civilian)"
-		"Dagger (Meteor)" 4
+		"Dagger (Beam)" 4
 	variant 6
 		"Mule (Civilian)"
-		"Dagger"
+		"Dagger (Beam)"
 	variant 2
 		"Mule (Heavy)"
-		"Dagger (Meteor)"
+		"Dagger (Beam)"
 	variant 2
 		"Mule (Civilian)"
-		"Dagger"
+		"Dagger (Beam)"
 		"Raven (Civilian)"
 	variant 1
 		"Mule (Heavy)"
-		"Dagger (Meteor)"
+		"Dagger (Beam)"
 		"Raven (Heavy)"
 	variant 3
 		"Headhunter (Civilian)"
@@ -1517,42 +1517,42 @@ fleet "Large Deep Merchants"
 		heroic
 	variant 5
 		"Aerie (Civilian)"
-		"Dagger (Meteor)" 4
+		"Dagger (Beam)" 4
 		"Corvette (Civilian)"
 	variant 3
 		"Aerie (Civilian)"
-		"Dagger (Meteor)" 4
+		"Dagger (Beam)" 4
 		"Raven (Civilian)"
 	variant 3
 		"Headhunter (Civilian)" 2
 	variant 3
 		"Aerie (Civilian)" 2
-		"Dagger (Meteor)" 8
+		"Dagger (Beam)" 8
 	variant 8
 		"Bactrian (Civilian)"
-		"Dagger" 3
+		"Dagger (Beam)" 3
 	variant 2
 		"Bactrian (Civilian)"
-		"Dagger" 3
+		"Dagger (Beam)" 3
 		"Raven (Civilian)"
 		"Aerie (Civilian)"
-		"Dagger (Meteor)" 4
+		"Dagger (Beam)" 4
 	variant 2
 		"Bactrian (Civilian)"
-		"Dagger" 3
+		"Dagger (Beam)" 3
 		"Raven (Heavy)"
 		"Aerie (Civilian)"
-		"Dagger (Meteor)" 4
+		"Dagger (Beam)" 4
 	variant 5
 		"Bactrian (Civilian)"
-		"Dagger" 3
+		"Dagger (Beam)" 3
 		"Mule (Civilian)" 2
-		"Dagger" 2
+		"Dagger (Beam)" 2
 	variant 2
 		"Bactrian (Civilian)"
-		"Dagger" 3
+		"Dagger (Beam)" 3
 		"Mule (Heavy)" 2
-		"Dagger (Meteor)" 2
+		"Dagger (Beam)" 2
 	variant 1
 		"Star Queen"
 		"Raven (Civilian)" 2
@@ -1926,7 +1926,7 @@ fleet "Large Southern Pirates"
 		"Sparrow (Blaster)" 4
 	variant 1
 		"Sparrow (Gatling)" 3
-	variant 5
+	variant 3
 		"Argosy (Civilian)"
 	variant 3
 		"Argosy (Blaster)"
@@ -1985,7 +1985,7 @@ fleet "Large Southern Pirates"
 	variant 1
 		"Fury (Bomber)"
 		"Fury (Gatling)" 2
-	variant 3
+	variant 1
 		"Argosy (Civilian)"
 		"Hawk"
 	variant 1
@@ -2235,7 +2235,7 @@ fleet "Large Independent"
 		plunders
 	variant 3
 		"Sparrow (Blaster)" 4
-	variant 5
+	variant 3
 		"Argosy (Civilian)"
 	variant 3
 		"Argosy (Blaster)"
@@ -2260,7 +2260,7 @@ fleet "Large Independent"
 	variant 1
 		"Clipper (Speedy)"
 		"Hawk (Speedy)"
-	variant 3
+	variant 1
 		"Argosy (Civilian)"
 		"Hawk"
 	variant 1
@@ -2323,7 +2323,7 @@ fleet "Small Core Pirates"
 	variant 3
 		"Wasp (Javelin)"
 	variant 8
-		"Wasp (Meteor)"
+		"Wasp"
 	variant 2
 		"Wasp (Plasma)"
 	variant 2
@@ -2447,10 +2447,10 @@ fleet "Small Northern Pirates"
 		"Sparrow (Blaster)"
 	variant 1
 		"Aerie (Civilian)"
-		"Lance" 4
+		"Lance (Blaster)" 4
 	variant 1
 		"Aerie (Civilian)"
-		"Dagger (Meteor)" 4
+		"Dagger (Beam)" 4
 	variant 3
 		"Headhunter (Civilian)"
 	variant 2
@@ -2538,29 +2538,29 @@ fleet "Large Northern Pirates"
 		"Headhunter (Strike)"
 	variant 2
 		"Aerie (Civilian)"
-		"Dagger (Meteor)" 4
+		"Dagger (Beam)" 4
 		"Corvette (Civilian)"
 	variant 2
 		"Aerie (Civilian)"
-		"Dagger (Meteor)" 4
+		"Dagger (Beam)" 4
 		"Raven (Civilian)"
 	variant 4
 		"Aerie (Civilian)" 2
-		"Dagger (Meteor)" 8
+		"Dagger (Beam)" 8
 	variant 4
 		"Aerie (Civilian)"
-		"Dagger (Meteor)" 2
+		"Dagger (Beam)" 2
 		"Corvette (Missile)"
 	variant 2
 		"Aerie (Civilian)" 2
-		"Dagger (Meteor)" 8
+		"Dagger (Beam)" 8
 		"Firebird (Civilian)"
 	variant 4
 		"Mule (Civilian)"
 		"Lance (Sidewinder)"
 	variant 4
 		"Mule (Heavy)"
-		"Dagger"
+		"Dagger (Beam)"
 	variant 4
 		"Leviathan (Civilian)"
 		"Firebird (Civilian)"
@@ -2590,7 +2590,7 @@ fleet "Large Northern Pirates"
 		"Firebird (Missile)"
 	variant 1
 		"Bactrian (Civilian)"
-		"Dagger" 3
+		"Dagger (Beam)" 3
 
 fleet "pirate raid"
 	government "Pirate"
@@ -2795,7 +2795,7 @@ fleet "Bounty Hunters"
 		"Fury (Missile)"
 	variant 1
 		"Aerie (Civilian)"
-		"Lance" 4
+		"Lance (Blaster)" 4
 	variant 1
 		"Corvette (Civilian)"
 		"Fury (Missile)"

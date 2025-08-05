@@ -3161,7 +3161,7 @@ mission "Bounty Hunting (Very Tiny)"
 			variant
 				"Wasp (Javelin)"
 			variant
-				"Wasp (Meteor)"
+				"Wasp (Blaster)"
 			variant
 				"Wasp (Plasma)"
 			variant
@@ -3210,7 +3210,7 @@ mission "Bounty Hunting (Very Tiny, Local)"
 			variant
 				"Wasp (Javelin)"
 			variant
-				"Wasp (Meteor)"
+				"Wasp (Blaster)"
 			variant
 				"Wasp (Plasma)"
 			variant

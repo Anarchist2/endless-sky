@@ -1413,7 +1413,7 @@ mission "FW Pirates: Attack 2"
 			names "pirate"
 			variant
 				"Mule (Heavy)"
-				"Dagger (Meteor)"
+				"Dagger (Beam)"
 	
 	on visit
 		dialog `You've landed on <planet>, but there are still pirates defending the system. All pirates in the system must be eliminated before <planet> can be taken.`

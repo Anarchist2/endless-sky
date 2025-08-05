@@ -737,7 +737,7 @@ mission "FW Wolf Pack 4"
 			cargo 0
 			variant
 				"Carrier (Deployed)"
-				"Lance" 8
+				"Lance (Blaster)" 8
 				"Combat Drone" 6
 	
 	on visit

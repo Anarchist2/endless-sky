@@ -2655,7 +2655,7 @@ fleet "pirate raid"
 		"Quicksilver (Particle)" 3
 	variant 3
 		"Splinter (Civilian)"
-		"Quicksilver (Civilian)
+		"Quicksilver (Civilian)"
 	variant 3
 		"Splinter (Laser)"
 		"Quicksilver (Particle)"

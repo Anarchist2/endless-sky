@@ -198,7 +198,7 @@ ship "Arrow" "Arrow (Hai)"
 ship "Auxiliary" "Auxiliary (Deployed)"
 	outfits
 		"Sidewinder Missile Launcher" 2
-		"Sidewinder Missile" 60
+		"Sidewinder Missile" 46
 		"Quad Blaster Turret" 2
 		"Heavy Anti-Missile Turret" 2
 		
@@ -223,7 +223,7 @@ ship "Auxiliary" "Auxiliary (Deployed)"
 ship "Auxiliary" "Auxiliary (Mark II)"
 	outfits
 		"Sidewinder Missile Launcher" 2
-		"Sidewinder Missile" 60
+		"Sidewinder Missile" 46
 		"Quad Blaster Turret" 2
 		"Heavy Anti-Missile Turret" 2
 		
@@ -254,7 +254,7 @@ ship "Auxiliary" "Auxiliary (Cargo Mark II)"
 		"cargo space" 200
 	outfits
 		"Sidewinder Missile Launcher" 2
-		"Sidewinder Missile" 60
+		"Sidewinder Missile" 46
 		"Quad Blaster Turret" 2
 		"Heavy Anti-Missile Turret" 2
 		
@@ -295,7 +295,7 @@ ship "Auxiliary" "Auxiliary (Transport Mark II)"
 		"cargo space" -200
 	outfits
 		"Sidewinder Missile Launcher" 2
-		"Sidewinder Missile" 60
+		"Sidewinder Missile" 46
 		"Quad Blaster Turret" 2
 		"Heavy Anti-Missile Turret" 2
 		
@@ -331,9 +331,9 @@ ship "Auxiliary" "Auxiliary (Transport Mark II)"
 ship "Bactrian" "Bactrian (Civilian)"
 	outfits
 		"Sidewinder Missile Launcher" 2
-		"Sidewinder Missile" 60
+		"Sidewinder Missile" 46
 		"Torpedo Launcher"
-		"Torpedo" 20
+		"Torpedo" 15
 		"Heavy Laser Turret" 4
 		"Heavy Anti-Missile Turret" 2
 		
@@ -364,9 +364,9 @@ ship "Bactrian" "Bactrian (Civilian)"
 ship "Bactrian" "Bactrian (Hai Engines)"
 	outfits
 		"Sidewinder Missile Launcher" 2
-		"Sidewinder Missile" 60
+		"Sidewinder Missile" 46
 		"Torpedo Launcher"
-		"Torpedo" 20
+		"Torpedo" 15
 		"Heavy Laser Turret" 4
 		"Heavy Anti-Missile Turret" 2
 		"Fusion Reactor"
@@ -396,7 +396,7 @@ ship "Bactrian" "Bactrian (Hai Weapons)"
 	outfits
 		"Pulse Cannon" 2
 		"Hai Tracker Pod" 2
-		"Hai Tracker" 74
+		"Hai Tracker" 56
 		"Chameleon Anti-Missile" 2
 		"Pulse Turret" 2
 		"Heavy Laser Turret" 2
@@ -719,7 +719,7 @@ ship "Berserker" "Berserker (CCOR)"
 	outfits
 		"Energy Blaster"
 		"Gatling Gun" 2
-		"Gatling Gun Ammo" 1080
+		"Gatling Gun Ammo" 720
 		"nGVF-CC Fuel Cell"
 		"Supercapacitor"
 		"Water Coolant System"
@@ -822,7 +822,7 @@ ship "Bulk Freighter" "Bulk Freighter (Blaster)"
 ship "Bulk Freighter" "Bulk Freighter (Hai)"
 	outfits
 		"Sidewinder Missile Launcher" 2
-		"Sidewinder Missile" 90
+		"Sidewinder Missile" 30
 		"Pulse Turret" 2
 		"Chameleon Anti-Missile" 3
 		"RT-I Radiothermal"
@@ -937,9 +937,9 @@ ship "Carrier" "Carrier (Deployed)"
 	outfits
 		"Heavy Laser" 2
 		"Meteor Missile Box" 11
-		"Meteor Missile" 110
+		"Meteor Missile" 82
 		"Torpedo Launcher" 2
-		"Torpedo" 40
+		"Torpedo" 30
 		"Heavy Laser Turret"
 		"Heavy Anti-Missile Turret" 2
 		
@@ -1003,7 +1003,7 @@ ship "Carrier" "Carrier (Jump)"
 ship "Carrier" "Carrier (Mark II)"
 	outfits
 		"Typhoon Launcher" 2
-		"Typhoon Torpedo" 20
+		"Typhoon Torpedo" 30
 		"Sidewinder Missile Launcher" 2
 		"Sidewinder Missile" 137
 		"Sidewinder Missile Rack" 8
@@ -1280,7 +1280,7 @@ ship "Corvette" "Corvette (Military)"
 	outfits
 		"Heavy Laser" 2
 		"Sidewinder Missile Launcher" 2
-		"Sidewinder Missile" 60
+		"Sidewinder Missile" 46
 		"Heavy Laser Turret"
 		"Anti-Missile Turret"
 		
@@ -1302,7 +1302,7 @@ ship "Cruiser" "Cruiser (Deployed)"
 	outfits
 		"Particle Cannon" 4
 		"Meteor Missile Launcher" 2
-		"Meteor Missile" 40
+		"Meteor Missile" 30
 		"Heavy Laser Turret" 2
 		"Heavy Anti-Missile Turret" 2
 		
@@ -1336,7 +1336,7 @@ ship "Cruiser" "Cruiser (Surveillance)"
 	outfits
 		"Heavy Laser" 4
 		"Meteor Missile Launcher" 2
-		"Meteor Missile" 40
+		"Meteor Missile" 30
 		"Heavy Laser Turret" 2
 		"Heavy Anti-Missile Turret" 2
 		
@@ -1369,7 +1369,7 @@ ship "Cruiser" "Cruiser (Heavy)"
 	outfits
 		"Particle Cannon" 4
 		"Meteor Missile Launcher" 2
-		"Meteor Missile" 40
+		"Meteor Missile" 30
 		"Heavy Laser Turret" 2
 		"Heavy Anti-Missile Turret"
 		"Quad Blaster Turret"
@@ -1434,9 +1434,9 @@ ship "Cruiser" "Cruiser (Jump)"
 ship "Cruiser" "Cruiser (Mark II)"
 	outfits
 		"Typhoon Launcher" 2
-		"Typhoon Torpedo" 40
+		"Typhoon Torpedo" 30
 		"Sidewinder Missile Launcher" 3
-		"Sidewinder Missile" 90
+		"Sidewinder Missile" 66
 		"Electron Turret" 2
 		"Heavy Anti-Missile Turret" 2
 		"Armageddon Core"
@@ -1468,11 +1468,9 @@ ship "Cruiser" "Cruiser (Mark II)"
 ship "Dagger" "Dagger (Beam)"
 	outfits
 		"Beam Laser" 2
-		
 		"nGVF-AA Fuel Cell"
 		"Supercapacitor"
 		"D14-RN Shield Generator"
-		
 		"A120 Atomic Thruster"
 		"X1200 Ion Steering"
 	gun
@@ -1520,7 +1518,7 @@ ship "Dreadnought" "Dreadnought (Jump)"
 ship "Enforcer" "Enforcer (CCOR)"
 	outfits
 		"Javelin Turret"
-		"Javelin" 250
+		"Javelin" 170
 		"Javelin Storage Crate"
 		"nGVF-CC Fuel Cell"
 		"LP036a Battery Pack"
@@ -1837,7 +1835,7 @@ ship "Firebird" "Firebird (CCOR)"
 		"Twin Modified Blaster" 4
 		"Anti-Missile Turret"
 		"Javelin Turret"
-		"Javelin" 350
+		"Javelin" 230
 		"Javelin Storage Crate" 3
 		"S3 Thermionic"
 		"nGVF-CC Fuel Cell"
@@ -2001,7 +1999,7 @@ ship "Frigate" "Frigate (Deployed)"
 	outfits
 		"Particle Cannon" 2
 		"Torpedo Launcher" 2
-		"Torpedo" 40
+		"Torpedo" 30
 		"Blaster Turret" 2
 		"Anti-Missile Turret"
 		
@@ -2628,7 +2626,7 @@ ship "Leviathan" "Leviathan (CCOR)"
 		"Plasma Cannon" 4
 		"Anti-Missile Turret" 2
 		"Javelin Turret" 2
-		"Javelin" 600
+		"Javelin" 400
 		"Javelin Storage Crate" 4
 		"Breeder Reactor"
 		"nGVF-CC Fuel Cell"
@@ -2663,7 +2661,7 @@ ship "Leviathan" "Leviathan (Hai Engines)"
 ship "Leviathan" "Leviathan (Hai Weapons)"
 	outfits
 		"Hai Tracker Pod" 4
-		"Hai Tracker" 148
+		"Hai Tracker" 76
 		"Heavy Laser Turret" 4
 		"Boulder Reactor"
 		"Hai Ravine Batteries"
@@ -3472,7 +3470,7 @@ ship "Rainmaker" "Rainmaker (Deployed)"
 	outfits
 		"Energy Blaster" 2
 		"Meteor Missile Launcher" 4
-		"Meteor Missile" 60
+		"Meteor Missile" 90
 		"Meteor Missile Box" 4
 		
 		"nGVF-CC Fuel Cell"
@@ -3557,9 +3555,9 @@ ship "Raven" "Raven (Military)"
 	outfits
 		"Heavy Laser" 2
 		"Torpedo Launcher"
-		"Torpedo" 20
+		"Torpedo" 15
 		"Sidewinder Missile Launcher"
-		"Sidewinder Missile" 30
+		"Sidewinder Missile" 22
 		
 		"nGVF-DD Fuel Cell"
 		"KP-6 Photovoltaic Panel" 2

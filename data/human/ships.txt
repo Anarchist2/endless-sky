@@ -164,8 +164,6 @@ ship "Arrow"
 			"hull damage" 120
 			"hit force" 360
 	outfits
-		"Sidewinder Missile Pod" 2
-		"Sidewinder Missile" 12
 		"Anti-Missile Turret"
 		
 		"Dwarf Core"
@@ -180,8 +178,8 @@ ship "Arrow"
 		
 	engine -8 56
 	engine 8 56
-	gun -7.5 -36 "Sidewinder Missile Pod"
-	gun 7.5 -36 "Sidewinder Missile Pod"
+	gun -7.5 -36
+	gun 7.5 -36
 	turret 0 17.5 "Anti-Missile Turret"
 	leak "leak" 80 50
 	explode "tiny explosion" 12
@@ -229,7 +227,7 @@ ship "Auxiliary"
 		"D94-YV Shield Generator"
 		"D67-TM Shield Generator"
 		"Water Coolant System"
-		"Large Radar Jammer"
+		"Small Radar Jammer" 3
 		"Ramscoop"
 		
 		"X4700 Ion Thruster"
@@ -282,7 +280,7 @@ ship "Auxiliary" "Auxiliary (Cargo)"
 		"D94-YV Shield Generator"
 		"D67-TM Shield Generator"
 		"Water Coolant System"
-		"Large Radar Jammer"
+		"Small Radar Jammer" 3
 		"Ramscoop"
 		
 		"X4700 Ion Thruster"
@@ -322,7 +320,7 @@ ship "Auxiliary" "Auxiliary (Transport)"
 		"D94-YV Shield Generator"
 		"D67-TM Shield Generator"
 		"Water Coolant System"
-		"Large Radar Jammer"
+		"Small Radar Jammer" 3
 		"Ramscoop"
 		
 		"X4700 Ion Thruster"

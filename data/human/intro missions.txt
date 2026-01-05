@@ -63,6 +63,9 @@ conversation "intro mission"
 		goto captain
 	
 	label syndicate
+	branch jackal
+		has "Intro [0 Jackal]: offered"
+		has "ship model: Jackal"
 	`With a strange sense of relief, you give the salesman your money and jump into your new ship. The flight from the shipyard to the landing bays has you navigate through tunnels with only centimeters of clearance in all directions. After setting your ship down and disembarking, an old man in grease-stained coveralls approaches you.`
 	`	"Nothing quite like buying your first starship," he says.`
 	choice
@@ -72,6 +75,17 @@ conversation "intro mission"
 		`	"If I wanted to talk with you, I'd have said something. Leave me alone."`
 			decline
 	`	He grins. "Well, I wouldn't be so sure yet. Often, the quickest way to fame and fortune is to curry favor with the big players. I always preferred to work by myself, though."`
+		goto captain
+	
+	label jackal
+	`Sure enough, you find your new Jackal waiting in one of the port's landing bays. You start to examine the <ship>, and your worst fears are realized. Of the ship's outfits, the only one to pass any safety tests is the battery; you'll have to completely replace everything else. As you rip out broken components and throw them in the nearest dumpster, an old man in grease-stained coveralls approaches you.`
+	`	"Looks like you've landed yourself a real lemon, haven'tcha?" he says.`
+	choice
+		`	"Yep."`
+		`	"Look, I'm having a really bad day today. Bother someone else."`
+			decline
+	`	"Well, there's no point crying over jettisoned cargo. Mind if I give you a hand?"`
+	`	With the old man's help, you manage to reduce the Jackal to little more than its frame before nightfall. "Haven't had to clean out a ship like this in a long time. Still, it's nice to have a blank slate when you're outfitting your fleet."`
 	
 	label captain
 	`	"You're a captain?" you ask.`
@@ -462,8 +476,9 @@ conversation "intro relic"
 
 # Missions when the player attempts to use an invalid starting ship.
 
-mission "First Jump Check"
+mission "First Day Check"
 	non-blocking
+	invisible
 	landing
 	on offer
 		fail
@@ -474,7 +489,7 @@ mission "Intro [0 Fighter]"
 	invisible
 	shipyard
 	to offer
-		not "First Jump Check: offered"
+		not "First Day Check: offered"
 	to accept
 		has "ships: Fighter"
 	on offer
@@ -488,7 +503,7 @@ mission "Intro [0 Drone]"
 	invisible
 	shipyard
 	to offer
-		not "First Jump Check: offered"
+		not "First Day Check: offered"
 	to accept
 		has "ships: Drone"
 	on offer
@@ -503,7 +518,7 @@ mission "Intro [0 Jackal]"
 	invisible
 	shipyard
 	to offer
-		not "First Jump Check: offered"
+		not "First Day Check: offered"
 	to accept
 		"ship model: Mining Drone" >= 3
 		"outfit: Mining Laser" >= 3
@@ -523,36 +538,33 @@ mission "Intro [0 Jackal]"
 				`	(Ignore the merchant so I can appreciate my Mining Drones more.)`
 					decline
 			`	You take a seat on the bench and ask, "What was that all about?"`
-			`	The merchant turns his head to face you. "That whole kerfuffle? Tried to cheat me out of a fair deal, he did." Seeing your confusion, he elaborates. "I'm a space miner by trade. A few days ago, I got caught in a nasty pirate ambush - lost all my Mining Drones in the blink of an eye. The pirates weren't doing so hot either, though. I got lucky and managed to disable and capture a Jackal, one of those old, Caravan-era interceptors. I thought I'd sell it off and replace my drones, but the shipyards here are running a racket; I can barely buy a single Mining Drone with the credits they're offering." He lets out a sigh.`
+			`	The merchant turns his head to face you. "That whole kerfuffle? Tried to cheat me out of a fair deal, he did." Seeing your confusion, he elaborates. "I'm a space miner by trade. A few days ago, I got caught in a nasty pirate ambush - lost all my Mining Drones in the blink of an eye. The pirates weren't doing so hot either, though. I got lucky and managed to disable and capture a Jackal, one of those old, Caravan-era interceptors. I thought I'd sell it off and replace my drones, but the shipyards here are running a racket; I can't even buy half a Mining Drone with the credits they're offering." He lets out a sigh.`
 			choice
-				`	"I have some Mining Drones I could give you."`
+				`	"Actually, I have some spare Mining Drones."`
 					goto deal
-				`	"Actually, I have somewhere I need to be. Goodbye."`
-			`	The merchant bids you farewell.`
+				`	"Thanks for the story, but I have places to be."`
+			`	"Well, thanks for listening." The merchant bids you farewell as you stand up and leave.`
 				decline
 			label deal
-			`	The merchant's head perks up. "Really? That's fantastic!" He quietly mutters some numbers to himself, then says, "How about three Mining Drones for the Jackal? You think that's a fair deal?"
+			`	The merchant's head perks up. "Really? That's fantastic!" He quietly mutters some numbers to himself, then says, "How about two Mining Drones for the Jackal? You think that's a fair deal?"`
 			choice
-				`	"Yep, sounds good."`
+				`	"Sounds good."`
 					goto jackal
-				`	"What about just two Mining Drones?"`
 				`	"I can't take that deal."`
-					goto no
-			`	He shakes his head. "It's three, or it's none."`
-			choice
-				`	"Alright, I'll give you three drones."`
-					goto jackal
-				`	"Then I guess it'll be none."`
-			label no
-			`	"A shame. Well, I'd best be going." The merchant stands up from the bench and walks away.`
+			`	"Darn. Well, you have given me an idea, though; there's got to be a captain out there willing to hand me a Mining Drone for my Jackal!" The merchant hops up from the bench and jauntily walks away.`
 				decline
 			label jackal
 			action
-				give ship "Jackal" "Triskelion"
+				give ship "Jackal (Empty)" "Triskelion"
 				take ship "Mining Drone"
-				 count 3
-			`	You shake hands with the merchant. "I'll be waiting in my landing bay to finalize the legal papers."`
+					count 2
+			`	You shake hands with the merchant. "Thanks for deal, partner." He hands you the license to the Jackal and walk off towards the loading bays to claim his new Mining Drones.`
 				decline
+
+
+ship "Jackal" "Jackal (Empty)"
+	outfits
+		"LP036a Battery Pack"
 
 
 
@@ -2149,7 +2161,7 @@ mission "Delve Intro [2 Interceptor]"
 	description "Deliver <commodity> to <destination>, while avoiding pirate attacks."
 	blocked `When you meet up with James in the spaceport, he says, "Hi there, <first>! I found you another mission, but it looks like you'll need <capacity> in order to take it on. So, you'll either have to cancel another mission, or come back here later to continue this one. Sorry!"`
 	passengers 1
-	cargo "niobium" 15
+	cargo "niobium" 10
 	source "Lodestone"
 	destination "Ada"
 	to offer

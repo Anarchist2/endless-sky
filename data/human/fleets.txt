@@ -568,7 +568,7 @@ fleet "Large Northern Merchants"
 	variant 3
 		"Freighter" 2
 		"Berserker (Strike)" 2
-	variant 10
+	variant 5
 		"Freighter" 2
 		"Firebird (Plasma)"
 	variant 10
@@ -580,7 +580,7 @@ fleet "Large Northern Merchants"
 	variant 10
 		"Freighter" 3
 		"Firebird (Civilian)"
-	variant 2
+	variant 1
 		"Freighter" 3
 		"Firebird (Plasma)"
 	variant 2
@@ -675,14 +675,14 @@ fleet "Large Northern Merchants"
 		"Freighter" 4
 		"Sparrow (Blaster)" 2
 		"Firebird (Civilian)" 1
-	variant 3
+	variant 2
 		"Freighter (Fancy)" 4
 		"Sparrow (Blaster)" 2
 		"Firebird (Plasma)" 1
 	variant 3
 		"Freighter (Proton)" 4
 		"Sparrow (Blaster)" 2
-		"Firebird (Plasma)" 1
+		"Firebird (Civilian)" 1
 	variant 1
 		"Freighter (Hai)" 4
 		"Sparrow (Blaster)" 2
@@ -710,7 +710,7 @@ fleet "Large Northern Merchants"
 	variant 1
 		"Star Queen"
 		"Leviathan (Laser)"
-	variant 1
+	variant 2
 		"Star Queen"
 		"Firebird (Civilian)" 2
 	variant 2
@@ -719,7 +719,7 @@ fleet "Large Northern Merchants"
 	variant 1
 		"Star Queen"
 		"Firebird (Plasma)" 2
-	variant 1
+	variant 2
 		"Hogshead"
 		"Firebird (Civilian)"
 	variant 1
@@ -2320,11 +2320,11 @@ fleet "Small Core Pirates"
 		"Quicksilver (Particle)"
 	variant 2
 		"Wasp (Gatling)"
-	variant 3
+	variant 2
 		"Wasp (Javelin)"
 	variant 8
 		"Wasp"
-	variant 2
+	variant 1
 		"Wasp (Plasma)"
 	variant 2
 		"Wasp (Proton)"
@@ -2487,24 +2487,24 @@ fleet "Large Northern Pirates"
 	cargo 1
 	personality
 		plunders harvests getaway
-	variant 4
+	variant 6
 		"Firebird (Civilian)"
-	variant 10
+	variant 12
 		"Firebird (Laser)"
 	variant 2
 		"Firebird (Missile)"
-	variant 8
-		"Firebird (Plasma)"
 	variant 2
+		"Firebird (Plasma)"
+	variant 8
 		"Firebird (Civilian)"
 		"Corvette (Civilian)"
 	variant 2
 		"Firebird (Heavy Blaster)"
-	variant 8
+	variant 2
 		"Firebird (Plasma)"
 		"Corvette (Speedy)"
 	variant 4
-		"Firebird (Plasma)"
+		"Firebird (Laser)"
 		"Corvette (Missile)"
 	variant 2
 		"Firebird (Laser)"
@@ -2515,7 +2515,7 @@ fleet "Large Northern Pirates"
 	variant 4
 		"Firebird (Civilian)"
 		"Berserker" 2
-	variant 2
+	variant 1
 		"Firebird (Plasma)"
 		"Fury (Missile)"
 	variant 2
@@ -2567,10 +2567,10 @@ fleet "Large Northern Pirates"
 	variant 2
 		"Leviathan (Laser)"
 		"Firebird (Civilian)"
-	variant 6
+	variant 8
 		"Leviathan (Laser)"
 		"Firebird (Laser)"
-	variant 4
+	variant 2
 		"Leviathan (Heavy)"
 		"Firebird (Plasma)"
 	variant 4

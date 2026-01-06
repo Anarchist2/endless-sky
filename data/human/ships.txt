@@ -380,7 +380,7 @@ ship "Bactrian"
 		"Fusion Reactor"
 		"LP144a Battery Pack"
 		"D94-YV Shield Generator"
-		"Large Radar Jammer"
+		"Small Radar Jammer" 3
 		"Ramscoop"
 		"Laser Rifle" 15
 		
@@ -626,10 +626,10 @@ ship "Berserker"
 		
 	engine -10 45
 	engine 10 45
-	gun -20 12 "Energy Blaster"
-	gun 20 12 "Energy Blaster"
-	gun -44 10 "Energy Blaster"
-	gun 44 10 "Energy Blaster"
+	gun -20 12
+	gun 20 12
+	gun -44 10
+	gun 44 10
 	leak "leak" 60 50
 	leak "flame" 80 80
 	explode "tiny explosion" 10
@@ -886,8 +886,8 @@ ship "Bulwark"
 	engine 31.5 89.5
 	engine -31.5 89.5
 	gun -52.5 -0.5 "Heavy Rocket Launcher"
-	gun -52.5 -0.5 "Plasma Cannon"
 	gun 52.5 -0.5 "Heavy Rocket Launcher"
+	gun -52.5 -0.5 "Plasma Cannon"
 	gun 52.5 -0.5 "Plasma Cannon"
 	turret 0 0.5 "Heavy Anti-Missile Turret"
 	turret -35.5 29.5 "Quad Blaster Turret"
@@ -1633,8 +1633,7 @@ ship "Enforcer"
 		"nGVF-CC Fuel Cell"
 		"LP036a Battery Pack"
 		"D14-RN Shield Generator"
-		"Bunk Room"
-		"Cargo Expansion"
+		"Bunk Room" 2
 		
 		"X2700 Ion Thruster"
 		"X2200 Ion Steering"
@@ -1899,7 +1898,7 @@ ship "Freighter"
 			"hit force" 600
 	outfits
 		"Blaster Turret" 2
-		"Heavy Anti-Missile Turret"
+		"Anti-Missile Turret"
 		
 		"nGVF-DD Fuel Cell"
 		"LP072a Battery Pack"
@@ -1913,7 +1912,7 @@ ship "Freighter"
 	engine -7.5 92
 	engine 7.5 92
 	turret 0 -64 "Blaster Turret"
-	turret 0 -4.5 "Heavy Anti-Missile Turret"
+	turret 0 -4.5 "Anti-Missile Turret"
 	turret 0 64.5 "Blaster Turret"
 	leak "leak" 60 50
 	leak "flame" 50 80
@@ -3251,11 +3250,11 @@ ship "Quicksilver"
 	outfits
 		"Proton Gun" 2
 		
-		"nGVF-BB Fuel Cell"
+		"nGVF-AA Fuel Cell"
 		"LP036a Battery Pack"
 
 		"Capybara Reverse Thruster"
-		"Chipmunk Plasma Thruster"
+		"X2700 Ion Thruster"
 		"X1200 Ion Steering"
 		"Hyperdrive"
 		
@@ -3487,7 +3486,7 @@ ship "Saber"
 		"nGVF-CC Fuel Cell"
 		"LP072a Battery Pack"
 		"D23-QP Shield Generator"
-		"Cargo Expansion"
+		"Bunk Room"
 		
 		"X3700 Ion Thruster"
 		"X3200 Ion Steering"

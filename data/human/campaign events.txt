@@ -836,6 +836,16 @@ event "southern carriers 4"
 			"Barb" 2
 			"Boxwing" 2
 
+	fleet "Small Core Pirates"
+		add variant 1
+			"Nest (Civilian)"
+			"Barb (Proton)" 2
+
+	fleet "Large Core Pirates"
+		add variant 1
+			"Roost (Civilian)"
+			"Barb (Proton)" 4
+
 	fleet "Small Northern Pirates"
 		add variant 1
 			"Nest (Civilian)"

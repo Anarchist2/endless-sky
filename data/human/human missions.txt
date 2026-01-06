@@ -5688,7 +5688,7 @@ mission "Deal Change 2"
 		personality staying nemesis
 		system "Lesath"
 		ship "Falcon (Heavy)" "Turncoat"
-		ship "Clipper" "Deserter"
+		ship "Clipper (Civilian)" "Deserter"
 	npc
 		government "Bounty Hunter"
 		personality staying nemesis

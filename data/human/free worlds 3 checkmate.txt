@@ -951,6 +951,19 @@ mission "FWC Checkmate 1B"
 				"Gunboat (Mark II)" 2
 
 
+ship "Clipper" "Clipper (Nuclear)"
+	outfits
+		"Nuclear Missile" 4
+		"S3 Thermionic"
+		"Supercapacitor"
+		"D67-TM Shield Generator"
+		"Catalytic Ramscoop"
+		"A250 Atomic Thruster"
+		"A255 Atomic Steering"
+		"Hyperdrive"
+		"Volcano Afterburner"
+
+
 
 mission "FWC Checkmate 1C"
 	landing

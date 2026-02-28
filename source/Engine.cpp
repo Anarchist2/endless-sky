@@ -401,7 +401,12 @@ void Engine::Place()
 	// that all special ships have been repositioned.
 	ships.splice(ships.end(), newShips);
 
-	camera.SnapTo(flagship->Center());
+	if(flagship)
+		camera.SnapTo(flagship->Center());
+	else if(object)
+		camera.SnapTo(planetPos);
+	else
+		camera.SnapTo(camera.Center());
 
 	player.SetPlanet(nullptr);
 }

@@ -459,7 +459,7 @@ outfit "Piercer Missile Launcher"
 		"die effect" "piercer death"
 		"inaccuracy" 1.5
 		"velocity" 18
-		"lifetime" 37
+		"lifetime" 47
 		"reload" 23
 		"firing energy" 9
 		"firing heat" 46
@@ -1016,12 +1016,12 @@ outfit "Firelight Missile Bank"
 	index 04010
 	cost 1937000
 	thumbnail "outfit/firelight bank"
-	"mass" 12
+	"mass" 13
 	"outfit space" -28
 	"weapon capacity" -28
 	"gun ports" -1
 	"energy capacity" 700
-	"firelight missile capacity" 20
+	"firelight missile capacity" 18
 	weapon
 		sprite "projectile/firelight"
 		sound "firelight"

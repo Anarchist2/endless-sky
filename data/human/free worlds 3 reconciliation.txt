@@ -11,6 +11,252 @@
 # You should have received a copy of the GNU General Public License along with
 # this program. If not, see <https://www.gnu.org/licenses/>.
 
+mission "FW Sabik Holdout"
+	landing
+	name "Last Stand"
+	description "Stop Commander Hines from capturing Longjump and seizing Sawyer for the Syndicate."
+	source "Longjump"
+	to offer
+		has "FW Sawyer: done"
+	on fail
+		dialog phrase "free worlds failed"
+		fail "FW Rand Escorts"
+		fail "FW Split Escorts"
+		fail "FW Decision Escorts"
+	on offer
+		log "People" "Sawyer" `A defector of the Syndicate who decided to risk his life to stop the war between the Republic and the Free Worlds.`
+		conversation
+			`The spaceport controller directs you to the landing pad next to Sawyer's shuttle. In front of the ship is a plastic table flanked by several militia guards, covered with an open briefcase and a handful of papers. Freya stands on one side of the table, reading over the evidence; on the other side is a man you presume to be Sawyer.`
+			choice
+				`	"So, is he the real deal?"`
+				`	"Do you think the Republic will be convinced?"`
+					goto republic
+			`	Freya frowns and shrugs. "Sawyer says he's physicist from the Syndicate. Apparently, he'd developed new weaponry to combat piracy, then later learned his work had been used in the nuclear weapons detonated on July 4th. However, he doesn't have any definitive evidence on hand to back him up. There's a couple of reports that look genuine, but I'm not an expert on Syndicate stuff like Alondo."`
+			`	As if reacting to the mention of Alondo, a nearby communcations console emits a ping.`
+				goto ping
+
+			label republic
+			`	JJ sighs. "Sawyer claims to be a Syndicate physicist who was unknowingly involved in their nuclear weapons development project. Unfortunately, Sawyer lacks any substantial physical proof to support himself. I've readied our fleet for a fight against the Republic if necessary."`
+			`	A ping coming emits from a nearby communcations console.`
+
+			label ping
+			`	"Did you manage to get through to Alondo?" asks JJ.`
+			`	Freya shakes her head. "While you two were busy fighting the Syndicate, I proposed a ceasefire to the Republic, to negotiate a conditional surrender. However, the commander on the other end refused to speak with anyone other than you, JJ."`
+			choice
+				`	"Who's the commander?"`
+					goto officer
+				`	"Hold on. After everything we've sacrificed in this war, we're just going to surrender to the Republic?"`
+			`	"This war has been just as brutal for the Republic as it has been for us," replies JJ. "Every minute the war drags on is another Republic soldier who fights and dies in some distant part of the galaxy instead of protecting civilians from pirates. And while we may not be able to stop the Navy from reaching Bourne, we can threaten to bleed them dry in the process. That threat, along with the proof we weren't responsible for the bombings, might be enough to let the core Free Worlds systems stay autonomous in the event of a conditional surrender."`
+			choice
+				`	"Okay. Let's talk to the commander."`
+					goto talk
+				`	"But what if Parliament chooses to disband the Free Worlds after we surrender?"`
+				`	"Are you sure the Senate would be happy with the Council surrendering on their behalf?"`
+					goto senate
+			`	"That is exactly why I wanted to focus on ending this war through military might," replies JJ. "But that decision has already passed. All we can do is follow this path through to the best of our ability."`
+				goto second
+			label senate
+			`	"We aren't writing the peace treaty ourselves," replies JJ. "All we're doing is getting the Republic to agree to a ceasefire. It's still up to the Senate to decide the exact terms of surrender, and it's their decision to resume hostilities if the Republic's demands are untenable."`
+			label second
+			`	A second ping brings JJ back to attention. He turns to Freya. "Did you catch their name of their commander?"`
+				goto officer
+			label talk
+			`	"Before we talk," asks JJ, "do you remember their name?"`
+			label officer
+			`	Freya replies, "His name is Ranulph Hines."`
+			`	The color drains from JJ's face, but he finds it in himself to walk over to the console and open communications. You are greeted by a picturesque view of one of Deep's oceans, taken the perspective of the most expensive restaurant in the spaceport. Positioned in front of the landscape is Hines, who has a glass filled with red wine on a side table.`
+			`	"You've kept me waiting, Soleau," says Hines. "I must be honest, your girl over there was annoyingly insistent on negotiating a ceasefire with me by herself. Am I not allowed to talk to an old colleague of mine?" Freya grits her teeth, but says nothing.`
+			choice
+				`	"This isn't the time for small talk, Hines. Countless lives are at stake."`
+				`	(Let JJ handle this.)`
+					goto response
+			`	Hines scoffs. "It seems you've become quite the magnet for unruly people, Soleau. Though considering who you are, I suppose that shouldn't be much of a surprise."`
+			label response
+			`	JJ responds matter-of-factly. "We are here on behalf of the Coalition of the Free Worlds to offer a conditional surrender to the Republic of Earth and its member planets. We ask for a ceasefire to commence as soon as possible so that the Free Worlds Senate can negotiate the terms of the surrender to the Republic Parliament, and so we can demonstrate proof of the Free Worlds' innocence in the bombings of Geminus and Martini."`
+			`	Hines leans forward. "Proof?"`
+			`	"We recently came into contact with an ex-Syndicate physicist, a defector," says JJ. "He has information on a Syndicate group responsible for developing the nuclear devices used in the attacks."`
+			`	Hines reclines in his chair. "Ex-Syndicate? How very interesting." He takes a sip from his glass. "We had a Syndicate fleet pass through this system yesterday. They said they were chasing after a terrorist within their ranks: the very same terrorist responsible for leaking the secret of nuclear weaponry to the Free Worlds."`
+			`	Sirens blare around <planet>'s spaceport as a sensor station shows a large Republic fleet entering <system>.`
+			choice
+				`	"This was just a set-up!"`
+				`	"If you would just listen do the defector, you'd see the Syndicate is lying."`
+				`	(Run to my ship.)`
+					goto run
+			`	Hines takes another sip. "The Republic does not negotiate with terrorists. When we take <system>, I will personally ensure the Syndicate gets their defector." The feed cuts out.`
+			choice
+				`	"What do we do now?"`
+				`	(Run to my ship.)`
+					goto run
+			`	"We have to fight," says JJ. "We can't let Hines have Sawyer."`
+			choice
+				`	"But there's no way our fleet is strong enough to survive!"`
+				`	"Can we call in the Wolf Pack to help?"`
+					goto nukes
+				`	"Got it."`
+					goto run
+			`	Freya replies, "We're out of options, <first>. All we can do is pray for a miracle."`
+				goto run
+			label nukes
+			`	Freya replies, "I told the Wolf Pack to stand down their nuclear-capable ships; if the Republic had seen them, they would have never accepted Sawyer's testimony. They won't be ready in time to save us."`
+			label run
+			`	You sprint to the <ship> and follow the other Free ships into orbit, where the Navy is already waiting for you...`
+				launch
+
+	npc
+		government "Republic"
+		personality heroic waiting
+		fleet
+			names "republic capital"
+			fighters
+				names "republic fighter"
+			variant
+				"Frigate (Mark II)" 6
+				"Gunboat (Mark II)" 4
+
+	npc
+		government "Republic"
+		personality heroic waiting
+		fleet
+			names "republic capital"
+			fighters
+				names "republic fighter"
+			variant
+				"Carrier (Mark II)"
+				"Lance" 8
+				"Combat Drone" 6
+				"Gunboat (Mark II)" 2
+
+	npc
+		government "Republic"
+		personality heroic
+		system "Kornephoros"
+		fleet
+			names "republic capital"
+			fighters
+				names "republic fighter"
+			variant
+				"Cruiser (Mark II)" 3
+				"Combat Drone" 12
+
+	npc
+		government "Republic"
+		personality heroic
+		system "Sargas"
+		fleet
+			names "republic capital"
+			fighters
+				names "republic fighter"
+			variant
+				"Carrier (Mark II)"
+				"Lance" 8
+				"Combat Drone" 6
+				"Gunboat (Mark II)"
+				"Rainmaker (Mark II)"
+
+	npc
+		government "Republic"
+		personality heroic
+		system "Wei"
+		fleet
+			names "republic capital"
+			fighters
+				names "republic fighter"
+			variant
+				"Cruiser (Mark II)"
+				"Combat Drone" 4
+				"Frigate (Mark II)"
+
+	npc
+		government "Republic"
+		personality heroic
+		system "Alnasl"
+		fleet
+			names "republic capital"
+			fighters
+				names "republic fighter"
+			variant
+				"Carrier (Mark II)"
+				"Lance" 8
+				"Combat Drone" 6
+				"Frigate (Mark II)"
+
+	npc save
+		personality timid
+		system "Kaus Borealis"
+		government "Navy Intelligence"
+		ship "Gunboat (Raven)" "Eye of Horus"
+		ship "Gunboat (Mark II)" "Eye of Ra"
+		ship "Gunboat (Mark II)" "Euryphaessa"
+		ship "Cruiser" "Argos Panoptes"
+		on encounter
+			event "fw armistice" 0
+			"reputation: Republic" = 1
+			conversation
+				`The speakers in your cockpit flare to life as a small fleet in Republic colors enters Sabik:`
+				`	"This is the Eye of Horus, broadcasting on all frequencies as a representative of Navy Intelligence. All Republic Navy vessels are ordered to cease hostilities with the Free Worlds until further notice. We ask that the Free Worlds disengage their own forces in kind."`
+				`	On the fringes of combat, some of the smaller ships on both sides stop firing, but the larger clashes between captial ships continue unbothered until you receive a second transmission, this time on militia frequencies. "This is the Free Worlds Council," says JJ. "Follow through with Navy Intelligence's request."`
+				`	The remaining Free Worlds warships fall in line, halting their weapons fire. When they realize the Free Worlds are no longer fighting back, the rest of the Navy fleet disengages, leaving the two sides to stare at each other awkwardly.`
+				`	You receive a message from Longjump, once again from JJ. "One of the Navy Intelligence Gunboats is asking to land on <planet>. <first>, please follow them down to their landing site."`
+				choice
+					`	"Acknowledged."`
+						decline
+					`	"What just happened? What's Navy Intelligence?"`
+				`	You receive no reply. Looks like you'll have to have those questions answered in person.`
+
+	on visit
+		dialog `You've landed on <planet>, but there are still Navy ships circling overhead. You should take off and help finish them off.`
+	to complete
+		has "event: fw armistice"
+	on complete
+		event "fw tarazed republic"
+		event "end second battle of sabik"
+		log "A Questioner who works with Navy Intelligence has verified Sawyer's evidence, and a ceasefire has been declared. Also, the Navy has agreed to release Katya, as a gift for cooperating with their investigation."
+		log "People" "Ranulph Hines" `Hines refused the Free Worlds' conditional surrender in order to capture Sawyer for allegedly causing the bombings of Geminus and Martini. However, he was ultimately overruled by Navy Intelligence.`
+		conversation
+			`Once again, you land next to Sawyer's shuttle, and the Gunboat you escorted down sets down one pad over. A woman steps off it. She has dark skin, and is dressed entirely in black. Even the whites of her eyes are black: when she gets closer, you can see that it is actually a scleric tattoo, an intricate Celtic knotwork pattern inked into the whites of her eyes. She sees you staring at her, and winks at you with a friendly grin.`
+			`	"My name is Raven," she says. "Navy Intelligence had been tracking a Syndicate defector connected to the bombings. Unfortunately, his path crossed into contested territory, and we lost his location. That is, until a message received by Commander Hines revealed the defector was now in the posession of the Free Worlds." She bows as thanks. "I'd like to see this defector for myself, if you will."`
+			choice
+				`	"Go ahead, but don't expect him to have any groundbreaking evidence on him."`
+				`	"There's no need. We've already interrogated him ourselves."`
+					goto need
+			`	"That won't be a problem," she replies with a smirk.`
+				goto questioning
+			label need
+			`	She replies, "I'd prefer to hear the defector's story directly."`
+			label questioning
+			`	Two militia soldiers lead you and Raven to a room where Sawyer and JJ are waiting. After inspecting the room, Raven looks over at you, JJ, and the soldiers, and says, "Step outside. I wish to conduct this interrogate alone."`
+			choice
+				`	"Very well."`
+				`	"No, we insist on being present."`
+					goto insist
+			`	"No," JJ replies. "We've already had one Navy officer try to silence Sawyer. I'm not walking back in here to find Sawyer dead and you missing."`
+			label insist
+			`	She hesitates for a long moment. This is probably going against whatever orders she is following. But finally she says, "Very well." Raven approaches Sawyer, and reaches out her hands to him. Hesitantly, he takes her hands. It's an oddly intimate scene, the two of them quietly holding hands and locking eyes - not like any interrogation you have seen before. "Now," she says, "tell me your story."`
+			`	"My name is Adrian Sawyer," he replies. "I'm a physicist, a Syndicate employee." He hesitates, and looks away for a second, then says, "I was involved in what they referred to as an 'experimental weapons' development program. It was only later that I discovered--"`
+			`	"That is a lie," says Raven calmly. JJ raises an eyebrow.`
+			`	Sawyer seems flustered. "Okay, I knew from the start that the 'experimental weapons' were nuclear. They said it was for fighting pirates--"`
+			`	"You're lying again." Raven's tone does not shift.`
+			`	Sawyer relents. "They didn't tell me what the weapons were for, and I didn't ask."`
+			choice
+				`	"Why would the Syndicate attack the Republic?"`
+				`	"Why did you wait so long to report this?"`
+					goto wait
+			`	They both seem surprised at you asking a question. Sawyer says, "War is good for business, especially if you're in the business of making weapons. The Syndicate's profits have more than doubled since this conflict began."`
+			`	"What led you to report this?" asks Raven.`
+			label wait
+			`	He says, "It was when I heard that there had been another major battle. Up until then I had been telling myself that the worst of the damage was done. But after that battle, I knew that millions more could die because of our crime, and that I had the power to stop it."`
+			`	Raven continues to ask questions: who was involved, how long it took, where the raw materials came from. You learn that the bulk of the research took place on the pirate moon of Mutiny, in a secret facility. At one point, JJ pulls you aside and says, "She must be a Questioner. How they operate is a tightly kept secret. I'd always assumed their methods were... a bit more medieval."`
+			`	Finally, Raven is satisfied, and radios her ship. "The defector is telling the truth," she tells them. "Release our captive." She begins to leave the room.`
+			choice
+				`	"Captive?"`
+				`	(Follow Raven out.)`
+					goto follow
+			`	"When we learned the defector was within your territory," says Raven, "we were worried you might use him as a bargaining chip." Raven flashes a grin. "So we brought a bargaining chip of our own. We didn't need it in the end, but I'd like to reward your cooperative attitude."`
+			label follow
+			`	You step out of the room and see the door of Raven's ship slide open. Another woman steps out - shakily, hesitantly, shielding her eyes against the sunlight. It takes you a few seconds to realize that it's Katya.`
+			`	As you all rush over to greet Katya, Raven taps your shoulder and says quietly, "Meet me in the main spaceport in a few hours and we'll figure out what's going to happen next." She returns to her ship.`
+
+
 ship "Gunboat" "Gunboat (Raven)"
 	outfits
 		"Electron Beam" 2
@@ -31,10 +277,10 @@ mission "FW Reconciliation 1"
 	name "Pick up Ijs from <planet>"
 	description "Bring Katya and Sawyer to <destination>, along with Raven's ship (the Eye of Horus), and pick up Ijs and his equipment for detecting atomic testing."
 	autosave
-	source "New Tibet"
+	source "Longjump"
 	destination "Winter"
 	to offer
-		has "FW Defend New Tibet: done"
+		has "FW Sabik Holdout: done"
 	passengers 2
 	on fail
 		dialog phrase "free worlds failed"
@@ -48,60 +294,65 @@ mission "FW Reconciliation 1"
 		dialog `You land on <planet>, but realize that Katya, Sawyer, and Raven have not all arrived. Better depart and wait for the ships they are aboard.`
 	
 	on offer
-		log "Decided to rescue the Syndicate defector rather than turning him over to the Syndicate. A Questioner who works with Navy Intelligence has confirmed that he is telling the truth, and a ceasefire has been declared. Also, the Navy has agreed to release Katya now that there is evidence proving her innocence."
 		log "People" "Raven" `Raven, whose full name is unknown, is a Questioner who works for Navy Intelligence. Through some combination of training and natural ability, she is able to reliably detect whether or not someone is telling the truth.`
 		log "Factions" "Navy Intelligence" `It is unclear why the Navy needs their own intelligence force, since the Republic already has a Department of Intelligence that is incredibly powerful and well-funded. Rumors say that one of the main purposes of Navy Intelligence is to watch for human rights abuses being committed by the Republic itself and for other questionable activities that the Department of Intelligence might turn a blind eye toward or even collude with.`
 		event "fw conservatory founded"
 		conversation
 			`On your way to the spaceport, you fill Katya in on the state of the war. She says that Intelligence has been keeping her in a relatively comfortable but totally isolated cell; she's not even sure what world it was on. From the fact that her questioners seemed to be growing increasingly frustrated about the Free Worlds, she knew that you were still managing to resist the Navy, but they did not share any details with her.`
-			`	You meet up with Raven in a small tea shop, close enough to the spaceport that the tables shake each time another Free Worlds capital ship arrives in response to the Syndicate attack. "Thank you for allowing me to land here," says Raven. "Now, what questions do you have for me?"`
+			`	You meet up with Raven in a small tea shop, close enough to the spaceport that the tables shake each time another capital ship lands for repairs. "Now," she says, "what questions do you have for me?"`
+			label choices
 			choice
 				`	"Are we at peace with the Republic now?"`
+					to display
+						not "fw asked about peace"
 					goto peace
+				`	"What's going to happen to Commander Hines?"`
+					to display
+						not "fw asked about hines"
+					goto hines
 				`	"Are you some sort of mind reader?"`
+					to display
+						not "fw asked about questioners"
 					goto read
 				`	"What exactly is the job of Navy Intelligence?"`
+					to display
+						not "fw asked about navy intelligence"
 					goto intelligence
+				`	"I have no more questions."`
+					goto next
 			
 			label peace
-			`	"Well," she says, "only Parliament can decide that. But the Navy has been ordered not to attack Free Worlds ships, and the news that Sawyer brought has become public knowledge, so you'll find that most Republic worlds will be willing to welcome you, now."`
-			choice
-				`	"Are you some sort of mind reader?"`
-					goto read2
-				`	"What exactly is the job of Navy Intelligence?"`
-					goto intelligence2
+			action
+				set "fw asked about peace"
+			`	She says, "Officially, no. Our current situation is merely a temporary truce while our respective governments work out the exact conditions of your surrender. However, if it is proven that the Free Worlds were not responsible for the bombings, and if your forces assist our investigation into the Syndicate, Parliament may be more generous with their surrender offer." She winks.`
+				goto choices
+
+			label hines
+			action
+				set "fw asked about hines"
+			`	"Hines has been relieved of his duties as Commander," she replies. "His ultimate fate will be determined in a court of law."`
+				goto choices
 			
 			label read
+			action
+				set "fw asked about questioners"
 			`	She laughs, and says, "No, I'm just a really good listener." When she sees that you're not satisfied with that answer, she elaborates. "The official term for us is 'empaths.' We have a heightened ability to absorb the emotional state of those around us. That, combined with extensive training, makes us better lie detectors than any machine. But if you're asking whether my abilities work through body language and vocal cues, or through some sort of mystical powers, honestly none of us knows that for sure."`
-			choice
-				`	"Are we at peace with the Republic now?"`
-					goto peace2
-				`	"What exactly is the job of Navy Intelligence?"`
-					goto intelligence2
+				goto choices
 			
 			label intelligence
+			action
+				set "fw asked about navy intelligence"
 			`	She says, "I assume your real question is, why does Navy Intelligence exist at all, since the Republic already has a very powerful, well-funded, and nearly omniscient Department of Intelligence that exists independent of the Navy? The short answer is, we don't trust them. Someone needs to watch the watchers."`
-			choice
-				`	"Are we at peace with the Republic now?"`
-					goto peace2
-				`	"Are you some sort of mind reader?"`
-					goto read2
-			
-			label peace2
-			`	"Well," she says, "only Parliament can decide that. But the Navy has been ordered not to attack Free Worlds ships, and the news that Sawyer brought has become public knowledge, so you'll find that most Republic worlds will be willing to welcome you, now."`
-				goto next
-			
-			label read2
-			`	She laughs, and says, "No, I'm just a really good listener." When she sees that you're not satisfied with that answer, she elaborates. "The official term for us is 'empaths.' We have a heightened ability to absorb the emotional state of those around us. That, combined with extensive training, makes us better lie detectors than any machine. But if you're asking whether my abilities work through body language and vocal cues, or through some sort of mystical powers, honestly none of us knows that for sure."`
-				goto next
-			
-			label intelligence2
-			`	She says, "I assume your real question is, why does Navy Intelligence exist at all, since the Republic already has a very powerful, well-funded, and nearly omniscient Department of Intelligence that exists independent of the Navy? The short answer is, we don't trust them. Someone needs to watch the watchers."`
-				goto next
+				goto choices
 			
 			label next
-			`	Katya asks, "What do we do now? Will Sawyer's evidence be enough to end this war?"`
-			`	Raven says, "Possibly. Especially because the Syndicate incriminated themselves by chasing after him. But the Syndicate has so much power in Parliament that the more evidence we can collect, the better. And that means we should visit the world where he said the development was done, and look for more evidence there."`
+			action
+				clear "fw asked about peace"
+				clear "fw asked about hines"
+				clear "fw asked about questioners"
+				clear "fw asked about navy intelligence"
+			`	Katya asks, "What do we do now? Will Sawyer's word be enough to end this war?"`
+			`	Raven says, "It's unlikely. The Syndicate may have incriminated themselves chasing after him, but Sawyer only has his testimony as evidence. However, he did give us a lead to Mutiny, where most of the nuclear development was done. There should be more definitive evidence there."`
 			`	Katya says, "Captain <last>, is Ijs Springborn still working for the Free Worlds?"`
 			`	You tell her that the last you heard, Ijs was helping to found a new university on <planet>. She says, "We should bring him with us. Raven, will you be traveling with us too?"`
 			`	"Yes," she says. "I'll tell my ship and crew to get ready."`
@@ -159,7 +410,7 @@ mission "FW Reconciliation 1B"
 				`	"Absolutely. I could blow up a thousand Syndicate fleets in my sleep."`
 				`	"I'm worried about fighting Syndicate ships on the way there."`
 					goto worried
-			`	Raven smirks. "It would be nice to strongarm our way through Syndicate space. But, in case Syndicate forces prove to be too much and we're forced to flee, I'd suggest swapping out your hyperdrive for a scram drive. Syndicate Quicksilvers are notoriously agile, and their Proton Guns make it nearly impossible to jump with a regular hyperdrive.`
+			`	Raven smirks. "It would be nice to strongarm our way through Syndicate space. But, if Syndicate forces prove too much and we're forced to flee, I suggest swapping your hyperdrive for a scram drive. The Proton Guns on Syndicate Quicksilvers make it nearly impossible to jump with a regular hyperdrive.`
 				goto scanning
 			label worried
 			`	"That is indeed a danger. Syndicate Quicksilvers are notoriously agile, and if they swarm us, their Proton Guns will push you around and prevent regular hyperdrives from jumping."`
@@ -167,10 +418,10 @@ mission "FW Reconciliation 1B"
 				`	"Is there any way to outspeed their Quicksilvers?"`
 				`	"Do we have to destroy every Quicksilver we encounter, then?"`
 					goto destroy
-			`	"In a larger warship? That would be unlikely," Raven replies, "but there's another method of escaping them that's much easier."`
+			`	"In a larger warship? That'd be difficult," Raven replies, "but there's another method that's much easier."`
 				goto explanation
 			label destroy
-			`	"Not necessarily. Just because a regular hyperdrive wouldn't be able to jump doesn't mean there's no way to escape a Quicksilver."`
+			`	"No. Just because a regular hyperdrive would get stuck doesn't mean there's no way to escape a Quicksilver."`
 			label explanation
 			`	You ask, "What do you mean?"`
 			`	Raven says, "I suggest you swap your hyperdrive for a scram drive. Unlike a hyperdrive, you don't need to be perfectly still when using a scram drive, letting you jump even if you're getting shoved by weapons fire."`
@@ -179,7 +430,7 @@ mission "FW Reconciliation 1B"
 				`	"Thanks for the advice."`
 				`	"Wait, how did you know that I don't have a scram drive?"`
 					goto secrets
-			`	"Don't thank me," says Raven. "I'm just looking out for myself. After all, if you get blown up, they're probably going to try and kill me next." She winks before heading towards her Gunboat.`
+			`	"Don't thank me," says Raven. "I'm just looking out for myself. After all, if you get blown up, they're going to try to kill me next." She winks before heading towards her Gunboat.`
 				accept
 			label secrets
 			`	Raven puts a finger to her mouth and winks as she turns towards her own Gunboat.`
@@ -298,7 +549,7 @@ mission "FW Reconciliation 2"
 					goto pessimism
 			
 			label optimism
-			`	You continue to feel optimistic as Sawyer presents his story and his evidence, corroborated by the additional data collected by Ijs and by Raven's team. But as the members of Parliament begin questioning Sawyer, nearly all their questions sound more like an attack on him than an attempt to learn more about the Syndicate's involvement in the terrorist attacks.`
+			`	You continue to feel optimistic as Sawyer presents his story, corroborated by the additional data collected by Ijs and by Raven's team. But as the members of Parliament begin questioning Sawyer, nearly all their questions sound more like an attack on him than an attempt to learn more about the Syndicate's involvement in the terrorist attacks.`
 				goto why
 			
 			label pessimism
@@ -311,35 +562,6 @@ mission "FW Reconciliation 2"
 			`	"That's utter nonsense," says the man. "That's the sort of absurd conspiracy theory that someone with no understanding of business would invent."`
 			`	The rest of the hearing is little better, but as you are leaving one of the representatives from the Deep shakes your hand, and you feel a piece of paper being pressed into your palm. You pocket it quietly and open it once you have returned to your ship. It says, "Visit us on Valhalla."`
 				accept
-
-
-
-mission "FW Navy Out Of Rastaban"
-	landing
-	destination "Dancer"
-	to offer
-		has "FW Reconciliation 2: offered"
-		karma > 0
-	
-	on offer
-		event "navy out of rastaban" 5
-		conversation
-			`You receive a brief message from Alondo: "Good news, Captain! As a gesture of good faith the Navy is beginning to pull out of Rastaban and Delta Sagittarii. Those worlds will revert to our control soon. Be sure to tell the others. And, tell Katya I'm very glad she's free and am looking forward to seeing her." You pass on his message to Katya and Ijs.`
-				decline
-
-
-
-mission "fw tarazed joins"
-	landing
-	invisible
-	non-blocking
-	to offer
-		has "FW Reconciliation 2: done"
-		not "FW Reconciliation 2A: done"
-		karma > 0
-	on offer
-		event "fw tarazed joins"
-		fail
 
 
 
@@ -379,15 +601,8 @@ mission "FW Reconciliation 2A"
 			`	"That's why the fleet will be composed of ships from three different organizations," says Edrick. "You will find a reason to travel to Earth with perhaps one of your fancy new Dreadnoughts as an escort. When you arrive, there will just happen to be an Oathkeeper patrol passing through the same system. And a merchant convoy from the Deep. With its own set of escorts, of course."`
 			`	"We'd need to know exactly where and on what planet our target lives, prior to entering Syndicate space," says Katya. "And, if you want to have a court trial immediately prior to the arrest, it sounds like Sawyer will need to stay here."`
 			`	"Indeed," says Edrick, "but I assure you, he is safer from the Syndicate here than anywhere else in human space, your own territory included. As for locating a target, that's why the Oathkeepers have requested that you visit them on Farpoint."`
-			branch tarazed
-				karma > 0
 			`	The rest of the evening is a more casual time for conversation, with plenty of good food and wine.`
-				goto end
-			
-			label tarazed
-			`	The rest of the evening is a more casual time for conversation, with plenty of good food and wine. Alondo sends you a message to inform you that Tarazed has decided to officially join the Free Worlds after having received word of the Parliament hearing, news that brings joy to Katya and Ijs.`
-			label end
-			`	At one point, Edrick pulls you aside and says, "I've requested that you be granted access to some of the new technology that was developed here during the course of the war. In particular, feel free to visit the outfitter here and install a ramscoop; you will need one for your next mission. And also, take this." He hands you a data card. "It's a copy of Sawyer's evidence, in case something happens here. Keep it very, very safe."`
+			`	At one point, Edrick pulls you aside and says, "I've requested that you be granted access to some of the new technology that was developed here during the course of the war. In particular, feel free to visit the outfitter here and install a ramscoop; you will need one for your next mission."`
 				accept
 	
 	npc accompany save
@@ -402,7 +617,7 @@ mission "FW Reconciliation 2A"
 
 mission "FW Reconciliation 2B"
 	name "Travel to Stormhold"
-	description "Sawyer has named several Syndicate executives who were definitely part of the plot. Travel to the lawless world of Stormhold, where you will be able to purchase information about where those executives live."
+	description "Sawyer's reports named several Syndicate executives involved in the nuclear weapons program. Travel to the lawless world of Stormhold, where you will be able to purchase information about where those executives live."
 	autosave
 	landing
 	source Farpoint
@@ -452,7 +667,7 @@ mission "FW Reconciliation 2C"
 		log "Visited a village on a lawless world in northern Syndicate space, and purchased information on the whereabouts of several of the Syndicate executives who were implicated in the terrorist attacks."
 		conversation
 			`You land near one of the small villages on Stormhold, and after handing out a few small bribes from the money Danforth gave you, finally one of the villagers recalls that a local gang of pirates is led by a former Syndicate manager. With some trepidation, you fly to his stronghold, and he agrees to "do business" with you.`
-			`	Katya shows him Sawyer's list of names. "So, these are the bad boys, huh?" he says. Clearly the news of Sawyer's revelations has spread even to this remote world. He looks through the list, and is able to tell you where three of the five men live. "I'd love to see all these bastards taken down," he says.`
+			`	Katya shows him the routine reports Sawyer brought in his shuttle, with the names of the associated head executives involved highlighted. "So, these are the bad boys, huh?" he says. Clearly the news of Sawyer's revelations has spread even to this remote world. He looks through the list, and is able to tell you where three of the five men live. "I'd love to see all these bastards taken down," he says.`
 			`	You give him the rest of Danforth's money and thank him for helping you - and ask that he keep your visit secret. "No problem," he says. As you are leaving, he adds, "Also, Mister Springborn... you're my hero, man. Glad you're still finding ways to pester the Syndicate." Ijs seems pleasantly surprised to be recognized.`
 				accept
 	on visit
@@ -541,7 +756,7 @@ mission "FW Defend Farpoint"
 
 mission "FW Embassy 1"
 	name "Ambassadors from Earth"
-	description "The Republic has agreed to set up an embassy to the Free Worlds. Travel to Earth to meet the ambassadors and escort them to Free space."
+	description "The Republic wishes to negotiate the Free Worlds' surrender further. Travel to Earth to meet the ambassadors and escort them to Free space."
 	autosave
 	landing
 	source Farpoint
@@ -555,7 +770,7 @@ mission "FW Embassy 1"
 	
 	on offer
 		conversation
-			`As you are landing, Katya tells you, "<first>, we just received a message from the Free Worlds Senate. They've arranged for a Republic embassy to be set up on Bourne, and a Free Worlds embassy on Earth. We've been asked to meet the ambassadors on Earth and escort them to Bourne."`
+			`As you are landing, Katya tells you, "<first>, we just received a message from the Free Worlds Senate. They've arranged for a ship's worth of Republic ambassadors to be sent to Bourne to deterimine the exact conditions of the Free Worlds' surrender. We've been asked to meet the ambassadors on Earth and escort them there."`
 			`	A few minutes later, Admiral Danforth arrives at your ship. "Captain <last>," he says, "I'd like to thank you for your assistance." He hands you a million-credit chip.`
 			choice
 				`	"Thank you, sir."`
@@ -627,18 +842,20 @@ mission "FW Reconciliation Break"
 		log "Dropped off a team of Republic diplomats on Bourne. It seems like for now, the ceasefire is holding, and public opinion is slowly turning to favor the Free Worlds rather than the Syndicate. But the Syndicate leaders must still be brought to justice. The Council will be in touch when they are ready to help launch an attack on the Syndicate."
 		conversation
 			`From the way Alondo's eyes light up when he sees Katya, you can tell that all he wants to do right now is to get caught up with her and celebrate her freedom. But he plays the part of a good diplomat, escorting the Republic ambassadors to their new quarters. Along the way he makes pleasant small talk with them, complimenting their style and sophistication. Knowing him as well as you do, you can tell he is saving up his more scathing comments about them until they are out of earshot.`
-			`	The moment they are dealt with he gives Katya a hug and says, "Katya! So good to have you back with us. The Council has five members once more. I assume you've been told about Tomek's... departure, and <first>'s promotion?" She nods.`
-			`	Alondo says, "Unfortunately, we don't have any ambassadors of our own picked out yet. The Senate insists on selecting them, and you wouldn't believe how slowly Senate deliberations move. They've interviewed half a dozen candidates so far, and found none to their liking. It pains me to say this, but we may have succeeded in creating a bureaucracy every bit as inefficient as the one we rebelled against."`
+			`	The moment they are dealt with he gives Katya a hug and says, "Katya! So good to have you back with us. The Council has five members once more. I assume you've been told about Tomek's... departure, and <first>'s promotion?" She nods, then tells Alondo about the plan to apprehend Soylent, and the need for an excuse to bring a Free warship deep into Republic space.`
+			`	Alondo thinks for a moment, then says, "As we've been working through the peace deal, its become more and more likely the Free Worlds will retain some level of autonomy after the war. We're already planning to set up an embassy on Earth, and it shouldn't be too suspicous if the ambassadors travel in a warship for their safety."`
+			`	"When will you have the ambassadors ready?" asks Katya.`
+			`	"Unfortunately, we haven't picked out any ambassadors yet. The Senate insists on selecting them, and you wouldn't believe how slowly Senate deliberations move. They've interviewed half a dozen candidates so far, and found none to their liking. It pains me to say this, but we may have succeeded in creating a bureaucracy every bit as inefficient as the one we rebelled against."`
 			choice
-				`	"No problem. The important thing is, we're at peace, so their decisions can take as long as they need to."`
+				`	"No problem. The important thing is, the fighting is over, so their decisions can take as long as they need to."`
 					goto peace
-				`	"Have you volunteered to be one of the ambassadors? You're an obvious choice."`
+				`	"Why don't you volunteer to be one of the ambassadors? You're an obvious choice."`
 					goto volunteer
 				`	"What do we do while we're waiting?"`
 					goto wait
 			
 			label peace
-			`	"At peace for now," says Ijs, "but so far a peace without justice. When the time is ripe, we will strike against the Syndicate."`
+			`	"Our fight with the Republic may be over," says Ijs, "but we have yet to bring justice to the galaxy. When the time is ripe, we will strike against the Syndicate."`
 				goto wait
 			
 			label volunteer
@@ -647,7 +864,7 @@ mission "FW Reconciliation Break"
 				goto wait
 			
 			label wait
-			`	Alondo says, "We should use this time of peace well, to prepare for another battle ahead. Those Syndicate ships on New Tibet had equipment I've never seen before, and who knows what else the Syndicate has up their sleeves - especially if they've begun producing nuclear weapons. Captain <last>, you should take this time to make sure your ship is as well armed as possible for our next strike. Ijs and Katya, what will you do with this time?"`
+			`	Alondo says, "We should use this time of quiet well, to prepare for another battle ahead. Those Syndicate ships on New Tibet had equipment I've never seen before, and who knows what else the Syndicate has up their sleeves - especially if they've begun producing nuclear weapons. Captain <last>, you should take this time to make sure your ship is as well armed as possible for our next strike. Ijs and Katya, what will you do with this time?"`
 			`	Katya glances at Ijs and then says, "I would certainly welcome a small sabbatical, and a chance to spend time together and catch up on all we've missed. Professor Springborn, do you think the Conservatory would extend your leave of absence long enough for us to make a trip to <planet>?"`
 			`	Ijs laughs. "That sounds wonderful, Councilor," he says. "<first>, do you think you could bring us there on your way to wherever you go next?"`
 			`	You tell him you would be glad to, and you all get ready for yet another journey together.`
@@ -698,8 +915,7 @@ mission "FW Embassy 1C"
 	on offer
 		conversation
 			`When you land on Bourne you discover that Katya and Ijs have already been back there for a week. Alondo is with them, too. "We just couldn't stay away from the action for long," says Ijs.`
-			`	The Star Queen luxury liner that brought the Earth ambassadors to Bourne is still parked in a somewhat out-of-the-way hangar. "Don't worry, Captain," says Katya, "there's no way our ambassadors would travel in something as gaudy as that. They've requisitioned a Dreadnought instead. A good ship to remind the people of Earth that we have a strong fleet of our own."`
-			`	"Not to mention," says Ijs, "a good ship to take part in our strike against the Syndicate."`
+			`	The Star Queen luxury liner that brought the Earth ambassadors to Bourne is still parked in a somewhat out-of-the-way hangar. Next to it is a shiny new Dreadnought, weapons bristling as the Free Worlds ambassadors begin to board.`
 			`	Alondo introduces you to the Free Worlds ambassadors who will be returning to Earth. "I've already contacted Governor Flint and Admiral Danforth," he says. "Their ships will be arriving in the Sol system about the same time as yours. Good luck, Captain." You help Ijs and Katya load their luggage onto your ship, and tell the Dreadnought carrying the ambassadors to be ready to follow you.`
 				accept
 	
@@ -786,8 +1002,8 @@ mission "FW Syndicate Capture 1"
 		planet "Mars"
 		personality escort heroic waiting
 		government "Deep Security"
-		ship "Bactrian" "Unbreakable"
-		ship "Aerie" "Eagle's Eye"
+		ship "Bactrian" "D.S.S. Unbreakable"
+		ship "Aerie" "D.S.S. Eagle's Eye"
 
 
 
@@ -1002,9 +1218,36 @@ mission "FW Syndicate Capture 1C"
 			label katya
 			`	Katya says, "It sounds like if the Free Worlds enters Sol, we'll be the spark that sets off an explosion. So, we'll have to trust the Deep, or the Navy, or someone else to try to defuse the situation. Meanwhile, I suggest we return to Free space and muster our entire fleet, to assist the Navy against the Syndicate if it comes to that. JJ ought to be on <planet>; we can meet up with him there."`
 				accept
+
+	npc
+		system "Sol"
+		government "Syndicate"
+		personality heroic staying
+		fleet
+			names "syndicate capital"
+			variant
+				"Manta (Nuclear)" 8
+				"Splinter (Mark II)" 7
+				"Manta (Mark II)" 5
+				"Quicksilver (Mark II)" 12
+				"Protector (Laser)" 2
+				"Protector" 4
+
+	on enter "Sol"
+		"reputation: Syndicate" = -1000
+		event "fw syndicate attacks republic"
+		dialog `Your screen flashes with warnings as you see a Syndicate Manta launch a nuke at a Navy Cruiser. Your appearance in Sol has set off a chain reaction, leading to an all out war between all the factions of human space...`
+		fail
+
 	on visit
 		dialog `You land on <planet>, but realize that your escort carrying Katya and Mr. Eyes hasn't entered the system yet. Better depart and wait for it to arrive.`
 
+
+
+event "fw syndicate attacks republic"
+	government "Syndicate"
+		"attitude toward"
+			"Republic" -.01
 
 
 mission "FW Pug 1"
@@ -1208,7 +1451,7 @@ mission "FW Pug 2A"
 	
 	npc
 		system "Sol"
-		personality heroic uninterested staying
+		personality heroic staying
 		government "Republic"
 		fleet "Large Republic" 5
 		fleet "Small Republic" 5
@@ -1408,7 +1651,7 @@ mission "FW Pug Jump Drive Check"
 	on offer
 		conversation
 			`Somehow, you've misplaced or lost the jump drive needed to continue the Free Worlds story! If you are unable to find your jump drive, you should revert to the autosave or another earlier snapshot of the game.`
-			`Alternatively, you could try to track down the Korath raiders that the Syndicate mentioned, and steal another jump drive from them, but it sounds like the Korath can put up quite a fight...`
+			`	Alternatively, you could try to track down the Korath raiders that the Syndicate mentioned and steal another jump drive from them, but it sounds like the Korath can put up quite a fight...`
 				decline
 
 
@@ -2671,10 +2914,11 @@ mission "FW Syndicate Extremists 1C"
 		dialog `You land on <planet>, but realize that your escort carrying Freya hasn't entered the system yet. Better depart and wait for it to arrive.`
 	on complete
 		log "Received an official commendation from Parliament and a promise that the war with the Free Worlds are officially over. Humanity is at peace once more, but new challenges may await in the star systems out beyond human space that are accessible only by jump drive."
-		log "Factions" "Free Worlds" `Tensions between the Free Worlds and the Republic mounted when additional systems decided to leave the Republic and join the Free Worlds, culminating in a series of military confrontations that ended when the Free Worlds were able to present credible evidence denying any involvement in the terrorist attacks. After the Free Worlds joined the effort to drive out the Pug invaders, the Republic officially recognized the Free Worlds and diplomatic relations were established.`
+		log "Factions" "Free Worlds" `Tensions between the Free Worlds and the Republic mounted when additional systems decided to leave the Republic and join the Free Worlds, culminating in a series of military confrontations that ended when the Free Worlds surrendered. After the Free Worlds were proven innocent in the bombings and joined the effort to drive out the Pug invaders, Parliament officially established the Free Worlds as a semi-autonomous region of the Republic.`
 		log "Factions" "Syndicate" `It was exposed that the bombings of Geminus and Martini that helped cause the war between the Republic and Free Worlds were the doing of the Syndicate, designed by top executives with the help of a group of Alphas. Despite the claims that all the extremists responsible have been purged and handed over to the Navy, the reputation of the Syndicate will be damaged for years to come.`
 		payment 5000000
 		event "stack core for sale"
+		event "navy out of occupied systems"
 		"salary: Free Worlds" = 8900
 		set "main plot completed"
 		set "free worlds plot completed"
@@ -2701,34 +2945,23 @@ mission "FW Syndicate Extremists 1C"
 			
 			label next
 			`	"What have you three been doing?" Freya asks.`
-			
-			branch good
-				has "event: navy out of rastaban"
-			`	Alondo says, "We've been talking to Parliament, and they're finally beginning to let off of us. They have signed a treaty with the Free Worlds, agreeing that the Navy will begin pulling out of any occupied systems, and that the Free Worlds will be allowed autonomy in the region they currently control as long as they do not seek to expand their territory further. As of now, our war against the Republic is officially over."`
+
+			branch tarazed
+				karma > 0
+			`	Alondo says, "We've been talking to Parliament, and we've finalized the terms of our surrender deal. The Free Worlds will exist as an semi-autonomous region of the Republic, consisting of all the systems we had occupied prior to the attacks on Delta Sagittarii and Rastaban. In exchange for a tax, the Free Worlds will be allowed to field their own military and elect their own representatives. As of now, our war against the Republic is officially over."`
 				goto end
-			
-			label good
-			`	Alondo says, "We've been talking to Parliament, and they're finally beginning to let off of us. They have signed a treaty with the Free Worlds, agreeing that the Free Worlds will be allowed autonomy in the region they currently control as long as they do not seek to expand their territory further. As of now, our war against the Republic is officially over."`
-			
+
+			label tarazed
+			action
+				event "fw tarazed joins"
+			`	Alondo says, "We've been talking to Parliament, and we've finalized the terms of our surrender deal. The Free Worlds will exist as an semi-autonomous region of the Republic, consisting of all the systems we had occupied prior to the attacks on Delta Sagittarii and Rastaban, plus the systems near Tarazed, who voted to join the Free Worlds. In exchange for a tax, the Free Worlds will be allowed to field their own military and elect their own representatives. As of now, our war against the Republic is officially over."`
+
 			label end
 			`	"What about you two?" says JJ. "How did fighting the Pug go?"`
-			`	You and Freya explain to the rest of the Council how the Pug were defeated, as well as the truth behind the Syndicate starting the war. When you finish, Katya says, "Vanishing aliens, prophetic supercomputers starting wars, Alphas pulling strings in the Syndicate's ranks; if I hadn't seen events just as unbelievable over the last few months, I would write what you're saying off as a bad conspiracy theory."`
+			`	You and Freya explain to the rest of the Council how the Pug were defeated, as well as the truth behind the Syndicate starting the war. When you finish, Katya says, "Vanishing aliens, prophetic supercomputers starting wars, Alphas pulling strings in the Syndicate's ranks; if I hadn't seen events just as unbelievable over the last few months, I'd write it off as a bad conspiracy theory."`
 			`	"Well, it looks like the Council is all together again," says JJ, "for the last time, as it so happens. Now that the war has ended, and the Pug have been defeated, the Senate has voted to dissolve the Council, leaving us free to return to civilian life. However, they've also agreed to pay you, <first>, a reduced salary in gratitude of your service. So, what do you think you will do next?"`
 			choice
 				`	"Build a merchant fleet and live a safe, quiet life."`
 				`	"See if folks in the fringe worlds need any help against the pirates."`
 				`	"Use my jump drive to explore beyond human space."`
 			`	"Well, we all wish you the best of luck," says Freya. "We would never have gotten this far without you. Be sure to stay in touch." You hug each of them goodbye, and return to your ship. What you do next is up to you...`
-
-
-
-mission "FW Navy Out Of Rastaban (Bad Karma)"
-	landing
-	invisible
-	non-blocking
-	to offer
-		has "FW Syndicate Extremists 1C: done"
-		not "event: navy out of rastaban"
-	on offer
-		event "navy out of rastaban" 30
-		fail

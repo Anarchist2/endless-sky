@@ -239,7 +239,7 @@ mission "FW Epilogue: Danforth"
 				goto end
 			
 			label checkmate2
-			`	Then he leans forward and says, more quietly, "Just a heads-up that the Navy has their eye on the Free Worlds still. Just because a peace treaty was made doesn't mean you can keep your nukes forever."`
+			`	Danforth's shoulders droop. "But knowing there's a warlord running around with a nuclear stockpile has got us all on edge. The prospect of a pirate interceptor or light warship being able to blow up a Cruiser out of nowhere is hell on morale."`
 			
 			label end
 			`	After you talk for a while longer, Danforth wishes you luck and sends you on your way. "I'll be in touch if we ever need your assistance in the future," he says.`

@@ -1927,6 +1927,75 @@ event "battle for zeta aquilae"
 	system "Zeta Aquilae"
 		fleet "Small Southern Merchants" 5000
 
+mission "FW Rand Escorts"
+	invisible
+	non-blocking
+	landing
+	to offer
+		has "FW Albatross 2B: done"
+		not "FW Reconciliation 1: offered"
+		not "FWC Nuke Supply 1: offered"
+	to accept
+		has "FW Rand 1: offered"
+	to complete
+		never
+	to fail
+		or
+			has "FW Sabik Holdout: done"
+			has "FWC Northern Defense: done"
+	npc
+		government "Free Worlds"
+		personality heroic disables escort
+		ship "Dreadnought" "F.S. Jean Bart"
+		on kill
+			"fw dreadnought lost" ++
+	npc
+		government "Free Worlds"
+		personality heroic disables escort
+		ship "Dreadnought" "F.S. Elder"
+		on kill
+			"fw dreadnought lost" ++
+	npc
+		government "Free Worlds"
+		personality heroic disables escort
+		ship "Falcon (Plasma)" "F.S. Reliant"
+		on kill
+			"fw falcon lost" ++
+	npc
+		government "Free Worlds"
+		personality heroic disables escort
+		ship "Falcon (Heavy)" "F.S. Bismark"
+		on kill
+			"fw falcon lost" ++
+	npc
+		government "Free Worlds"
+		personality heroic disables escort
+		ship "Skein" "F.S. Lapwing"
+		ship "Finch" "Bravo 8-4"
+		ship "Finch" "Bravo 0-9"
+		ship "Finch" "Bravo 6-2"
+		ship "Finch" "Bravo 3-1"
+		ship "Finch" "Bravo 1-5"
+		ship "Finch" "Bravo 9-1"
+		on kill
+			"fw skein lost" ++
+	npc
+		government "Free Worlds"
+		personality heroic disables escort
+		ship "Hawk (Rocket)" "F.S. Echo"
+		ship "Hawk" "F.S. Shadow"
+		on kill
+			"fw hawks lost" ++
+	npc
+		government "Free Worlds"
+		personality heroic disables
+		system "Kochab"
+		ship "Dreadnought" "F.S. Linden"
+		on kill
+			"fw dreadnought lost" ++
+
+
+
 mission "FW Rand 1"
 	landing
 	name "Occupy Zeta Aquilae"
@@ -1941,6 +2010,7 @@ mission "FW Rand 1"
 		has "FW Albatross 2B: done"
 	on fail
 		dialog phrase "free worlds failed"
+		fail "FW Rand Escorts"
 	
 	on offer
 		log "Another two planets, Rand and Oblivion, have expressed an interest in joining the Free Worlds. They are rather far from the rest of Free Worlds territory, however, so JJ is worried that it would create an indefensible tactical position."
@@ -1961,28 +2031,6 @@ mission "FW Rand 1"
 			`	"You may be right," he says. "Freya, what do you think?"`
 			`	"I think we need to take this opportunity while it's available," she says. "Sorry, Captain, but I'm with JJ on this one." They both board your ship, and you get ready to travel to Zeta Aquilae.`
 				accept
-	
-	npc
-		government "Free Worlds"
-		personality heroic disables escort
-		ship "Dreadnought" "F.S. Jean Bart"
-		ship "Dreadnought" "F.S. Elder"
-		ship "Falcon (Plasma)" "F.S. Reliant"
-		ship "Falcon (Heavy)" "F.S. Bismark"
-		ship "Skein" "F.S. Lapwing"
-		ship "Finch" "Bravo 8-4"
-		ship "Finch" "Bravo 0-9"
-		ship "Finch" "Bravo 6-2"
-		ship "Finch" "Bravo 3-1"
-		ship "Finch" "Bravo 1-5"
-		ship "Finch" "Bravo 9-1"
-		ship "Hawk (Rocket)" "F.S. Echo"
-		ship "Hawk" "F.S. Shadow"
-	npc
-		government "Free Worlds"
-		personality heroic disables
-		system "Kochab"
-		ship "Dreadnought" "F.S. Linden"
 	
 	npc evade
 		government "Republic"
@@ -2017,6 +2065,7 @@ mission "FW Rand 1B"
 		has "FW Rand 1: done"
 	on fail
 		dialog phrase "free worlds failed"
+		fail "FW Rand Escorts"
 	
 	on offer
 		log "The Navy has invaded Rastaban and Delta Sagittarii, effectively slicing through Free Worlds territory and splitting up the Free Worlds fleet."
@@ -2027,14 +2076,8 @@ mission "FW Rand 1B"
 			`	"I was afraid of this," says JJ, "but I didn't think it would happen so quickly. I wonder if they knew that these new worlds were joining us, and deliberately used them as a diversion."`
 			choice
 				`	"What do we do now?"`
-			`	JJ says, "Freya, you said part of our fleet fled to Tarazed?"`
-			`	"Yes," she says. "Probably not a strong enough fleet to drive them off, though."`
-			`	"Well, I guess we should regroup with them," he says. "Hopefully then we can plan a coordinated strike. Or if necessary, we can abandon this sector and get our fleet back to the Rim without losing too many ships. Captain <last>, can you take us to <destination>?"`
-			choice
-				`	"Sure."`
-					accept
-				`	"What if the Navy follows the fleet to Wayfarer? We're three of the four Council members. Shouldn't we avoid a situation where we could all be killed?"`
-			`	From JJ's expression, it's clear that he doesn't even want to dignify that question with a response. "If we die, the Free Worlds will live on," he says, "and there's no way we're abandoning a whole section of the fleet just to save our own skins. So, let's go to Wayfarer."`
+			`	"We could regroup with the ships that fled towards Tarazed," says Freya. "They're probably not a strong enough fleet to drive the Republic off, though."`
+			`	"Even so, that sounds like our best option," he says. "Hopefully then we can plan a coordinated strike. Or if necessary, we can abandon this sector and get our fleet back to the Rim without losing too many ships. Captain <last>, set a course to <destination>."`
 				accept
 	on visit
 		dialog `You land on <planet>, but realize that your escort carrying JJ and Freya hasn't entered the system yet. Better depart and wait for it to arrive.`
@@ -2063,149 +2106,57 @@ mission "FW Rand 1B"
 
 
 
-event "battle of alioth"
-	system Rutilicus
-		fleet "Small Southern Merchants" 600
-		fleet "Large Southern Merchants" 2000
-		fleet "Small Southern Pirates" 8000
-		fleet "Small Republic" 1000
-	system Cebalrai
-		fleet "Small Southern Merchants" 600
-		fleet "Large Southern Merchants" 2000
-		fleet "Small Southern Pirates" 4000
-		fleet "Small Republic" 1000
-	system Alioth
-		fleet "Small Southern Merchants" 400
-		fleet "Large Northern Merchants" 600
-		fleet "Small Southern Pirates" 1200
-		fleet "Large Southern Pirates" 2400
-		fleet "Small Republic" 3000
-		
-event "end battle of alioth"
-	system Rutilicus
-		fleet "Small Southern Merchants" 600
-		fleet "Large Southern Merchants" 2000
-		fleet "Small Southern Pirates" 8000
-		fleet "Small Republic" 1000
-		fleet "Large Republic" 2000
-		fleet "Navy Surveillance" 1600
-	system Cebalrai
-		fleet "Small Southern Merchants" 600
-		fleet "Large Southern Merchants" 2000
-		fleet "Small Southern Pirates" 4000
-		fleet "Small Republic" 1000
-		fleet "Large Republic" 2000
-		fleet "Navy Surveillance" 1600
-	system Alioth
-		fleet "Small Southern Merchants" 400
-		fleet "Large Northern Merchants" 600
-		fleet "Small Southern Pirates" 1200
-		fleet "Large Southern Pirates" 2400
-		fleet "Small Republic" 3000
-		fleet "Large Republic" 4000
-		fleet "Navy Surveillance" 1600
-
-
-
-government "Syndicate (Hostile)"
-	swizzle 4
-	color 0 .41 .71
-	"display name" "Syndicate"
-	"player reputation" -1000
-	"attitude toward"
-		"Free Worlds" -.3
-		"Pirate" -.01
-		"Korath" -.01
-	"friendly hail" "friendly syndicate"
-	"hostile hail" "hostile syndicate"
-
-mission "FW Defend New Tibet"
+# Tell players to go to Wayfarer to resume the story if they were in the middle of one of the deleted missions.
+mission "FW Split Patch"
 	landing
-	name "The Defector"
-	description "Travel to New Tibet to question the Syndicate about the defector supposedly carrying vital evidence and information that they are behind the bombings."
-	source Wayfarer
-	destination "New Tibet"
-	passengers 2
+	name "Return to <planet>"
+	description "Return to <destination> to continue your work with the Free Worlds."
+	source
+		not planet "Wayfarer"
+	destination "Wayfarer"
 	to offer
 		has "FW Rand 1B: done"
-	on fail
-		dialog phrase "free worlds failed"
-	
+		not "FW Split 1: offered"
+		not "FW Reconciliation 1: offered"
+		not "FWC Nuke Supply 1: offered"
+	to accept
+		not "FW Split 1: offered"
 	on offer
-		log "As a member of the Council, must make the deciding vote on a difficult decision. A defector from the Syndicate is claiming to have proof that the Syndicate was behind the bombings of Martini and Geminus. If that is true, the Republic may agree to make peace with the Free Worlds. But, refusing to return the defector to the Syndicate would certainly earn their enmity."
 		conversation
-			`The fleet in orbit around Wayfarer is pitifully small, surely not enough to take on more than a couple of Navy capital ships. JJ orders one of their communication officers to try to establish a secure link to Bourne or to any Free Worlds post on the other side of the Navy blockade. After about ten minutes, the officer returns and says, "Sir, we've received communications from New Tibet sent earlier today. You need to talk to them."`
-			`	"Our fleet is there?" asks JJ.`
-			`	"No sir, it's the Syndicate. The Syndicate has a war fleet in Alioth."`
-			`	"What?" says JJ. He rushes into the communication room, and you and Freya follow. "Play the communication," JJ says. On the video screen is a Buddhist monk in a maroon robe; behind him, you see other monks rushing about with none of the serenity you would usually expect of them.`
-			`	The monk explains, "I pray that this communication reaches the Council. Yesterday a Syndicate ship landed near our monastery, and the pilot sought refuge with us. He claims to have evidence that the Syndicate, or some faction within the Syndicate, was behind the attacks on Geminus and Martini. Evidence that a certain faction within the Syndicate values economic growth above all else," says the monk, "and incited this war for that reason."`
-			`	"That's insane," says Freya.`
-			`	"But not completely implausible," says JJ.`
-			choice
-				`	(Continue watching the communication.)`
-			`	The video of the monk continues, "He was unable to show us this evidence, but he made claims of having plans for a nuclear device. After arriving he hid his ship in a cave, just before a Syndicate fleet appeared in orbit. They do not know where the defector landed, so they have begun searching settlement to settlement under the assumption that one is harboring him. They are currently here, wrecking the monastery in their hunt."`
-			`	After a moment, JJ says, "If these allegations are true, if we can prove that the Free Worlds were innocent of any involvement in those attacks, the Republic might make peace with us, or at least agree to a ceasefire. I vote that we try to shelter this defector and hear his story."`
-			`	"And if it's a lie," says Freya, "and we refuse the Syndicate's request, we lose our only ally. Many more civilians will be killed if we continue to fight without their backing, and we don't even know what this supposed evidence actually is. I care about justice, but trading a definite ally for a slim possibility of peace: that is an unwise investment. I vote that we hand this man over to the Syndicate."`
-			choice
-				`	(Continue watching the communication.)`
-			`	You look back at the video screen to see that the monk is gone, replaced by a man in a Syndicated Security uniform. "Greetings, Councilmembers. I'm sorry for the confusion, but please understand. We're hunting a terrorist. This man claiming that we are the ones that caused the bombings is, in fact, the leader of the extremist group that caused them. He developed the nukes with the help of a faction of pirates looking to profit from the instability, and now, when we're finally close to capturing him, he's attempting to frame us for his own crimes against humanity. Allow us to find him, and we'll-"`
-			`	The feed cuts off. "The message ended there," the communications officer says. The room falls silent.`
-			`	JJ breaks the silence. "I still say we rescue this defector. The Syndicate could be lying to us. They don't exactly have a reputation for upstanding morality, after all."`
-			`	"Or this 'defector' could easily be the one lying," Freya says. "I say we let them have him while we focus on defending against the Navy. If the Syndicate gets their hands on the true terrorist, their support will surely clear our name. Parliament won't be able to ignore the Syndicate vindicating us."`
-			`	As the third Council member present, you have the deciding vote, and the entire course of this war may rest on your decision.`
-			choice
-				`	"I say we rescue the defector, even if it means war with the Syndicate."`
-					goto rescue
-				`	"I say we let the Syndicate have the terrorist, and focus on winning the battle against the Republic."`
-					goto surrender
-			label rescue
-			`	"Are you sure?" asks Freya. "The Syndicate has done a lot for us in the past."`
-			choice
-				`	"Yes, I'm sure. We rescue the defector."`
-					goto "definitely rescue"
-				`	"Fine, we'll hand him over. But I don't think it's the right thing to do."`
-					goto "definitely surrender"
-			label surrender
-			`	"If Katya were here," says JJ, "she would tell us to choose justice over political expedience."`
-			choice
-				`	"Well, she's not here, and I say we can't afford to lose the Syndicate as an ally."`
-					goto "definitely surrender"
-				`	"I suppose you're right. Let's mount a rescue operation."`
-					goto "definitely rescue"
-			
-			label "definitely surrender"
-			action
-				set "fw did not rescue defector"
-			`	"Very well," says JJ. "In that case, we'll need to meet with the fleet captains and figure out how to take on the Navy. Let's meet in the spaceport bar in an hour."`
-				decline
-			
-			label "definitely rescue"
-			`	JJ seems very relieved at your choice. "I think that's the right choice, Captain," he says. "We can take the fleet we have here, sweep up north to avoid the thickest part of the Navy's occupying fleet, and cut over to New Tibet to question the Syndicate in person."`
+			`When you updated your game, you were in the middle of a story arc in the Free Worlds campaign that has since been changed. In order to continue, you should go to <destination>.`
 				accept
-	
-	on accept
-		event "battle of alioth"
-	
-	on enter "Alioth"
-		"reputation: Syndicate" = -1000
-		event "fw at war with Syndicate"
-		dialog "You spot the Syndicate fleet orbiting above New Tibet when you enter the system, but to your surprise they begin targeting your ship. They don't seem very interested in answering any questions about the defector."
-	
-	npc evade
-		government "Syndicate (Hostile)"
-		personality heroic staying
-		system Alioth
-		fleet
-			names "syndicate capital"
-			variant
-				"Splinter (Mark II)" 2
-				"Manta (Mark II)" 3
-				"Quicksilver (Mark II)" 5
+
+
+
+mission "FW Split Escorts"
+	invisible
+	landing
+	source "Wayfarer"
+	to offer
+		has "FW Rand 1B: done"
+		not "FW Reconciliation 1: offered"
+		not "FWC Nuke Supply 1: offered"
+	to complete
+		never
+	to fail
+		or
+			has "FW Sabik Holdout: done"
+			has "FWC Northern Defense: done"
 	npc
 		government "Free Worlds"
 		personality heroic escort disables
 		ship "Dreadnought" "F.S. Holly"
+		on kill
+			"fw dreadnought lost" ++
+	npc
+		government "Free Worlds"
+		personality heroic escort disables
 		ship "Falcon (Plasma)" "F.S. Nebula"
+		on kill
+			"fw falcon lost" ++
+	npc
+		government "Free Worlds"
+		personality heroic escort disables
 		ship "Skein" "F.S. Larkspur"
 		ship "Finch" "Charlie 6-2"
 		ship "Finch" "Charlie 0-9"
@@ -2213,6 +2164,11 @@ mission "FW Defend New Tibet"
 		ship "Finch" "Charlie 9-1"
 		ship "Finch" "Charlie 1-5"
 		ship "Finch" "Charlie 8-4"
+		on kill
+			"fw skein lost" ++
+	npc
+		government "Free Worlds"
+		personality heroic escort disables
 		ship "Skein" "F.S. Ironwood"
 		ship "Finch" "Echo 5-3"
 		ship "Finch" "Echo 4-1"
@@ -2220,140 +2176,144 @@ mission "FW Defend New Tibet"
 		ship "Finch" "Echo 5-8"
 		ship "Finch" "Echo 2-4"
 		ship "Finch" "Echo 6-9"
+		on kill
+			"fw skein lost" ++
+	npc
+		government "Free Worlds"
+		personality heroic escort disables
 		ship "Argosy" "F.S. Nightingale"
-	
-	on visit
-		dialog `You've landed on <planet>, but there are still Syndicate ships circling overhead. You should take off and help finish them off.`
-	on complete
-		"reputation: Republic" = 1
-		event "fw armistice"
-		event "fw tarazed republic"
-		event "end battle of alioth"
-		log "People" "Sawyer" `A defector of the Syndicate who decided to risk his life to stop the war between the Republic and the Free Worlds.`
-		conversation
-			`It doesn't take long to find the monastery that contacted you earlier; nothing is left of it but the burnt-out shells of buildings. You hurry to land and look around for survivors. You find several corpses dressed in maroon robes, some of them badly burnt, but no sign of the defector or the monk who sent the message.`
-			choice
-				`	(Wait to see if anyone approaches now that the Syndicate fleet is gone.)`
-				`	(Give up and contact the rest of the Free Worlds fleet to figure out what to do next.)`
-					goto leave
-			`	You wait around for a while, but this mountain valley seems to be entirely desolate. Then finally, when you are about to give up hope, Freya spots the distant figures of a few dozen people coming down the side of one of the mountains.`
-				goto gunboat
-			label leave
-			`	You are just about to leave when Freya spots something and points. "Look," she says, "someone is coming down the mountain slope toward us." Sure enough, it's a group of several dozen people wearing the distinctive robes of the monks.`
-			label gunboat
-			`	As you wait for them to approach, JJ receives a message from one of the militia crews. "Sir, you have incoming! A scout ship, with Republic markings. Apparently unarmed. Shall we intercept them?"`
-			`	"Oathkeepers?" asks JJ. "Or ordinary Navy? Who are they?"`
-			`	The voice on the other end pauses. "Neither. Navy Intelligence."`
-			`	JJ thinks about that for a second, then says, "Let them land. But follow them down, and if you see so much as a hint of them powering up weapons, blow them out of the sky. Understand?" The officer acknowledges his order and signs off.`
-			`	As the group of monks approaches from the mountainside, the scout ship comes in for a landing and skids to a halt in the dirt a few dozen meters away. A woman steps off it. She has dark skin, and is dressed entirely in black. Even the whites of her eyes are black: when she gets closer, you can see that it is actually a scleric tattoo, an intricate Celtic knotwork pattern inked into the whites of her eyes. She sees you staring at her, and winks at you with a friendly grin.`
-			choice
-				`	"I'm Captain <last> of the Free Worlds. What is your business here?"`
-				`	"Who are you, and what gives you the right to land on our planet?"`
-					goto hostile
-			`	"My name is Raven," she says. "I'm here to question this defector. If he is telling the truth, our war with you will end today." She pauses, then adds, grimly, "And, another war will begin."`
-				goto questioning
-			label hostile
-			`	She frowns. "My name is Raven," she says. "I am here to question this defector. If you are interested in knowing the truth, you will allow me to do so."`
-			label questioning
-			`	The monks approach, and you see that among them is a man in more ordinary attire, who must be the defector. "Now," says Raven, "I will question him alone, on my ship."`
-			choice
-				`	"No, we insist on being present for your interrogation."`
-					goto present
-				`	"Very well, we'll wait outside."`
-			`	"No!" says JJ. "We're staying here."`
-			label present
-			`	She hesitates for a long moment. This is probably going against whatever orders she is following. But finally she says, "Very well." The monks step aside. She approaches the defector, and reaches out her hands to him. Hesitantly, he takes her hands. It's an oddly intimate scene, the two of them quietly holding hands and locking eyes - not like any interrogation you have seen before. "Now," she says, "tell me your story."`
-			`	"My name is Sawyer," says the man. "I'm a physicist, a Syndicate employee. We had a secret project on Mutiny, a planet in a pirate system. We were developing nuclear weapons." He hesitates, and looks away for a second, then says, "They told me it was for fighting the pirates. I didn't realize otherwise until--"`
-			`	"That is a lie," says Raven, calmly.`
-			`	He seems flustered. "Okay, they didn't tell me what the weapons were for, and I didn't ask."`
-			choice
-				`	"Why would the Syndicate attack the Republic?"`
-				`	"Why did you wait so long to report this?"`
-					goto wait
-			`	They both seem surprised at you asking a question. Sawyer says, "War is good for business, especially if you're in the business of making weapons. The Syndicate's profits have more than doubled since this conflict began."`
-			`	"What led you to report this?" asks Raven.`
-			label wait
-			`	He says, "It was when I heard that there had been another major battle. Up until then I had been telling myself that the worst of the damage was done. But after that battle, I knew that millions more could die because of our crime, and that I had the power to stop it."`
-			`	Raven continues to ask questions: who was involved, how the facility was hidden, where the raw materials came from. At one point, JJ pulls you aside and says, "She must be a Questioner. How they operate is a tightly kept secret. I'd always assumed their methods were... a bit more medieval."`
-			`	Finally, Raven is satisfied, and radios her ship. "He's telling the truth," she tells them. "Send word to the admirals at once. And, release the captive."`
-			`	The door of her ship slides open, and another woman steps out - shakily, hesitantly, shielding her eyes against the sunlight. It takes you a few seconds to realize that it's Katya.`
-			`	As you all rush over to greet Katya, Raven taps your shoulder and says quietly, "Meet me in the main spaceport in a few hours and we'll figure out what's going to happen next." She returns to her ship.`
+		on kill
+			"fw argosy lost" ++
+
+	npc
+		government "Free Worlds"
+		personality heroic escort disables
+		system "Ascella"
+		ship "Hawk (Rocket)" "F.S. Dragonfly"
+		ship "Hawk" "F.S. Butterfly"
+		on kill
+			"fw hawks lost" ++
+	npc
+		government "Free Worlds"
+		personality heroic escort disables
+		system "Peacock"
+		ship "Argosy (Proton)" "F.S. Sniper"
+		on kill
+			"fw argosy lost" ++
+	npc
+		government "Free Worlds"
+		personality heroic escort disables
+		system "Kaus Australis"
+		ship "Osprey" "F.S. Kelly"
+		on kill
+			"fw osprey lost" ++
+	npc
+		government "Free Worlds"
+		personality heroic escort disables
+		system "Dabih"
+		ship "Fury (Flamethrower)" "F.S. Air"
+		ship "Fury (Flamethrower)" "F.S. Wood"
+		ship "Fury (Flamethrower)" "F.S. Heat"
+		on kill
+			"fw furies lost" ++
+	npc
+		government "Free Worlds"
+		personality heroic escort disables
+		system "Albireo"
+		ship "Argosy (Turret)" "F.S. Neon"
+		on kill
+			"fw argosy lost" ++
+	npc
+		government "Free Worlds"
+		personality heroic escort disables
+		system "Nunki"
+		ship "Modified Argosy" "F.S. Dolphin"
+		on kill
+			"fw argosy lost" ++
 
 
 
-mission "FW Liberate Delta Sagittarii"
-	name "Liberate Delta Sagittarii"
-	description "Lead a Free Worlds fleet to drive the Navy out of Delta Sagittarii. Another fleet ought to be arriving from the Rim at about the same time."
-	source Wayfarer
-	destination "New Portland"
-	clearance
+mission "FW Split Passengers"
+	invisible
+	landing
+	source "Wayfarer"
+	destination "Longjump"
 	passengers 2
 	to offer
 		has "FW Rand 1B: done"
-		not "FW Defend New Tibet: done"
-	to accept
-		has "fw did not rescue defector"
+		not "FW Reconciliation 1: offered"
+		not "FWC Nuke Supply 1: offered"
+	on fail
+		dialog phrase "free worlds failed"
+		fail "FW Rand Escorts"
+		fail "FW Split Escorts"
+	on visit
+		dialog `You land on <planet>, but realize that your escort carrying JJ and Freya hasn't entered the system yet. Better depart and wait for it to arrive.`
+	to complete
+		has "FW Split 1B: offered"
+
+mission "FW Split 1"
+	autosave
+	landing
+	name "Rendezvous at <system>"
+	description "Meet up with the southern remnants of the Free Worlds fleet on <destination> before the Navy fleet gathering in Wei attacks."
+	source Wayfarer
+	destination "Trinket"
+	to offer
+		has "FW Rand 1B: done"
+		not "FW Reconciliation 1: offered"
+		not "FWC Nuke Supply 1: offered"
 	
 	on offer
-		event "fwc southern battle"
+		event "fw out of core worlds"
 		conversation
-			`When you and Freya enter the spaceport bar, JJ is talking with someone on his communicator. "The code word is 'havoc,'" he says. "Yes, I'm certain. It's the only option we have left. Good luck."`
-			`	"What was that about?" asks Freya.`
-			`	JJ says, "I was calling in some reinforcements," he says. "A group of ex-militia folks and bounty hunters who want to further the cause of the Free Worlds, but want to do it freelance instead of taking orders from us or the Senate. They call themselves the 'Wolf Pack.' Have you heard of them?"`
-			branch know
-				has "FW Wolf Pack 2: offered"
+			`The fleet in orbit around Wayfarer is pitifully small, surely not enough to take on more than a couple of Navy capital ships. Even combined with the remaining force from Rand, retaking the systems lost to the Republic would be a steep task.`
 			choice
-				`	"No, I haven't."`
-			`	"Too bad," says JJ, "they've managed to get their hands on some technology I'd love to have access to. But anyway, they've agreed to make an initial strike and fade attack on the Navy fleet to soften them up, before our own fleet gets there."`
-				goto plan
-			label know
+				`	"Is there any way we can get more ships?"`
+					goto ships
+				`	"It seems most of the survivors fled towards the Rim."`
+			`	"That's likely," says JJ, "but I doubt these are all the ships that fled towards Tarazed either. Most of them would have split off when separated from their chain of command and sheltered on the nearest planet. Hopefully some of them are still wiiling to fight."`
+				goto contact
+			label ships
+			`	"It's possible there are combat-ready ships elsewhere in the South," says JJ. "Most of the survivors fleeing towards Tarazed would have split off when separated from their chain of command and sheltered on the nearest planet. Hopefully some of them are still willing to fight."`
+			label contact
+			`	You spend the next few hours watching JJ and several other officers contact each reachable Free Worlds system for surviving militia as Freya works on getting a connection past the Navy blockade. An exclamation from Freya gets you and JJ on your feet as a monitor flares to life. On the screen is a grim-looking Alondo set against the mountains of New Tibet.`
 			choice
-				`	"Yes, I helped them get access to some better ramscoop technology from the Deep."`
-					goto yes
-				`	"No, I haven't had any dealings with them."`
-			`	"That's odd," says JJ, "I thought they said you helped them to get their hands on the Catalytic Ramscoop. But anyway, they've agreed to make an initial strike and fade attack on the Navy fleet to soften them up, before our own fleet gets there."`
-				goto plan
-			label yes
-			`	"Ah yes," says JJ, "an excellent piece of corporate espionage. A little shady and underhanded, of course, which is why we let the Wolf Pack handle things like that rather than doing it through official channels. But anyway, they've agreed to make an initial strike and fade attack on the Navy fleet to soften them up, before our own fleet gets there."`
-			
-			label plan
-			`	"That'll need to be one hell of a strike for it to make any difference," says Freya.`
-			`	"Don't worry," says JJ, "it will be. They've been itching to get into the fray for months now. Captain <last>, we'd like you to fly along with the fleet and help to mop up whatever the Wolf Pack leaves behind in the Delta Sagittarii system. Then we'll land on New Portland and figure out what our next steps are. Freya and I will ride on your ship."`
+				`	"Alondo! You're okay!"`
+				`	"How's the situation looking over there?"`
+					goto situation
+			`	"I'm just as glad to see all of you alive," Alondo replies with a smile before a frown retakes his face.`
+			`	"What do our forces look like?" asks JJ.`
+			label situation
+			`	"I've concentrated our fleets in Sargas and Alioth," says Alondo, "but we're in trouble." He turns to a nearby officer. "Send them the sensor feed from Hope."`
+			`	Another monitor lights up, filled with red dots. "Looks like the Navy is pouring their forces into Wei," Freya says.`
+			choice
+				`	"Could they be planning to cut off the northern systems next?"`
+				`	"Are they trying to retake Kornephoros?"`
+					goto retake
+				`	"If the Navy is moving their fleets to Wei, could we retake Delta Sagittarii and Rastaban while they're away?"`
+					goto counter
+			`	Freya says, "Or they could be preparing an attack into Kornephoros while our forces are scattered."`
+				goto next
+			label retake
+			`	Freya says, "Possibly, but they could also be looking to isolate and destroy our northern fleet."`
+				goto next
+			label counter
+			`	Freya shakes her head. "I lost contact with our sensors in Alpha Arae after Delta Sagittarii fell, but I doubt they'd leave the captured systems empty."`
+			label next
+			`	JJ says, "Whatever they're planning, we need to head to Sargas as soon as possible. Captain <last>, there should be reinforcements coming from nearby systems as we head west. Hopefully they and the Sargas fleet will be enough to counter the Navy's next move."`
+			choice
+				`	"Got it."`
+					accept
+				`	"What if the Navy attacks us on the way there? We're three of the four Council members, and Alondo is surrounded by the Republic. Shouldn't one of us stay behind in case the rest are killed?"`
+			`	JJ pauses for a moment, then says, "I need to be there in-person to command our forces, and your ship is invaluable to our remaining strength, <first>. But Freya-"`
+			`	Freya cuts him off. "Out of the question. I'd be as useful here on Wayfarer as I would be if I was dead. And I'm not abandoning the rest of you or the Free Worlds just to save my own skin. Now let's get going."`
 				accept
-	
-	on visit
-		dialog `You've landed on <planet>, but there are still Navy ships circling overhead. You should take off and help finish them off.`
-	on complete
-		event "fwc southern liberation"
-	
+
 	npc
-		government "Free Worlds"
-		personality heroic escort
-		fleet
-			names "free worlds capital"
-			variant
-				"Falcon (Plasma)"
-				"Osprey"
-		fleet
-			names "free worlds capital"
-			variant
-				"Falcon (Heavy)"
-		fleet
-			names "free worlds capital"
-			fighters
-				names "free worlds fighters"
-			variant
-				"Skein" 2
-				"Finch" 12
-		fleet
-			names "free worlds capital"
-			variant
-				"Dreadnought"
-	
-	npc evade
-		personality staying heroic
-		system "Delta Sagittarii"
 		government "Republic"
+		personality heroic staying
+		system "Sargas"
 		fleet
 			names "republic capital"
 			fighters
@@ -2362,7 +2322,572 @@ mission "FW Liberate Delta Sagittarii"
 				"Carrier (Mark II)"
 				"Lance" 8
 				"Combat Drone" 6
-				"Gunboat (Mark II)" 3
+				"Gunboat (Mark II)" 2
+
+	npc
+		government "Republic"
+		personality heroic staying
+		system "Kornephoros"
+		fleet
+			names "republic capital"
+			fighters
+				names "republic fighter"
+			variant
+				"Carrier (Mark II)" 2
+				"Lance" 16
+				"Combat Drone" 12
+				"Gunboat (Mark II)" 4
+
+	npc
+		personality staying heroic
+		system "Aldhibain"
+		government "Republic"
+		fleet "Large Republic"
+
+	npc
+		personality staying heroic
+		system "Delta Sagittarii"
+		government "Republic"
+		fleet "Large Republic"
+
+	npc
+		personality staying heroic
+		system "Rastaban"
+		government "Republic"
+		fleet "Large Republic"
+
+	on enter "Sargas"
+		set "fw saw occupied sargas"
+		conversation
+			`The moment you enter <system>, your radar lights up red with Navy ships. Even more concerningly, the planet of <planet> is transmitting on Republic frequencies.`
+			`	JJ stares out the window in shock. "Freya, are these the ships from Wei?"`
+			`	"No," she responds. "They're from the strikes on Rastaban and Delta Sagittarii."`
+			choice
+				`	"The fleet in Wei could be attacking Alondo right now. We need to save him!"`
+				`	"What happened to our fleet?"`
+					goto fleet
+				`	"Should we try to retake this system?"`
+					goto retake
+			`	"I doubt it," replies JJ. "It's more likely they're committing both their northern and southern fleets to an all-out offensive: a decapitation strike against Bourne. We need to get to Sabik to prepare a defensive plan.`
+				decline
+			label fleet
+			`	"Most likely wiped out," replies JJ, "but if there were any survivors, they'd probably have retreated to Sabik to protect the Rim. <first>, we need to get there as soon as possible."`
+				decline
+			label retake
+			`	"Even if we retake <system>," replies JJ, "the Navy ships from Wei will have no problem cleaning up the rest of our fleet. Our best chance at survival is to take our fleet to Sabik and set up defensive positions."`
+				decline
+
+	to complete
+		not "fw saw occupied sargas"
+	to fail
+		has "FW Split Passengers: done"
+
+
+
+mission "FW Split 1B"
+	transition
+	name "Retreat to <planet>"
+	description "The Republic Navy has taken Sargas. Retreat to <destination> to prepare a final stand against the Republic."
+	source
+		system "Sargas"
+	destination "Longjump"
+	to offer
+		has "FW Split Passengers: active"
+	on offer
+		event "republic takes sargas" 0
+
+
+
+event "republic takes sargas"
+	system "Sargas"
+		government "Republic"
+
+
+
+mission "FW Split 1C"
+	invisible
+	transition
+	source
+		system "Aldhibain" "Kornephoros" "Sabik"
+	destination "Earth"
+	to offer
+		has "FW Split Passengers: active"
+	on offer
+		event "republic takes core fw worlds" 0
+		fail
+
+
+
+event "republic takes core fw worlds"
+	system "Kornephoros"
+		government "Republic"
+	system "Aldhibain"
+		government "Republic"
+
+
+
+mission "FW Decision Escorts"
+	invisible
+	landing
+	source "Longjump"
+	to offer
+		has "FW Split Passengers: done"
+	to complete
+		never
+	to fail
+		or
+			has "FW Sabik Holdout: done"
+			has "FWC Northern Defense: done"
+	npc
+		government "Free Worlds"
+		personality heroic escort disables
+		ship "Dreadnought" "F.S. Ghost"
+		ship "Osprey" "F.S. Merry"
+		ship "Osprey" "F.S. Rank"
+		ship "Bastion" "F.S. Club"
+
+	# If the player lost any escorts on the way to Longjump,
+	# spawn in replacements.
+	npc
+		government "Free Worlds"
+		personality heroic disables escort
+		ship "Dreadnought" "F.S. Weatherlight"
+		to despawn
+			"fw dreadnought lost" < 1
+	npc
+		government "Free Worlds"
+		personality heroic disables escort
+		ship "Dreadnought" "F.S. Normandy"
+		to despawn
+			"fw dreadnought lost" < 2
+	npc
+		government "Free Worlds"
+		personality heroic disables escort
+		ship "Dreadnought" "F.S. Enterprise"
+		to despawn
+			"fw dreadnought lost" < 3
+	npc
+		government "Free Worlds"
+		personality heroic escort disables
+		ship "Dreadnought" "F.S. Firefly"
+		to despawn
+			"fw dreadnought lost" < 4
+	npc
+		government "Free Worlds"
+		personality heroic disables escort
+		ship "Falcon" "F.S. Millenium"
+		to despawn
+			"fw falcon lost" < 1
+	npc
+		government "Free Worlds"
+		personality heroic disables escort
+		ship "Falcon (Laser)" "F.S. Disco"
+		to despawn
+			"fw falcon lost" < 2
+	npc
+		government "Free Worlds"
+		personality heroic escort disables
+		ship "Falcon (Heavy)" "F.S. Parsec"
+		to despawn
+			"fw falcon lost" < 3
+	npc
+		government "Free Worlds"
+		personality heroic escort disables
+		ship "Osprey" "F.S. Edward"
+		to despawn
+			"fw osprey lost" < 1
+	npc
+		government "Free Worlds"
+		personality heroic disables escort
+		ship "Skein" "F.S. Murgatroyd"
+		ship "Finch" "Juliett 1-2"
+		ship "Finch" "Juliett 3-4"
+		ship "Finch" "Juliett 5-6"
+		ship "Finch" "Juliett 7-8"
+		ship "Finch" "Juliett 9-0"
+		ship "Finch" "Juliett 6-9"
+		to despawn
+			"fw skein lost" < 1
+	npc
+		government "Free Worlds"
+		personality heroic escort disables
+		ship "Skein" "F.S. Terracotta"
+		ship "Finch" "Uniform 6-6"
+		ship "Finch" "Uniform 7-7"
+		ship "Finch" "Uniform 2-2"
+		ship "Finch" "Uniform 1-1"
+		ship "Finch" "Uniform 0-0"
+		ship "Finch" "Uniform 9-9"
+		to despawn
+			"fw skein lost" < 2
+	npc
+		government "Free Worlds"
+		personality heroic escort disables
+		ship "Skein" "F.S. Butterscotch"
+		ship "Finch" "Quebec 0-1"
+		ship "Finch" "Quebec 9-2"
+		ship "Finch" "Quebec 8-5"
+		ship "Finch" "Quebec 6-6"
+		ship "Finch" "Quebec 4-7"
+		ship "Finch" "Quebec 2-1"
+		to despawn
+			"fw skein lost" < 3
+	npc
+		government "Free Worlds"
+		personality heroic escort disables
+		ship "Argosy" "F.S. Shrine"
+		to despawn
+			"fw argosy lost" < 1
+	npc
+		government "Free Worlds"
+		personality heroic escort disables
+		ship "Argosy (Laser)" "F.S. Magician"
+		to despawn
+			"fw argosy lost" < 2
+	npc
+		government "Free Worlds"
+		personality heroic escort disables
+		ship "Argosy (Missile)" "F.S. Maid"
+		to despawn
+			"fw argosy lost" < 3
+	npc
+		government "Free Worlds"
+		personality heroic escort disables
+		ship "Argosy (Blaster)" "F.S. Gardener"
+		to despawn
+			"fw argosy lost" < 4
+	npc
+		government "Free Worlds"
+		personality heroic disables escort
+		ship "Hawk (Plasma)" "F.S. Left"
+		ship "Hawk" "F.S. Right"
+		to despawn
+			"fw hawks lost" < 1
+	npc
+		government "Free Worlds"
+		personality heroic escort disables
+		ship "Hawk" "F.S. Brilliant"
+		ship "Hawk" "F.S. Haze"
+		to despawn
+			"fw hawks lost" < 2
+	npc
+		government "Free Worlds"
+		personality heroic escort disables
+		ship "Fury (Flamethrower)" "F.S. Sunny"
+		ship "Fury (Gatling)" "F.S. Luna"
+		ship "Fury (Missile)" "F.S. Star"
+		to despawn
+			"fw furies lost" < 1
+
+
+
+mission "FW Sawyer"
+	landing
+	substitutions
+		<Kornephoros> "Kornephoros"
+		<Kornephoros> "Kornephoros and Dancer"
+			has "FW Southern Prisoners - Release: done"
+	name "Sawyer"
+	description "A person named Sawyer chased by a large Syndicate fleet allegedly has information on the true culprits behind the bombings. Defeat the fleet pursuing them, then land on <planet> to interrogate them."
+	source "Longjump"
+	to offer
+		has "FW Split Passengers: done"
+	on fail
+		dialog phrase "free worlds failed"
+		fail "FW Rand Escorts"
+		fail "FW Split Escorts"
+		fail "FW Decision Escorts"
+	on offer
+		event "second battle of sabik"
+		conversation
+			`After landing, Freya heads for spaceport's communcations tower to establish a connection to Alondo's forces in the north. In the meanwhile, you and JJ stay in the spaceport, rounding up the remains of the southern militia fleet. By sunset, the two of you have assembled a moderately-large fighting force, though it pales in comparison to the Navy fleets stationed around Sargas and Kornephoros.`
+			`	Freya is still busy tapping away on a keyboard when you and JJ meet up with her.`
+			choice
+				`	"Managed to get through to Alondo yet?"`
+				`	"I don't think we can hold off the Navy with our current fleet. Is it possible to call for aid?"`
+					goto current
+
+			`	"Not yet," says Freya. "None of our direct connections to Alioth are working; the Republic must be jamming our signals in Kornephoros. If we can get to them, though, it might tip the odds in our favor.`
+				goto connection
+
+			label current
+			`	Freya replies, "Potentially, if I can get through to our northern forces.`
+
+			label connection
+			`	"Almost all the ships from Wei participated on the attack on Kornephoros," she explains. "That means Alondo's fleet could strike the Republic from behind when they begin their assault on Sabik. However, with the connection through Wei cut, I doubt they know how dire our situation is. Unless we can contact them, they'll likely hold their current position."`
+			`	"What if the Navy struck them from the north?" JJ asks.`
+			`	"That's possible," Freya replies, "but it's not like we have any better options on who to call for support."`
+			`	"Try Pherkad," says JJ. "There are captains stationed there who can help us."`
+			`	Freya raises an eyebrow. "I thought Alondo collected all our southern ships in Sargas."`
+			`	"These aren't regular militia forces," JJ explains. "They're... less conventional."`
+			choice
+				`	"Are you talking about the Wolf Pack?"`
+					to display
+						has "FW Wolf Pack 2: offered"
+					goto "wolf pack"
+				`	"Who are they?"`
+				`	"Less conventional? In what way?"`
+
+			`	"They call themselves the Wolf Pack," JJ explains. "They don't take orders from the traditional chain of command, but they've been more than happy to aid the Free Worlds through some more... extreme methods."`
+				goto doubt
+
+			label "wolf pack"
+			`	A nod from JJ confirms your thoughts.`
+
+			label doubt
+			`	Freya frowns. "Are you sure we can trust them? If they see the Free Worlds on the brink of defeat, they may flee to avoid being put on trial by the Republic. I might not have enough time to contact both the Wolf Pack and Alondo's fleet, and I'd rather prioritize the more loyal option."`
+			`	"The Wolf Pack would only desert if the Free Worlds' defeat looks inevitable," JJ rebuts.`
+			`	Freya sighs. "Our chances look awful right now, and I don't see that changing unless a dozen Dreadnoughts appear out of thin air."`
+			`	"The Wolf Pack might just be able to do that," JJ replies. When he sees your and Freya's incredulous faces, he adds, "Or at least have the same effect as a dozen Dreadnoughts. Through their extralegal connections, the Wolf Pack have obtained advanced weaponry strong enough to disable Navy ships several times their size."`
+			choice
+				`	"If they're that strong, contacting them seems much better than relying on our northern fleet."`
+				`	"That sounds suspicious. What exactly are these weapons?"`
+					goto suspicious
+
+			`	Freya shakes her head. "If these weapons really exist, then why haven't we seen them being used yet?"`
+
+			label suspicious
+			`	JJ gulps as he chooses his next words carefully. "That information is of the highest sensitivity. I'm sorry, but I can't tell you any more than that right now."`
+			`	"Damn it Soleau!" Freya stands up with a jolt. "This isn't the time to be keeping secrets. If you want to call the Wolf Pack, you'd better tell the both of us exactly what their deal is."`
+			`	Before JJ can reply, an alarm rings out from a nearby radar station.`
+			choice
+				`	"Is the Navy attacking already?"`
+				`	"I'll ready my ship immediately!"`
+			`	Freya scrambles to a nearby console. "It's not the Navy. It's the Syndicate. Several of their fleets are chasing after a shuttle in this system." She types on the console's keyboard, and audio from one of the Syndicate ships comes through:`
+			`	"This is Captain Thomas Argyle of the <npc>. We are pursuing a criminal wanted by the Syndicate. Do not obstruct our efforts. Any intervention will be met with military force."`
+			choice
+				`	"Why are they telling us what to do? This is Free Worlds territory."`
+				`	"Sounds like it isn't our problem then."`
+					goto problem
+
+			`	"It might not be for much longer," says JJ.`
+
+			label problem
+			`	"Let's hear what this criminal has to say first," Freya says as she hails the shuttle.`
+			`	The shuttle's communcation systems must be damaged; you can barely understand what its occupant is saying through the static.`
+			`	"This is A----n Sawyer, from th- ---------'s Nucl--- Resea--- --vision. I have evidenc- -------- towar-- --- -rue culprit- ------ -he bombings of Gemin-- --- -artini. I ask o--- --- -afe refuge fr-- --- ---dicate, and in ret--- - prom--- -- -upport th- ---ocence of th- ---- ----ds to the bes- -- -- --ility."`
+			`	Freya's eyebrows raise in surprise. "Evidence? On the true culprits of the bombings of Geminus and Martini?"`
+			choice
+				`	"If their evidence is solid, they could exonerate the Free Worlds for the bombings!"`
+				`	"This sounds too good to be true."`
+					goto good
+
+			`	"Or this 'Sawyer' could be lying to save themselves," replies JJ. "How likely is it that a random ship would just so happen to have the evidence we need?"`
+				goto likely
+
+			label good
+			`	JJ replies, "I agree. How likely is it that a random ship would just so happen to have the evidence we need?"`
+
+			label likely
+			`	Freya puts a hand to her chin in thought. "In this situation? I'd bet it's more likely than you think. If this really was just a random ship, why would the Syndicate be so adverse to any interference from us?"`
+			`	"Are you seriously accusing the Syndicate of causing the bombings?" asks an exasperated JJ.`
+			choice
+				`	"It's possible. They aren't exactly known for virtue and upstanding morality."`
+				`	"He's right, Freya. Sawyer could have some other unrelated information the Syndicate doesn't want leaking."`
+					goto unrelated
+
+			`	"Even if that's true," JJ replies, "clearing the Free Worlds' name won't end the war overnight. In the Republic's eyes, we still have to answer for our secession, the lives lost during the war, and the actions of the Wolf Pack."`
+			`	"But it will get us closer to peace," Freya says. "Getting rid of one of their reasons for war puts us in a more favorable diplomatic situation to challenge the rest."`
+			`	JJ crosses his arms. "That's assuming we can survive until that point. Defeating both the Syndicate and Republic fleet would be near-impossible."`
+			`	Freya fires back. "Defeating the Republic fleet by itself would be just as impossible in our current state, JJ."`
+				goto help
+
+			label unrelated
+			`	"It's still worth the gamble," Freya replies. "Winning every battle won't end the war by itself. We need to provide a real reason for the Republic to make peace with us. Sawyer might have that reason."`
+			`	"And if we lose that gamble," says JJ, "we lose countless ships to the Syndicate and throw away our only chance at survival for nothing."`
+			`	"Do you really think we can mount a successful defense in our current position?" asks Freya. "Even if Alondo reinforces us, our military will still be decimated by the time the Republic regroup their forces."`
+
+			label help
+			`	"Not with the help of the Wolf Pack."`
+			`	Freya's eyebrows narrow. "And when exactly are you going to tell us the truth about the Wolf Pack, JJ? What the hell do their ships have?"`
+			`	JJ blurts out his answer. "It's nukes. The Wolf Pack have access to nuclear missiles."`
+			choice
+				`	"Excuse me?!"`
+				`	"Nukes? What happened to fighting this war honorably?"`
+					goto honor
+				`	"Why haven't we been using them this entire time?"`
+					goto crazy
+
+			`	Freya seems to be barely aware you said anything as she approaches JJ. "And where the hell did the Wolf Pack get those?"`
+			`	JJ puts his hands up. "I don't know. They wouldn't tell me when I asked them about it. All I know is that they're real."`
+				goto alert
+
+			label honor
+			branch hypocrite
+				has "FW Wolf Pack 2A: done"
+			`	JJ lets out a heavy sigh. "We've tried appealing to the Navy's honor time and time again. We let them have the prisoners on <Kornephoros> for the Oathkeepers. We spoke to their admirals on New Wales in an attempt to avoid a brutal battle. But despite everything, the Navy refuses to consider any end to this war other than our unconditional surrender." He closes his eyes. "The only thing that matters now is survival."`
+				goto alert
+
+			label hypocrite
+			`	JJ glares at you. "That's rich coming from you, <first>. I know what you did for the Wolf Pack. Do you really think the Navy is going to respect the honor of someone who hunted down and murdered non-combatants for the sake of making their citizens suffer?"`
+				goto alert
+
+			label crazy
+			`	Both Freya and JJ silently side-eye you. "Because that's diplomatic suicide," Freya responds. "The moment nukes start flying, we lose any sympathy we may have had among the rest of the galaxy, and guarantee our only path to peace is forcing a surrender through military might."`
+
+			label alert
+			`	A second alarm rings out from the radar station. "The shuttle's shields are almost gone," Freya says after looking over the console. "We have to make a decision, now."` 
+			`	"We need every ship ready to defend against the Republic," JJ answers. "We can't afford fighting the Syndicate for someone liable to be useless to us."`
+			`	"And we can't afford to fight a prolonged war as nuclear weaponry kills our foreign and domestic support," Freya replies. "We need an actual plan for ending this, and Sawyer might be that plan."`
+			`	With Alondo unable to be contacted, you have the deciding vote, and the entire course of this war may rest on your decision.`
+			label decision
+			choice
+				`	"We need to rescue Sawyer."`
+					goto rescue
+				`	"Let the Syndicate have their criminal."`
+					goto "hand over"
+				`	"Shouldn't we let the Senate decide?"`
+					to display
+						not "fw decision asked about senate"
+			action
+				set "fw decision asked about senate"
+			`	Freya replies, "By the time the Senate gets back to us, the Navy could already be landing troops on Longjump. I don't like it either, but this decision rests with the three of us."`
+				goto decision
+
+			label rescue
+			`	"And what if Sawyer was lying about having evidence on the bombings?" asks JJ. "Or what if the Republic accepts we aren't responsible for the bombings, but refuses to pardon the rest of our crimes against them?"`
+			choice
+				`	"Winning the war through conventional means is just as much of a coinflip. Whether it works or not, at least there'll be fewer lives lost if we save Sawyer."`
+					goto "definitely rescue"
+				`	"Fine, we'll leave Sawyer to the Syndicate and focus on the Navy."`
+					goto "definitely hand over"
+
+			label "hand over"
+			`	"If Katya were here," says Freya, "she'd pick justice for the Free Worlds and those killed in the bombings over winning a few battles and continuing this bloody war."`
+			choice
+				`	"But Katya isn't here. If the Republic ever releases her, I want there to be a Free Worlds she can return to, not occupied territory."`
+					goto "definitely hand over"
+				`	"You've convinced me. Let's save Sawyer."`
+					goto "definitely rescue"
+
+			label "definitely rescue"
+			action
+				"reputation: Syndicate" = -1000
+				event "fw at war with Syndicate"
+				log "Faced with the choice between fighting the Syndicate for evidence regarding the bombings or focusing on defeating the Republic with the aid of nukes. Ultimately chose to protect the evidence, potentially leaving the Free Worlds vulnerable to the Navy."
+			`	JJ stares at you and Freya for a moment, before lifting his personal communicator to his mouth. "This is Lieutenant Commander Jean-Jacques Soleau. All militia ships are ordered to launch and engage Syndicate forces for foreign interference."`
+			`	You run to your own ship and begin to launch. As you reach the edge of the atmosphere, you spot Sawyer's damaged shuttle drifting down towards <planet>'s spaceport. The Syndicate ships that were in pursuit of him now face their guns towards you...`
+				launch
+
+			label "definitely hand over"
+			action
+				set "fw did not rescue sawyer"
+				log "Faced with the choice between fighting the Syndicate for evidence regarding the bombings or focusing on defeating the Republic with the aid of nukes. Ultimately chose to focus on the Republic, giving up on resolving the war diplomatically."
+			`	Freya stares at you and JJ for a moment, before running back over to the communcations relay. "I should have a connection to the Wolf Pack by the end of the hour."`
+			`	You glance at the radar console and see the shuttle barely manage to make another hyperspace jump as the Syndicate fleet follows right behind it. "I recommend you spend the rest of your time preparing for battle," says JJ. "When you take off, the first of the Navy's ships will be entering this system."`
+				decline
+
+	npc disable
+		government "Syndicate"
+		personality heroic staying
+		system Sabik
+		fleet
+			names "syndicate capital"
+			variant
+				"Quicksilver (Mark II)" 5
+				"Manta (Mark II)" 4
+				"Splinter (Mark II)" 6
+				"Vanguard" 4
+				"Protector" 3
+		dialog `The Syndicate fleet has been defeated. Time to see Sawyer on <planet>.`
+
+	on visit
+		dialog `You've landed on <planet>, but there are still Syndicate ships circling overhead. You should take off and help finish them off.`
+
+
+
+mission "FW Second Defense of Sabik"
+	landing
+	name "Defend <system>"
+	description "Defeat the Navy fleets attacking <system>. The Wolf Pack will be joining the battle with their nuclear missiles."
+	source "Longjump"
+	to offer
+		has "FW Split Passengers: done"
+		not "FW Sawyer: done"
+	to accept
+		has "fw did not rescue sawyer"
+	on fail
+		dialog phrase "free worlds failed"
+		fail "FW Rand Escorts"
+		fail "FW Split Escorts"
+		fail "FW Decision Escorts"
+
+	npc
+		government "Free Worlds"
+		personality heroic disables
+		system "Alniyat"
+		ship "Clipper (Nuclear)" "F.S. Spades"
+		ship "Clipper (Nuclear)" "F.S. Diamonds"
+		ship "Clipper (Nuclear)" "F.S. Hearts"
+		ship "Clipper (Nuclear)" "F.S. Clubs"
+
+	npc
+		government "Free Worlds"
+		personality heroic disables
+		system "Beta Lupi"
+		ship "Bastion" "F.S. Humor"
+		ship "Clipper (Nuclear)" "F.S. Phlegmatic"
+		ship "Clipper (Nuclear)" "F.S. Choleric"
+		ship "Clipper (Nuclear)" "F.S. Sanguine"
+		ship "Clipper (Nuclear)" "F.S. Melancolic"
+
+	npc disable
+		government "Republic"
+		personality heroic
+		system "Kornephoros"
+		fleet
+			names "republic capital"
+			fighters
+				names "republic fighter"
+			variant
+				"Frigate (Mark II)" 6
+				"Gunboat (Mark II)" 4
+
+	npc disable
+		government "Republic"
+		personality heroic
+		system "Kornephoros"
+		fleet
+			names "republic capital"
+			fighters
+				names "republic fighter"
+			variant
+				"Carrier (Mark II)"
+				"Lance" 8
+				"Combat Drone" 6
+				"Gunboat (Mark II)" 2
+
+	npc disable
+		government "Republic"
+		personality heroic
+		system "Kornephoros"
+		fleet
+			names "republic capital"
+			fighters
+				names "republic fighter"
+			variant
+				"Cruiser (Mark II)" 3
+				"Combat Drone" 12
+
+	npc disable
+		government "Republic"
+		personality heroic
+		system "Sargas"
+		fleet
+			names "republic capital"
+			fighters
+				names "republic fighter"
+			variant
+				"Carrier (Mark II)"
+				"Lance" 8
+				"Combat Drone" 6
+				"Gunboat (Mark II)"
+				"Rainmaker (Mark II)"
+
+	npc disable
+		government "Republic"
+		personality heroic
+		system "Wei"
 		fleet
 			names "republic capital"
 			fighters
@@ -2370,39 +2895,38 @@ mission "FW Liberate Delta Sagittarii"
 			variant
 				"Cruiser (Mark II)"
 				"Combat Drone" 4
-				"Rainmaker (Mark II)" 2
-	
-	npc
-		personality staying derelict
-		system "Delta Sagittarii"
+				"Frigate (Mark II)"
+
+	npc disable
 		government "Republic"
+		personality heroic
+		system "Alnasl"
 		fleet
 			names "republic capital"
 			fighters
 				names "republic fighter"
 			variant
 				"Carrier (Mark II)"
-				"Frigate" 2
+				"Lance" 8
+				"Combat Drone" 6
+				"Frigate (Mark II)"
+
+	npc disable
+		government "Republic"
+		personality heroic
+		system "Kaus Borealis"
 		fleet
 			names "republic capital"
 			fighters
 				names "republic fighter"
 			variant
 				"Cruiser (Mark II)"
-				"Frigate" 4
-	
-	npc
-		personality staying heroic
-		system "Rastaban"
-		government "Free Worlds"
-		fleet "Large Free Worlds" 4
-	npc
-		personality staying derelict
-		system "Rastaban"
-		government "Republic"
-		fleet "Large Republic" 2
-	npc
-		personality staying heroic
-		system "Rastaban"
-		government "Republic"
-		fleet "Large Republic" 2
+				"Combat Drone" 4
+				"Rainmaker (Mark II)"
+
+	on visit
+		dialog `You've landed on <planet>, but there are still Navy ships circling overhead. You should take off and help finish them off.`
+	on complete
+		conversation
+			`As you disembark, you find the usual solemnity that follows every major battle. Militia captains grieve the loss of their comrades as medics rush in to aid militia and Navy casualties alike. However, instead of silent mourning and drinks between survivors, the remaining captains are caught up in a flurry of gossip, discussing the 'weapons' that wiped out the Navy's forces. Some of the civilians near the pads have noticed something off as well, approaching and questioning captains as clueless as themselves.`
+			`	Your communicator lights up with a message from JJ. "Freya's made contact with New Tibet. Meet us in the spaceport when you're ready."`

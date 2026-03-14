@@ -1962,6 +1962,58 @@ event "fw expanded and cut"
 
 
 
+event "fw out of core worlds"
+	system "Lesath"
+		government "Republic"
+		fleet "Small Southern Merchants" 6000
+		fleet "Large Southern Merchants" 9000
+		fleet "Small Republic" 600
+		fleet "Large Republic" 1000
+		fleet "Derelict Southern" 30000
+	system "Sargas"
+		fleet "Small Southern Merchants" 1200
+		fleet "Large Southern Merchants" 3600
+		fleet "Small Republic" 200
+		fleet "Large Republic" 300
+		fleet "Small Southern Pirates" 5000
+		fleet "Large Southern Pirates" 9000
+	system "Kornephoros"
+		fleet "Small Southern Merchants" 1600
+		fleet "Large Southern Merchants" 2200
+		fleet "Small Republic" 200
+		fleet "Large Republic" 200
+		fleet "Large Free Worlds" 1600
+		fleet "Human Miners" 5000
+	system "Aldhibain"
+		fleet "Small Southern Merchants" 1000
+		fleet "Large Southern Merchants" 1800
+		fleet "Small Republic" 300
+		fleet "Large Republic" 500
+	system "Sabik"
+		fleet "Small Southern Merchants" 800
+		fleet "Large Southern Merchants" 1000
+		fleet "Small Free Worlds" 400
+		fleet "Large Free Worlds" 600
+		fleet "Small Republic" 3400
+		fleet "Large Republic" 4200
+
+
+
+event "second battle of sabik"
+	system "Sabik"
+		fleet "Large Free Worlds" 6000
+
+
+
+event "end second battle of sabik"
+	system "Sabik"
+		fleet "Small Southern Merchants" 800
+		fleet "Large Southern Merchants" 1000
+		fleet "Small Free Worlds" 400
+		fleet "Large Free Worlds" 600
+
+
+
 event "fw at war with Syndicate"
 	government Syndicate
 		"attitude toward"
@@ -1969,15 +2021,6 @@ event "fw at war with Syndicate"
 			"Pirate" -.01
 			"Korath" -.01
 		bribe 0
-	system "Rutilicus"
-		fleet "Small Southern Merchants" 600
-		fleet "Large Southern Merchants" 2000
-	system "Cebalrai"
-		fleet "Small Southern Merchants" 600
-		fleet "Large Southern Merchants" 2000
-	system "Holeb"
-		fleet "Small Southern Merchants" 1000
-		fleet "Large Southern Merchants" 3000
 
 
 
@@ -2020,24 +2063,6 @@ event "fw armistice"
 		"required reputation" 70
 	planet "Mainsail"
 		"required reputation" 40
-	system "Rutilicus"
-		fleet "Small Southern Merchants" 600
-		fleet "Large Southern Merchants" 2000
-		fleet "Small Southern Pirates" 8000
-		fleet "Small Republic" 1000
-	system "Cebalrai"
-		fleet "Small Southern Merchants" 600
-		fleet "Large Southern Merchants" 2000
-		fleet "Small Southern Pirates" 4000
-		fleet "Small Republic" 1000
-	system "Holeb"
-		fleet "Small Southern Merchants" 1000
-		fleet "Large Southern Merchants" 3000
-		fleet "Small Southern Pirates" 5000
-		fleet "Small Republic" 2000
-		fleet "Large Republic" 3000
-		fleet "Derelict Southern" 30000
-		fleet "Navy Surveillance" 1600
 	system "Kaus Borealis"
 		remove fleet "Republic Logistics"
 
@@ -2105,55 +2130,6 @@ mission "Navy expands typhoon sales"
 	on offer
 		event "navy expand typhoon sales" 120
 		fail
-
-
-
-event "navy out of rastaban"
-	system "Rastaban"
-		government "Free Worlds"
-		fleet "Small Southern Merchants" 1200
-		fleet "Large Southern Merchants" 2400
-		fleet "Small Free Worlds" 500
-		fleet "Large Free Worlds" 700
-		fleet "Small Southern Pirates" 3000
-		fleet "Large Southern Pirates" 7000
-		fleet "Navy Surveillance" 2000
-	system "Girtab"
-		government "Free Worlds"
-		fleet "Small Southern Merchants" 900
-		fleet "Large Southern Merchants" 2000
-		fleet "Small Free Worlds" 1000
-		fleet "Large Free Worlds" 1700
-		fleet "Small Southern Pirates" 3000
-		fleet "Large Southern Pirates" 7000
-		fleet "Navy Surveillance" 5000
-	system "Delta Sagittarii"
-		government "Free Worlds"
-		fleet "Small Southern Merchants" 1200
-		fleet "Large Southern Merchants" 4000
-		fleet "Small Free Worlds" 600
-		fleet "Large Free Worlds" 900
-		fleet "Small Southern Pirates" 3000
-		fleet "Large Southern Pirates" 7000
-		fleet "Navy Surveillance" 3000
-	system "Lesath"
-		fleet "Small Southern Merchants" 800
-		fleet "Large Southern Merchants" 1600
-		fleet "Small Free Worlds" 800
-		fleet "Large Free Worlds" 1100
-		fleet "Small Southern Pirates" 2000
-		fleet "Large Southern Pirates" 5000
-		fleet "Derelict Southern" 30000
-		fleet "Navy Surveillance" 4000
-	system "Alpha Arae"
-		fleet "Small Southern Merchants" 2100
-		fleet "Large Southern Merchants" 8000
-		fleet "Small Southern Pirates" 6000
-		fleet "Large Southern Pirates" 13000
-		fleet "Small Republic" 900
-		fleet "Large Republic" 800
-		fleet "Derelict Southern" 30000
-		fleet "Navy Surveillance" 1200
 
 
 
@@ -2716,15 +2692,106 @@ event "navy done with algenib"
 
 
 
-event "fwc southern battle"
-	system "Delta Sagittarii"
-		fleet "Large Free Worlds" 4000
+event "navy out of occupied systems"
 	system "Rastaban"
-		fleet "Small Southern Merchants" 1000
-		fleet "Large Southern Merchants" 4000
+		government "Free Worlds"
+		fleet "Small Southern Merchants" 1200
+		fleet "Large Southern Merchants" 2400
+		fleet "Small Free Worlds" 500
+		fleet "Large Free Worlds" 700
+		fleet "Small Southern Pirates" 3000
+		fleet "Large Southern Pirates" 7000
+		fleet "Navy Surveillance" 2000
 	system "Girtab"
-		fleet "Small Southern Merchants" 1000
-		fleet "Large Southern Merchants" 3000
+		government "Free Worlds"
+		fleet "Small Southern Merchants" 900
+		fleet "Large Southern Merchants" 2000
+		fleet "Small Free Worlds" 1000
+		fleet "Large Free Worlds" 1700
+		fleet "Small Southern Pirates" 3000
+		fleet "Large Southern Pirates" 7000
+		fleet "Navy Surveillance" 5000
+	system "Delta Sagittarii"
+		government "Free Worlds"
+		fleet "Small Southern Merchants" 1200
+		fleet "Large Southern Merchants" 4000
+		fleet "Small Free Worlds" 600
+		fleet "Large Free Worlds" 900
+		fleet "Small Southern Pirates" 3000
+		fleet "Large Southern Pirates" 7000
+		fleet "Navy Surveillance" 3000
+	system "Lesath"
+		government "Free Worlds"
+		fleet "Small Southern Merchants" 800
+		fleet "Large Southern Merchants" 1600
+		fleet "Small Free Worlds" 800
+		fleet "Large Free Worlds" 1100
+		fleet "Small Southern Pirates" 2000
+		fleet "Large Southern Pirates" 5000
+		fleet "Derelict Southern" 30000
+		fleet "Navy Surveillance" 4000
+	system "Alpha Arae"
+		fleet "Small Southern Merchants" 2100
+		fleet "Large Southern Merchants" 8000
+		fleet "Small Southern Pirates" 6000
+		fleet "Large Southern Pirates" 13000
+		fleet "Small Republic" 900
+		fleet "Large Republic" 800
+		fleet "Derelict Southern" 30000
+		fleet "Navy Surveillance" 1200
+	system "Sargas"
+		government "Free Worlds"
+		fleet "Small Southern Merchants" 600
+		fleet "Large Southern Merchants" 2500
+		fleet "Small Free Worlds" 1000
+		fleet "Large Free Worlds" 1500
+		fleet "Small Southern Pirates" 3000
+		fleet "Large Southern Pirates" 7000
+		fleet "Navy Surveillance" 5000
+	system "Kornephoros"
+		government "Free Worlds"
+		fleet "Small Southern Merchants" 800
+		fleet "Large Southern Merchants" 1000
+		fleet "Small Free Worlds" 900
+		fleet "Large Free Worlds" 1700
+		fleet "Human Miners" 3000
+	system "Aldhibain"
+		government "Free Worlds"
+		fleet "Small Southern Merchants" 600
+		fleet "Large Southern Merchants" 800
+		fleet "Small Free Worlds" 600
+		fleet "Large Free Worlds" 600
+
+
+
+event "fwc reclaim core systems"
+	system "Sargas"
+		government "Free Worlds"
+		fleet "Small Southern Merchants" 600
+		fleet "Large Southern Merchants" 2500
+		fleet "Small Free Worlds" 1000
+		fleet "Large Free Worlds" 1500
+		fleet "Small Southern Pirates" 3000
+		fleet "Large Southern Pirates" 7000
+		fleet "Navy Surveillance" 5000
+	system "Kornephoros"
+		government "Free Worlds"
+		fleet "Small Southern Merchants" 800
+		fleet "Large Southern Merchants" 1000
+		fleet "Small Free Worlds" 900
+		fleet "Large Free Worlds" 1700
+		fleet "Human Miners" 3000
+	system "Aldhibain"
+		government "Free Worlds"
+		fleet "Small Southern Merchants" 600
+		fleet "Large Southern Merchants" 800
+		fleet "Small Free Worlds" 600
+		fleet "Large Free Worlds" 600
+	system "Alioth"
+		fleet "Small Southern Merchants" 400
+		fleet "Large Northern Merchants" 600
+		fleet "Small Free Worlds" 500
+		fleet "Large Free Worlds" 800
 
 
 
@@ -2767,17 +2834,30 @@ event "fwc southern liberation"
 
 
 
-event "fwc attack kaus borealis"
+event "fwc double tap"
 	system "Alpha Arae"
 		fleet "Small Southern Merchants" 5000
 		fleet "Large Southern Merchants" 6000
 	system "Kaus Borealis"
 		fleet "Large Southern Merchants" 4000
 		fleet "Large Free Worlds" 3000
+	system "Cebalrai"
+		fleet "Small Southern Merchants" 5000
+		fleet "Large Southern Merchants" 6000
+	system "Alnasl"
+		fleet "Small Southern Merchants" 1300
+		fleet "Large Southern Merchants" 2500
+		fleet "Derelict Southern" 30000
+	system "Wei"
+		fleet "Small Southern Merchants" 800
+		fleet "Large Southern Merchants" 2500
+		fleet "Small Free Worlds" 800
+		fleet "Large Free Worlds" 1000
+		fleet "Derelict Southern" 30000
 
 
 
-event "fwc capture kaus borealis"
+event "fwc double tap ends"
 	system "Alpha Arae"
 		fleet "Small Southern Merchants" 5000
 		fleet "Large Southern Merchants" 6000
@@ -2790,21 +2870,6 @@ event "fwc capture kaus borealis"
 		fleet "Small Free Worlds" 400
 		fleet "Large Free Worlds" 400
 		fleet "Large Republic" 2000
-	planet "New Iceland"
-		description `New Iceland is a perpetually hazy volcanic world, with a slightly caustic atmosphere but enough reserves of metal and petrochemicals to draw a large number of settlers. Some of those settlers also make a living as farmers, and a few well-developed factory towns produce goods for export to other worlds.`
-		description `	Many of the inhabitants wear dust masks to avoid letting the particulate matter from the volcanoes accumulate in their lungs.`
-		description `	The Navy had begun building a massive military base on New Iceland after they had been pushed out of the Southern Rim, but their defeat in this system by the Free Worlds has led to the base being abandoned prematurely.`
-
-
-
-event "fwc attack cebalrai"
-	system "Cebalrai"
-		fleet "Small Southern Merchants" 5000
-		fleet "Large Southern Merchants" 6000
-
-
-
-event "fwc capture cebalrai"
 	system "Cebalrai"
 		government "Free Worlds"
 		fleet "Small Southern Merchants" 1000
@@ -2818,6 +2883,34 @@ event "fwc capture cebalrai"
 		fleet "Large Southern Merchants" 4000
 		fleet "Small Free Worlds" 600
 		fleet "Large Free Worlds" 700
+	planet "New Iceland"
+		description `New Iceland is a perpetually hazy volcanic world, with a slightly caustic atmosphere but enough reserves of metal and petrochemicals to draw a large number of settlers. Some of those settlers also make a living as farmers, and a few well-developed factory towns produce goods for export to other worlds.`
+		description `	Many of the inhabitants wear dust masks to avoid letting the particulate matter from the volcanoes accumulate in their lungs.`
+		description `	The Navy had begun building a massive military base on New Iceland after they had been pushed out of the Southern Rim, but their defeat in this system by the Free Worlds has led to the base being abandoned prematurely.`
+
+
+
+event "fwc neutrals to republic"
+	system "Tarazed"
+		government "Republic"
+	system "Dabih"
+		government "Republic"
+	system "Albireo"
+		government "Republic"
+	system "Umbral"
+		government "Republic"
+	system "Sadr"
+		government "Republic"
+	system "Lurata"
+		government "Republic"
+	system "Graffias"
+		government "Republic"
+	planet "Glaze"
+		remove shipyard "Tarazed Basics"
+	planet "Rust"
+		remove shipyard "Tarazed Basics"
+	planet "Zug"
+		remove shipyard "Tarazed Basics"
 
 
 

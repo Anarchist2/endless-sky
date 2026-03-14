@@ -884,7 +884,7 @@ ship "Clipper" "Clipper (Heavy)"
 
 ship "Clipper" "Clipper (Nuclear)"
 	outfits
-		"Nuclear Missile" 4
+		"Nuclear Missile (Safe)" 4
 		"S3 Thermionic"
 		"Supercapacitor"
 		"D67-TM Shield Generator"

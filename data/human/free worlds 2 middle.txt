@@ -2728,7 +2728,7 @@ mission "FW Sawyer"
 			label alert
 			`	A second alarm rings out from the radar station. "The shuttle's shields are almost gone," Freya says after looking over the console. "We have to make a decision, now."` 
 			`	"We need every ship ready to defend against the Republic," JJ answers. "We can't afford fighting the Syndicate for someone liable to be useless to us."`
-			`	"And we can't afford to fight a prolonged war as nuclear weaponry kills our foreign and domestic support," Freya replies. "We need an actual plan for ending this, and Sawyer might be that plan."`
+			`	"And we can't afford to fight a prolonged war as nuclear weaponry kills our foreign and domestic support," Freya replies. "We need an actual plan for ending this, and Sawyer might be that."`
 			`	With Alondo unable to be contacted, you have the deciding vote, and the entire course of this war may rest on your decision.`
 			label decision
 			choice
@@ -2747,7 +2747,7 @@ mission "FW Sawyer"
 			label rescue
 			`	"And what if Sawyer was lying about having evidence on the bombings?" asks JJ. "Or what if the Republic accepts we aren't responsible for the bombings, but refuses to pardon the rest of our crimes against them?"`
 			choice
-				`	"Winning the war through conventional means is just as much of a coinflip. Whether it works or not, at least there'll be fewer lives lost if we save Sawyer."`
+				`	"Winning the war through conventional means is just as much of a coinflip. Whether the Free Worlds survives or not, at least there'll be fewer lives lost if we save Sawyer."`
 					goto "definitely rescue"
 				`	"Fine, we'll leave Sawyer to the Syndicate and focus on the Navy."`
 					goto "definitely hand over"

@@ -129,6 +129,7 @@ mission "FWC Northern Assault"
 		dialog phrase "free worlds failed"
 
 	on offer
+		log "People" "Tomek Voigt" `In response to the Navy assault on the Free Worlds' core systems, the Wolf Pack released Tomek from custody to have him lead the militia's defense and counterattack.`
 		event "fwc double tap"
 		conversation
 			`As you set your ship down in <planet>'s spaceport, you are met with an unlikely face: Tomek Voigt. "It's been a while," he says to you and the other Council members. "Good work handling the attack on Sabik, by the way."`
@@ -303,6 +304,7 @@ mission "FWC Nuke Supply 1"
 		dialog phrase "free worlds failed"
 	
 	on offer
+		log `With the help of the Wolf Pack's nukes, captured the Republic systems of Kaus Borealis and Cebalrai by force. Neither planet's government is willing to formally surrender to the Free Worlds yet.`
 		event "fwc double tap ends"
 		conversation
 			`As you are bringing your ship in for a landing, you hear an odd plinking sound from the hull, similar to the sound of flying through a swarm of micrometeorites. After a few seconds, you realize that it's the sound of your ship being hit by small arms fire from the town below. Your hull is far too strong to be damaged by bullets, but the message is clear: you are not welcome here.`

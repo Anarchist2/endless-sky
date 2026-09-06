@@ -15,6 +15,7 @@
 
 mission "Passive-Aggressive Observations"
 	invisible
+	non-blocking
 	landing
 	destination "Vigales"
 	to offer
@@ -71,6 +72,7 @@ mission "Passive-Aggressive Observations"
 
 mission "Vi Military Group"
 	invisible
+	non-blocking
 	landing
 	to offer
 		has "Passive-Aggressive Observations: done"
@@ -117,6 +119,7 @@ mission "Vi Military Group"
 
 mission "Foreign Spectator I"
 	invisible
+	non-blocking
 	landing
 	to offer
 		has "First Contact: Gegno Scin: offered"
@@ -175,6 +178,7 @@ mission "Foreign Spectator I"
 
 mission "Brief Bystander"
 	invisible
+	non-blocking
 	landing
 	destination "Esstch"
 	to offer
@@ -321,6 +325,7 @@ mission "Battle over Zydee"
 # Zydee becomes occupied by the Vi even if the player doesn't find the above mission.
 mission "Vi Occupy Zydee"
 	invisible
+	non-blocking
 	landing
 	to offer
 		or
@@ -336,6 +341,7 @@ mission "Vi Occupy Zydee"
 
 mission "Curious Civilians"
 	invisible
+	non-blocking
 	landing
 	to offer
 		has "First Contact: Gegno Scin: offered"
@@ -445,6 +451,7 @@ mission "Gegno Suspicions"
 
 mission "Under the Nose"
 	invisible
+	non-blocking
 	landing
 	source "Giaru Gegno"
 	to offer
@@ -467,6 +474,7 @@ mission "Under the Nose"
 
 mission "Scin Surveillance"
 	invisible
+	non-blocking
 	repeat
 	landing
 	deadline 7
@@ -495,6 +503,7 @@ mission "Scin Surveillance"
 mission "Veering Vi A"
 	repeat
 	invisible
+	non-blocking
 	landing
 	deadline 7
 	to offer
@@ -521,6 +530,7 @@ mission "Veering Vi A"
 mission "Veering Vi B"
 	repeat
 	invisible
+	non-blocking
 	landing
 	deadline 7
 	to offer
@@ -545,6 +555,7 @@ mission "Veering Vi B"
 
 mission "Full Vi Backlash"
 	invisible
+	non-blocking
 	landing
 	to offer
 		"vi backlash" >= 3
@@ -900,6 +911,7 @@ mission "Gegno Anticipation"
 
 mission "Gegno Apprehension"
 	invisible
+	non-blocking
 	landing
 	to complete
 		never

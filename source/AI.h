@@ -171,8 +171,6 @@ private:
 	static void AimToAttack(const Ship &ship, Command &command, const Body &target);
 	static void MoveToAttack(const Ship &ship, Command &command, const Body &target);
 	static void PickUp(const Ship &ship, Command &command, const Body &target);
-	// Special decisions a ship might make.
-	static bool ShouldUseAfterburner(const Ship &ship);
 	// Special personality behaviors.
 	void DoAppeasing(const std::shared_ptr<Ship> &ship, double *threshold) const;
 	void DoSwarming(Ship &ship, Command &command, std::shared_ptr<Ship> &target);
@@ -253,8 +251,6 @@ private:
 	// Stores if a weapon is facing an enemy or not. Used for calculating
 	// the reduction in ship confusion while firing.
 	FireCommand onTarget;
-
-	bool isCloaking = false;
 
 	bool escortsAreFrugal = true;
 	bool escortsUseAmmo = true;

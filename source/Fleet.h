@@ -17,13 +17,11 @@ this program. If not, see <https://www.gnu.org/licenses/>.
 
 #include "FleetCargo.h"
 #include "Personality.h"
-#include "Point.h"
 #include "Variant.h"
 #include "WeightedList.h"
 
 #include <list>
 #include <memory>
-#include <set>
 #include <string>
 #include <utility>
 #include <vector>
@@ -34,6 +32,7 @@ class Government;
 class Outfit;
 class Phrase;
 class Planet;
+class Point;
 class Ship;
 class System;
 

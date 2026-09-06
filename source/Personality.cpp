@@ -15,12 +15,10 @@ this program. If not, see <https://www.gnu.org/licenses/>.
 
 #include "Personality.h"
 
-#include "Angle.h"
+#include "Confusion.h"
 #include "DataNode.h"
 #include "DataWriter.h"
 #include "GameData.h"
-#include "pi.h"
-#include "Random.h"
 
 #include <cmath>
 #include <map>
@@ -171,7 +169,7 @@ void Personality::Save(DataWriter &out) const
 	out.Write("personality");
 	out.BeginChild();
 	{
-		if(confusion->IsDefined())
+		if(confusion)
 			confusion->Save(out);
 		for(const auto &it : TOKEN)
 			if(flags.test(it.second))
@@ -462,9 +460,9 @@ bool Personality::IsQuiet() const
 
 
 
-const Confusion &Personality::GetConfusion() const
+const Confusion *Personality::GetConfusion() const
 {
-	return *confusion;
+	return confusion.Ptr();
 }
 
 

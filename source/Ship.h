@@ -229,6 +229,8 @@ public:
 	void SetPersonality(const Personality &other);
 	// Access the ship's confusion.
 	const Confusion &GetConfusion() const;
+	// If this ship changes governments, its confusion also needs to be updated.
+	// Confusion from personality takes precedence over confusion from government.
 	void ResetConfusion();
 	// Get a random hail message, or set the object used to generate them. If no
 	// object is given the government's default will be used.

@@ -1541,14 +1541,12 @@ const Confusion &Ship::GetConfusion() const
 
 
 
-// If this ship changes governments, its confusion also needs to be updated.
-// Confusion from personality takes precendence over confusion from government.
 void Ship::ResetConfusion()
 {
-	if(personality.GetConfusion().IsDefined())
-		confusion = personality.GetConfusion();
-	else if(government && government->GetConfusion().IsDefined())
-		confusion = government->GetConfusion();
+	if(personality.GetConfusion())
+		confusion = *personality.GetConfusion();
+	else if(government && government->GetConfusion())
+		confusion = *government->GetConfusion();
 
 	confusion.RandomizePeriod();
 }

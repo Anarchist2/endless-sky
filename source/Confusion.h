@@ -20,29 +20,30 @@ this program. If not, see <https://www.gnu.org/licenses/>.
 class DataNode;
 class DataWriter;
 
+
+
 class Confusion {
 public:
 	Confusion() = default;
 	// Construct and Load() at the same time.
-	Confusion(const DataNode &node);
+	explicit Confusion(const DataNode &node);
 
 	void Load(const DataNode &node);
 	void Save(DataWriter &out) const;
 
 	const std::string &Name() const;
 
-	bool IsDefined() const;
-
 	// Randomize the initial confusion period of a ship.
+	// To stop every ship in a fleet from having the same confusion
+	// pattern, their starting confusion tick is randomized.
 	void RandomizePeriod();
 
 	// Get and update the current aiming offset of a ship.
-	const double CurrentConfusion() const;
+	double CurrentConfusion() const;
 	void UpdateConfusion(bool isFocusing);
 
 
 private:
-	bool isDefined = false;
 	std::string name;
 
 	double confusionMultiplier = 10.;
@@ -54,5 +55,5 @@ private:
 	// Variables used for tracking a ship's current confusion.
 	int tick = 0;
 	double focusPercentage = 0.;
-	double confusion;
+	double confusion = 0.;
 };

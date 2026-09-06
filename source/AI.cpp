@@ -3865,8 +3865,7 @@ void AI::AimTurrets(const Ship &ship, FireCommand &command, bool opportunistic,
 			Point start = ship.Position() + ship.Facing().Rotate(hardpoint.GetPoint());
 			// Get the turret's current facing, in absolute coordinates. Add
 			// some randomness based on how skilled the pilot is.
-			Angle aim = ship.Facing() + hardpoint.GetAngle()
-				+ ship.GetConfusion().CurrentConfusion();
+			Angle aim = ship.Facing() + hardpoint.GetAngle() + ship.GetConfusion().CurrentConfusion();
 			// Get this projectile's average velocity.
 			const Weapon *weapon = hardpoint.GetWeapon();
 			double vp = weapon->WeightedVelocity() + .5 * weapon->RandomVelocity();
@@ -4039,6 +4038,22 @@ void AI::AutoFire(const Ship &ship, FireCommand &command, FireCommand &targeting
 			&& find(enemies.cbegin(), enemies.cend(), currentTarget.get()) == enemies.cend())
 		enemies.push_back(currentTarget.get());
 
+	auto CanFire = [&](const Hardpoint &hardpoint) -> bool {
+		if(!hardpoint.IsReady())
+			return false;
+
+		// Skip weapons omitted by the "Automatic firing" preference.
+		if(isFlagship)
+		{
+			const Preferences::AutoFire autoFireMode = Preferences::GetAutoFire();
+			if(autoFireMode == Preferences::AutoFire::GUNS_ONLY && hardpoint.IsTurret())
+				return false;
+			if(autoFireMode == Preferences::AutoFire::TURRETS_ONLY && !hardpoint.IsTurret())
+				return true;
+		}
+		return true;
+	};
+
 	int index = -1;
 	for(const Hardpoint &hardpoint : ship.Weapons())
 	{
@@ -4083,18 +4098,8 @@ void AI::AutoFire(const Ship &ship, FireCommand &command, FireCommand &targeting
 		if(weapon->Homing() && currentTarget)
 		{
 			// Skip homing weapons that are not ready to fire.
-			if(!hardpoint.IsReady())
+			if(!CanFire(hardpoint))
 				continue;
-
-			// Skip homing weapons omitted by the "Automatic firing" preference.
-			if(isFlagship)
-			{
-				const Preferences::AutoFire autoFireMode = Preferences::GetAutoFire();
-				if(autoFireMode == Preferences::AutoFire::GUNS_ONLY && hardpoint.IsTurret())
-					continue;
-				if(autoFireMode == Preferences::AutoFire::TURRETS_ONLY && !hardpoint.IsTurret())
-					continue;
-			}
 
 			// NPCs shoot ships that they just plundered.
 			bool hasBoarded = !ship.IsYours() && Has(ship, currentTarget, ShipEvent::BOARD);
@@ -4159,8 +4164,7 @@ void AI::AutoFire(const Ship &ship, FireCommand &command, FireCommand &targeting
 
 			// Get the vector the weapon will travel along. Add some randomness
 			// depending on how accurate this ship's pilot is.
-			v = (ship.Facing() + hardpoint.GetAngle() + ship.GetConfusion().CurrentConfusion()).Unit()
-				* vp - v;
+			v = (ship.Facing() + hardpoint.GetAngle() + ship.GetConfusion().CurrentConfusion()).Unit() * vp - v;
 			// Extrapolate over the lifetime of the projectile.
 			v *= lifetime;
 
@@ -4171,18 +4175,8 @@ void AI::AutoFire(const Ship &ship, FireCommand &command, FireCommand &targeting
 				targeting.SetFire(index);
 
 				// Skip weapons that are not ready to fire.
-				if(!hardpoint.IsReady())
+				if(!CanFire(hardpoint))
 					continue;
-
-				// Skip weapons omitted by the "Automatic firing" preference.
-				if(isFlagship)
-				{
-					const Preferences::AutoFire autoFireMode = Preferences::GetAutoFire();
-					if(autoFireMode == Preferences::AutoFire::GUNS_ONLY && hardpoint.IsTurret())
-						continue;
-					if(autoFireMode == Preferences::AutoFire::TURRETS_ONLY && !hardpoint.IsTurret())
-						continue;
-				}
 
 				command.SetFire(index);
 				break;
@@ -4224,8 +4218,7 @@ void AI::AutoFire(const Ship &ship, FireCommand &command, FireCommand &targeting
 
 		// Get the vector the weapon will travel along. Add some randomness
 		// depending on how accurate this ship's pilot is.
-		v = (ship.Facing() + hardpoint.GetAngle()
-			+ ship.GetConfusion().CurrentConfusion()).Unit() * vp - v;
+		v = (ship.Facing() + hardpoint.GetAngle() + ship.GetConfusion().CurrentConfusion()).Unit() * vp - v;
 		// Extrapolate over the lifetime of the projectile.
 		v *= lifetime;
 

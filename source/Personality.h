@@ -15,11 +15,11 @@ this program. If not, see <https://www.gnu.org/licenses/>.
 
 #pragma once
 
-#include "Confusion.h"
 #include "ExclusiveItem.h"
 
 #include <bitset>
 
+class Confusion;
 class DataNode;
 class DataWriter;
 
@@ -88,7 +88,7 @@ public:
 	bool IsQuiet() const;
 
 	// Current inaccuracy in this ship's targeting:
-	const Confusion &GetConfusion() const;
+	const Confusion *GetConfusion() const;
 
 	// Personality to use for ships defending a planet from domination:
 	static Personality Defender();

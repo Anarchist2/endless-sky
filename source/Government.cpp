@@ -15,6 +15,7 @@ this program. If not, see <https://www.gnu.org/licenses/>.
 
 #include "Government.h"
 
+#include "Confusion.h"
 #include "Conversation.h"
 #include "DataNode.h"
 #include "Fleet.h"
@@ -803,10 +804,9 @@ bool Government::SendUntranslatedHails() const
 
 
 
-// Get the default confusion of ships belonging to this government.
-const Confusion &Government::GetConfusion() const
+const Confusion *Government::GetConfusion() const
 {
-	return *confusion;
+	return confusion.Ptr();
 }
 
 

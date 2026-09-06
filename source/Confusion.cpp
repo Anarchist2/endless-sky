@@ -26,7 +26,6 @@ using namespace std;
 
 
 
-// Construct and Load() at the same time.
 Confusion::Confusion(const DataNode &node)
 {
 	Load(node);
@@ -41,32 +40,29 @@ void Confusion::Load(const DataNode &node)
 		if(node.IsNumber(1))
 		{
 			confusionMultiplier = max(0., node.Value(1));
-			isDefined = true;
 			return;
 		}
-		else
-			name = node.Token(1);
+		name = node.Token(1);
 	}
 
 	for(const DataNode &child : node)
 	{
-		const string &childKey = child.Token(0);
+		const string &key = child.Token(0);
 		if(child.Size() < 2)
-			child.PrintTrace("Skipping attribute with no value specified:");
-		else if(childKey == "max confusion")
+			child.PrintTrace("Expected key to have a value:");
+		else if(key == "max confusion")
 			confusionMultiplier = max(0., child.Value(1));
-		else if(childKey == "period")
+		else if(key == "period")
 			period = max(1., child.Value(1));
-		else if(childKey == "focus multiplier")
+		else if(key == "focus multiplier")
 			focusMultiplier = max(0., child.Value(1));
-		else if(childKey == "gain focus time")
+		else if(key == "gain focus time")
 			gainFocusTime = max(1., child.Value(1));
-		else if(childKey == "lose focus time")
+		else if(key == "lose focus time")
 			loseFocusTime = max(1., child.Value(1));
 		else
-			child.PrintTrace("Skipping unknown confusion attribute:");
+			child.PrintTrace("Skipping unrecognized attribute:");
 	}
-	isDefined = true;
 }
 
 
@@ -94,15 +90,6 @@ const string &Confusion::Name() const
 
 
 
-bool Confusion::IsDefined() const
-{
-	return isDefined;
-}
-
-
-
-// To stop every ship in a fleet from having the same confusion
-// pattern, their starting confusion tick is randomized.
 void Confusion::RandomizePeriod()
 {
 	tick = Random::Int(period);
@@ -110,7 +97,7 @@ void Confusion::RandomizePeriod()
 
 
 
-const double Confusion::CurrentConfusion() const
+double Confusion::CurrentConfusion() const
 {
 	return confusion;
 }

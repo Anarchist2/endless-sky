@@ -15,7 +15,6 @@ this program. If not, see <https://www.gnu.org/licenses/>.
 
 #pragma once
 
-#include "Confusion.h"
 #include "ExclusiveItem.h"
 #include "LocationFilter.h"
 #include "RaidFleet.h"
@@ -28,6 +27,7 @@ this program. If not, see <https://www.gnu.org/licenses/>.
 #include <utility>
 #include <vector>
 
+class Confusion;
 class Conversation;
 class DataNode;
 class Fleet;
@@ -140,7 +140,7 @@ public:
 	bool SendUntranslatedHails() const;
 
 	// Get the default confusion of ships belonging to this government.
-	const Confusion &GetConfusion() const;
+	const Confusion *GetConfusion() const;
 	// Pirate raids in this government's systems use these fleet definitions. If
 	// it is empty, there are no pirate raids.
 	// The second attribute denotes the minimal and maximal attraction required for the fleet to appear.

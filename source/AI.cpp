@@ -895,7 +895,7 @@ void AI::Step(Command &activeCommands)
 		}
 		if(isPresent)
 		{
-			AimTurrets(*it, firingCommands, it->IsYours() ? opportunisticEscorts : personality.IsOpportunistic());
+			AimTurrets(*it, firingCommands, onTarget, it->IsYours() ? opportunisticEscorts : personality.IsOpportunistic());
 			if(targetAsteroid)
 				AutoFire(*it, firingCommands, onTarget, *targetAsteroid);
 			else
@@ -3772,7 +3772,7 @@ Point AI::TargetAim(const Ship &ship, const Body &target, FireCommand &targeting
 
 
 // Aim the given ship's turrets.
-void AI::AimTurrets(const Ship &ship, FireCommand &command, bool opportunistic,
+void AI::AimTurrets(const Ship &ship, FireCommand &command, FireCommand &targeting, bool opportunistic,
 		const optional<Point> &targetOverride) const
 {
 	// (Position, Velocity) pairs of the targets.
@@ -3861,102 +3861,112 @@ void AI::AimTurrets(const Ship &ship, FireCommand &command, bool opportunistic,
 	else
 		targets.emplace_back(*targetOverride + ship.Position(), ship.Velocity());
 	// Each hardpoint should aim at the target that it is "closest" to hitting.
+	int index = -1;
 	for(const Hardpoint &hardpoint : ship.Weapons())
-		if(hardpoint.CanAim(ship))
+	{
+		++index;
+		if(!hardpoint.CanAim(ship))
+			continue;
+		// This is where this projectile fires from.
+		Point start = ship.Position() + ship.Facing().Rotate(hardpoint.GetPoint());
+		// Get the turret's current facing, in absolute coordinates. Add
+		// some randomness based on how skilled the pilot is.
+		Angle aim = ship.Facing() + hardpoint.GetAngle() + ship.GetConfusion().CurrentConfusion();
+		// Get this projectile's average velocity.
+		const Weapon *weapon = hardpoint.GetWeapon();
+		double vp = weapon->WeightedVelocity() + .5 * weapon->RandomVelocity();
+		// Loop through each body this hardpoint could shoot at. Find the
+		// one that is the "best" in terms of how many frames it will take
+		// to aim at it and for a projectile to hit it.
+		double bestScore = numeric_limits<double>::infinity();
+		double bestAngle = 0.;
+		bool inRange = false;
+		for(auto [p, v] : targets)
 		{
-			// This is where this projectile fires from.
-			Point start = ship.Position() + ship.Facing().Rotate(hardpoint.GetPoint());
-			// Get the turret's current facing, in absolute coordinates. Add
-			// some randomness based on how skilled the pilot is.
-			Angle aim = ship.Facing() + hardpoint.GetAngle() + ship.GetConfusion().CurrentConfusion();
-			// Get this projectile's average velocity.
-			const Weapon *weapon = hardpoint.GetWeapon();
-			double vp = weapon->WeightedVelocity() + .5 * weapon->RandomVelocity();
-			// Loop through each body this hardpoint could shoot at. Find the
-			// one that is the "best" in terms of how many frames it will take
-			// to aim at it and for a projectile to hit it.
-			double bestScore = numeric_limits<double>::infinity();
-			double bestAngle = 0.;
-			for(auto [p, v] : targets)
+			p -= start;
+
+			// Only take the ship's velocity into account if this weapon
+			// does not have its own acceleration.
+			if(!weapon->Acceleration())
+				v -= ship.Velocity();
+			// By the time this action is performed, the target will
+			// have moved forward one time step.
+			p += v;
+
+			double rendezvousTime = numeric_limits<double>::quiet_NaN();
+			double distance = p.Length();
+			// Beam weapons hit instantaneously if they are in range.
+			bool isInstantaneous = weapon->TotalLifetime() == 1.;
+			if(isInstantaneous && distance < vp)
 			{
-				p -= start;
-
-				// Only take the ship's velocity into account if this weapon
-				// does not have its own acceleration.
-				if(!weapon->Acceleration())
-					v -= ship.Velocity();
-				// By the time this action is performed, the target will
-				// have moved forward one time step.
-				p += v;
-
-				double rendezvousTime = numeric_limits<double>::quiet_NaN();
-				double distance = p.Length();
-				// Beam weapons hit instantaneously if they are in range.
-				bool isInstantaneous = weapon->TotalLifetime() == 1.;
-				if(isInstantaneous && distance < vp)
-					rendezvousTime = 0.;
-				else
-				{
-					// Find out how long it would take for this projectile to reach the target.
-					if(!isInstantaneous)
-						rendezvousTime = RendezvousTime(p, v, vp);
-
-					// If there is no intersection (i.e. the turret is not facing the target),
-					// consider this target "out-of-range" but still targetable.
-					if(std::isnan(rendezvousTime))
-						rendezvousTime = max(distance / (vp ? vp : 1.), 2 * weapon->TotalLifetime());
-
-					// Determine where the target will be at that point.
-					p += v * rendezvousTime;
-
-					// All bodies within weapons range have the same basic
-					// weight. Outside that range, give them lower priority.
-					rendezvousTime = max(0., rendezvousTime - weapon->TotalLifetime());
-				}
-
-				// Determine how much the turret must turn to face that vector.
-				double degrees = 0.;
-				Angle angleToPoint = Angle(p);
-				if(hardpoint.IsOmnidirectional())
-					degrees = (angleToPoint - aim).Degrees();
-				else
-				{
-					// For turret with limited arc, determine the turn up to the nearest arc limit.
-					// Also reduce priority of target if it's not within the firing arc.
-					const Angle facing = ship.Facing();
-					const Angle minArc = hardpoint.GetMinArc() + facing;
-					const Angle maxArc = hardpoint.GetMaxArc() + facing;
-					if(!angleToPoint.IsInRange(minArc, maxArc))
-					{
-						// Decrease the priority of the target.
-						rendezvousTime += 2. * weapon->TotalLifetime();
-
-						// Point to the nearer edge of the arc.
-						const double minDegree = (minArc - angleToPoint).Degrees();
-						const double maxDegree = (maxArc - angleToPoint).Degrees();
-						if(fabs(minDegree) < fabs(maxDegree))
-							angleToPoint = minArc;
-						else
-							angleToPoint = maxArc;
-					}
-					degrees = (angleToPoint - minArc).AbsDegrees() - (aim - minArc).AbsDegrees();
-				}
-				double turnTime = fabs(degrees) / hardpoint.TurnRate(ship);
-				// Always prefer targets that you are able to hit.
-				double score = turnTime + (180. / hardpoint.TurnRate(ship)) * rendezvousTime;
-				if(score < bestScore)
-				{
-					bestScore = score;
-					bestAngle = degrees;
-				}
+				rendezvousTime = 0.;
+				inRange = true;
 			}
-			if(bestAngle)
+			else
 			{
-				// Get the index of this weapon.
-				int index = &hardpoint - &ship.Weapons().front();
-				command.SetAim(index, bestAngle / hardpoint.TurnRate(ship));
+				// Find out how long it would take for this projectile to reach the target.
+				if(!isInstantaneous)
+					rendezvousTime = RendezvousTime(p, v, vp);
+
+				// If there is no intersection (i.e. the turret is not facing the target),
+				// consider this target "out-of-range" but still targetable.
+				if(std::isnan(rendezvousTime))
+					rendezvousTime = max(distance / (vp ? vp : 1.), 2 * weapon->TotalLifetime());
+				else
+					inRange = true;
+
+				// Determine where the target will be at that point.
+				p += v * rendezvousTime;
+
+				// All bodies within weapons range have the same basic
+				// weight. Outside that range, give them lower priority.
+				rendezvousTime = max(0., rendezvousTime - weapon->TotalLifetime());
+			}
+
+			// Determine how much the turret must turn to face that vector.
+			double degrees = 0.;
+			Angle angleToPoint = Angle(p);
+			if(hardpoint.IsOmnidirectional())
+				degrees = (angleToPoint - aim).Degrees();
+			else
+			{
+				// For turret with limited arc, determine the turn up to the nearest arc limit.
+				// Also reduce priority of target if it's not within the firing arc.
+				const Angle facing = ship.Facing();
+				const Angle minArc = hardpoint.GetMinArc() + facing;
+				const Angle maxArc = hardpoint.GetMaxArc() + facing;
+				if(!angleToPoint.IsInRange(minArc, maxArc))
+				{
+					// Decrease the priority of the target.
+					rendezvousTime += 2. * weapon->TotalLifetime();
+
+					// Point to the nearer edge of the arc.
+					const double minDegree = (minArc - angleToPoint).Degrees();
+					const double maxDegree = (maxArc - angleToPoint).Degrees();
+					if(fabs(minDegree) < fabs(maxDegree))
+						angleToPoint = minArc;
+					else
+						angleToPoint = maxArc;
+				}
+				degrees = (angleToPoint - minArc).AbsDegrees() - (aim - minArc).AbsDegrees();
+			}
+			double turnTime = fabs(degrees) / hardpoint.TurnRate(ship);
+			// Always prefer targets that you are able to hit.
+			double score = turnTime + (180. / hardpoint.TurnRate(ship)) * rendezvousTime;
+			if(score < bestScore)
+			{
+				bestScore = score;
+				bestAngle = degrees;
 			}
 		}
+		if(!bestAngle)
+			continue;
+		command.SetAim(index, bestAngle / hardpoint.TurnRate(ship));
+		// If the target is within range and close to the current point of aim,
+		// build targeting focus.
+		if(inRange && bestAngle < 1.)
+			targeting.SetFire(index);
+	}
 }
 
 
@@ -4811,7 +4821,7 @@ void AI::MovePlayer(Ship &ship, Command &activeCommands)
 	const shared_ptr<const Ship> target = ship.GetTargetShip();
 	auto targetOverride = Preferences::Has("Aim turrets with mouse") ^ activeCommands.Has(Command::AIM_TURRET_HOLD)
 		? optional(mousePosition) : std::nullopt;
-	AimTurrets(ship, firingCommands, !Preferences::Has("Turrets focus fire"), targetOverride);
+	AimTurrets(ship, firingCommands, onTarget, !Preferences::Has("Turrets focus fire"), targetOverride);
 	if(Preferences::GetAutoFire() != Preferences::AutoFire::OFF && !ship.IsBoarding()
 			&& !(autoPilot | activeCommands).Has(Command::LAND | Command::JUMP | Command::FLEET_JUMP | Command::BOARD)
 			&& (!target || target->GetGovernment()->IsEnemy()))

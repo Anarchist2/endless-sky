@@ -191,7 +191,7 @@ private:
 	static Point TargetAim(const Ship &ship, FireCommand &targeting);
 	static Point TargetAim(const Ship &ship, const Body &target, FireCommand &targeting);
 	// Aim the given ship's turrets.
-	void AimTurrets(const Ship &ship, FireCommand &command, bool opportunistic = false,
+	void AimTurrets(const Ship &ship, FireCommand &command, FireCommand &targeting, bool opportunistic = false,
 			const std::optional<Point> &targetOverride = std::nullopt) const;
 	// Fire whichever of the given ship's weapons can hit a hostile target.
 	// Return a bitmask giving the weapons to fire.

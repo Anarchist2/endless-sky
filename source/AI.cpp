@@ -1077,7 +1077,7 @@ void AI::Step(Command &activeCommands)
 				if(minable && minable->Position().Distance(parent->Position()) < 600.)
 				{
 					it->SetTargetAsteroid(minable);
-					MoveToAttack(*it, command, *minable);
+					MoveToAttack(*it, command, *minable, onTarget);
 					AutoFire(*it, firingCommands, onTarget, *minable);
 					it->SetCommands(command);
 					it->SetCommands(firingCommands, onTarget);
@@ -1211,7 +1211,7 @@ void AI::Step(Command &activeCommands)
 				Stop(*it, command);
 			else
 			{
-				command.SetTurn(TurnToward(*it, TargetAim(*it)));
+				command.SetTurn(TurnToward(*it, TargetAim(*it, onTarget)));
 				it->SetVelocity({0., 0.});
 			}
 		}
@@ -1890,7 +1890,7 @@ bool AI::FollowOrders(Ship &ship, Command &command)
 			Stop(ship, command);
 		else
 		{
-			command.SetTurn(TurnToward(ship, TargetAim(ship)));
+			command.SetTurn(TurnToward(ship, TargetAim(ship, onTarget)));
 			ship.SetVelocity({0., 0.});
 		}
 	}
@@ -1898,7 +1898,7 @@ bool AI::FollowOrders(Ship &ship, Command &command)
 	{
 		ship.SetTargetAsteroid(targetAsteroid);
 		// Escorts should chase the player-targeted asteroid.
-		MoveToAttack(ship, command, *targetAsteroid);
+		MoveToAttack(ship, command, *targetAsteroid, onTarget);
 	}
 	else if(shipOrders.Has(Orders::Types::HARVEST))
 	{
@@ -2045,7 +2045,7 @@ void AI::MoveIndependent(Ship &ship, Command &command)
 		}
 		else
 		{
-			Attack(ship, command, *target);
+			Attack(ship, command, *target, onTarget);
 			boarders.erase(&ship);
 		}
 		return;
@@ -2920,7 +2920,7 @@ void AI::KeepStation(const Ship &ship, Command &command, const Body &target)
 
 
 
-void AI::Attack(const Ship &ship, Command &command, const Ship &target)
+void AI::Attack(const Ship &ship, Command &command, const Ship &target, FireCommand &targeting)
 {
 	// Deploy any fighters you are carrying.
 	if(!ship.IsYours() && ship.HasBays())
@@ -2931,7 +2931,7 @@ void AI::Attack(const Ship &ship, Command &command, const Ship &target)
 	// Ramming AI doesn't take weapon range or self-damage into account, instead opting to bum-rush the target.
 	if(ship.GetPersonality().IsRamming())
 	{
-		MoveToAttack(ship, command, target);
+		MoveToAttack(ship, command, target, targeting);
 		return;
 	}
 
@@ -2988,34 +2988,34 @@ void AI::Attack(const Ship &ship, Command &command, const Ship &target)
 			// This isn't perfect, but it works well enough.
 			if((useArtilleryAI && (approachSpeed > 0. && weaponDistanceFromTarget < shortestArtillery * .9)) ||
 					weaponDistanceFromTarget < shortestRange * .75)
-				AimToAttack(ship, command, target);
+				AimToAttack(ship, command, target, targeting);
 			else
-				MoveToAttack(ship, command, target);
+				MoveToAttack(ship, command, target, targeting);
 		}
 	}
 	// Fire if we can or move closer to use all weapons.
 	else
 		if(weaponDistanceFromTarget < shortestRange * .75)
-			AimToAttack(ship, command, target);
+			AimToAttack(ship, command, target, targeting);
 		else
-			MoveToAttack(ship, command, target);
+			MoveToAttack(ship, command, target, targeting);
 }
 
 
 
-void AI::AimToAttack(const Ship &ship, Command &command, const Body &target)
+void AI::AimToAttack(const Ship &ship, Command &command, const Body &target, FireCommand &targeting)
 {
-	command.SetTurn(TurnToward(ship, TargetAim(ship, target)));
+	command.SetTurn(TurnToward(ship, TargetAim(ship, target, targeting)));
 }
 
 
 
-void AI::MoveToAttack(const Ship &ship, Command &command, const Body &target)
+void AI::MoveToAttack(const Ship &ship, Command &command, const Body &target, FireCommand &targeting)
 {
 	Point direction = target.Position() - ship.Position();
 
 	// First of all, aim in the direction that will hit this target.
-	AimToAttack(ship, command, target);
+	AimToAttack(ship, command, target, targeting);
 
 	// Calculate this ship's "turning radius"; that is, the smallest circle it
 	// can make while at its current speed.
@@ -3340,7 +3340,7 @@ void AI::DoMining(Ship &ship, Command &command)
 			ship.SetTargetAsteroid(nullptr);
 		else
 		{
-			MoveToAttack(ship, command, *target);
+			MoveToAttack(ship, command, *target, onTarget);
 			AutoFire(ship, firingCommands, onTarget, *target);
 			return;
 		}
@@ -3724,26 +3724,28 @@ Point AI::StoppingPoint(const Ship &ship, const Point &targetVelocity, bool &sho
 // maximum damaged to a target at the given position with its non-turret,
 // non-homing weapons. If the ship has no non-homing weapons, this just
 // returns the direction to the target.
-Point AI::TargetAim(const Ship &ship)
+Point AI::TargetAim(const Ship &ship, FireCommand &targeting)
 {
 	shared_ptr<const Ship> target = ship.GetTargetShip();
 	if(target)
-		return TargetAim(ship, *target);
+		return TargetAim(ship, *target, targeting);
 
 	shared_ptr<const Minable> targetAsteroid = ship.GetTargetAsteroid();
 	if(targetAsteroid)
-		return TargetAim(ship, *targetAsteroid);
+		return TargetAim(ship, *targetAsteroid, targeting);
 
 	return Point();
 }
 
 
 
-Point AI::TargetAim(const Ship &ship, const Body &target)
+Point AI::TargetAim(const Ship &ship, const Body &target, FireCommand &targeting)
 {
 	Point result;
+	int index = -1;
 	for(const Hardpoint &hardpoint : ship.Weapons())
 	{
+		++index;
 		const Weapon *weapon = hardpoint.GetWeapon();
 		if(!weapon || hardpoint.IsHoming() || hardpoint.IsTurret())
 			continue;
@@ -3756,6 +3758,7 @@ Point AI::TargetAim(const Ship &ship, const Body &target)
 		if(std::isnan(steps))
 			continue;
 
+		targeting.SetFire(index);
 		steps = min(steps, weapon->TotalLifetime());
 		p += steps * v;
 
@@ -4049,7 +4052,7 @@ void AI::AutoFire(const Ship &ship, FireCommand &command, FireCommand &targeting
 			if(autoFireMode == Preferences::AutoFire::GUNS_ONLY && hardpoint.IsTurret())
 				return false;
 			if(autoFireMode == Preferences::AutoFire::TURRETS_ONLY && !hardpoint.IsTurret())
-				return true;
+				return false;
 		}
 		return true;
 	};
@@ -4865,9 +4868,9 @@ void AI::MovePlayer(Ship &ship, Command &activeCommands)
 			&& !autoPilot.Has(Command::LAND | Command::JUMP | Command::FLEET_JUMP | Command::BOARD))
 	{
 		if(target && target->GetSystem() == ship.GetSystem() && target->IsTargetable())
-			command.SetTurn(TurnToward(ship, TargetAim(ship)));
+			command.SetTurn(TurnToward(ship, TargetAim(ship, onTarget)));
 		else if(ship.GetTargetAsteroid())
-			command.SetTurn(TurnToward(ship, TargetAim(ship, *ship.GetTargetAsteroid())));
+			command.SetTurn(TurnToward(ship, TargetAim(ship, *ship.GetTargetAsteroid(), onTarget)));
 		else if(ship.GetTargetStellar())
 			command.SetTurn(TurnToward(ship, ship.GetTargetStellar()->Position() - ship.Position()));
 	}
@@ -4889,7 +4892,7 @@ void AI::MovePlayer(Ship &ship, Command &activeCommands)
 	{
 		Point pos = (target ? target->Position() : ship.GetTargetAsteroid()->Position());
 		if((pos - ship.Position()).Unit().Dot(ship.Facing().Unit()) >= .8)
-			command.SetTurn(TurnToward(ship, TargetAim(ship)));
+			command.SetTurn(TurnToward(ship, TargetAim(ship, onTarget)));
 	}
 
 	if(autoPilot.Has(Command::JUMP | Command::FLEET_JUMP) && !(player.HasTravelPlan() || ship.GetTargetSystem()))
